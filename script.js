@@ -1,7 +1,7 @@
 // ===== CONFIGURAÇÃO =====
 // Número do WhatsApp com DDI e DDD, só dígitos (ex.: 5518999999999)
 const WHATSAPP = "5500000000000";
-const EMPRESA = "NOME DA EMPRESA";
+const EMPRESA = "ADVM Technology";
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -25,7 +25,7 @@ $("#form").addEventListener("submit", e => {
 (function () {
   const boot = $("#boot"), pre = $("#bootTxt");
   if (RM) { boot.remove(); return; }
-  const lines = ["> INICIANDO CENTRAL DE SEGURANÇA", "> CAM 01 ........ OK", "> CAM 02 ........ OK", "> CAM 03 ........ OK", "> CAM 04 ........ OK", "> SISTEMA ONLINE"];
+  const lines = ["> ADVM TECHNOLOGY · CENTRAL DE SEGURANÇA", "> CAM 01 ........ OK", "> CAM 02 ........ OK", "> CAM 03 ........ OK", "> CAM 04 ........ OK", "> SISTEMA ONLINE"];
   let i = 0;
   const iv = setInterval(() => { pre.textContent += (i ? "\n" : "") + lines[i++]; if (i >= lines.length) { clearInterval(iv); setTimeout(off, 350); } }, 140);
   function off() { boot.classList.add("off"); setTimeout(() => boot.remove(), 600); }
@@ -39,7 +39,7 @@ function noiseFrame() {
   const im = sctx.createImageData(192, 108), d = im.data;
   for (let i = 0; i < d.length; i += 4) { const v = Math.random() * 255 | 0; d[i] = v * .7; d[i + 1] = v; d[i + 2] = v; d[i + 3] = 235; }
   sctx.putImageData(im, 0, 0);
-  sctx.fillStyle = "rgba(25,227,255,.25)"; sctx.fillRect(0, Math.random() * 108, 192, 3);
+  sctx.fillStyle = "rgba(219,232,143,.25)"; sctx.fillRect(0, Math.random() * 108, 192, 3);
 }
 function glitchTo(fn) {
   if (RM) { fn(); return; }
@@ -220,7 +220,7 @@ function viewFlag(el) { const o = { v: false }; new IntersectionObserver(es => {
 /* ============ Simulação: planta do condomínio ============ */
 (function () {
   const svg = $("#plan"), log = logger($("#planLog")), led = $("#planLed"), st = $("#planSt"), go = $("#planGo"), reset = $("#planReset");
-  S("rect", { x: 0, y: 0, width: 800, height: 480, fill: "#04070a" }, svg);
+  S("rect", { x: 0, y: 0, width: 800, height: 480, fill: "#0b0d0a" }, svg);
   for (let x = 0; x <= 800; x += 40) S("path", { d: `M${x} 0V480`, stroke: "#0c141c", "stroke-width": 1 }, svg);
   for (let y = 0; y <= 480; y += 40) S("path", { d: `M0 ${y}H800`, stroke: "#0c141c", "stroke-width": 1 }, svg);
   S("path", { class: "plan-fence", d: "M370 440H60V40H740V440H430" }, svg);
@@ -229,7 +229,7 @@ function viewFlag(el) { const o = { v: false }; new IntersectionObserver(es => {
     S("text", { class: "plan-txt", x: x + w / 2, y: y + h / 2 + 4, "text-anchor": "middle" }, svg).textContent = l;
   });
   S("text", { class: "plan-txt", x: 400, y: 466, "text-anchor": "middle" }, svg).textContent = "PORTARIA / ACESSO";
-  S("rect", { x: 300, y: 205, width: 6, height: 20, fill: "#19e3ff" }, svg);
+  S("rect", { x: 300, y: 205, width: 6, height: 20, fill: "#dbe88f" }, svg);
   const sensors = [];
   const sp = (x, y) => sensors.push({ x, y, el: S("circle", { class: "sensor", cx: x, cy: y, r: 6 }, svg), hit: false });
   for (let x = 60; x <= 740; x += 56) { sp(x, 40); if (x < 370 || x > 430) sp(x, 440); }
@@ -280,7 +280,7 @@ function viewFlag(el) { const o = { v: false }; new IntersectionObserver(es => {
 /* ============ Simulação: incêndio ============ */
 (function () {
   const svg = $("#fire"), log = logger($("#fireLog")), led = $("#fireLed"), st = $("#fireSt"), go = $("#fireGo"), reset = $("#fireReset");
-  S("rect", { width: 600, height: 500, fill: "#04070a" }, svg);
+  S("rect", { width: 600, height: 500, fill: "#0b0d0a" }, svg);
   const defs = S("defs", {}, svg);
   const lg = S("linearGradient", { id: "fg", x1: 0, y1: 1, x2: 0, y2: 0 }, defs); S("stop", { offset: 0, "stop-color": "#ff3b1a" }, lg); S("stop", { offset: .6, "stop-color": "#ff9a1a" }, lg); S("stop", { offset: 1, "stop-color": "#ffe27a" }, lg);
   const clip = S("clipPath", { id: "uclip" }, defs); S("rect", { x: 180, y: 220, width: 120, height: 80 }, clip);
