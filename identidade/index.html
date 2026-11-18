@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ADVM Technology | Identidade visual: 3 direções</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&family=Sora:wght@400;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0c0c0c;color:#ecece8;font-family:'Inter',system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+.mono{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+.wrap{width:min(1180px,92%);margin:0 auto}
+.top{padding:70px 0 40px;border-bottom:1px solid #222}
+.top h1{font-family:'Space Grotesk';font-size:clamp(2rem,5vw,3.6rem);letter-spacing:-.04em;line-height:1.05;max-width:20ch}
+.top p{color:#9a9a94;max-width:62ch;margin-top:16px}
+.nav{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.nav a{border:1px solid #333;border-radius:999px;padding:8px 16px;color:#ccc;text-decoration:none;font-size:.9rem}
+.nav a:hover{border-color:#888;color:#fff}
+.dir{padding:80px 0;border-bottom:1px solid #222;background:var(--page)}
+.dir__h{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:end;margin-bottom:34px}
+.dir__n{font-size:clamp(3.4rem,8vw,6.4rem);font-weight:700;color:var(--ac);line-height:.9;letter-spacing:-.05em;font-family:var(--f1)}
+.dir__h h2{font-family:var(--f1);font-size:clamp(1.6rem,3.4vw,2.6rem);letter-spacing:-.03em;line-height:1.1}
+.dir__h p{color:#a5a59e;margin-top:8px;max-width:64ch}
+.lab{color:#7d7d77;margin:34px 0 12px}
+.grid{display:grid;gap:14px}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:1fr 1fr}.g5{grid-template-columns:repeat(5,1fr)}
+.panel{border-radius:14px;min-height:190px;display:flex;align-items:center;justify-content:center;padding:28px;border:1px solid #ffffff14}
+.lock{display:flex;align-items:center;gap:14px}.lock.v{flex-direction:column;gap:12px;text-align:center}
+.lock svg{flex:none}
+.wm{display:grid;line-height:1}.lock.v .wm{justify-items:center}
+.wm b{font-family:var(--f1);font-weight:var(--wmw);letter-spacing:var(--wmls)}
+.wm small{font-family:var(--f2);letter-spacing:var(--subls);margin-top:6px;font-size:.34em;font-weight:400;text-transform:uppercase}
+.sw{border-radius:12px;overflow:hidden;border:1px solid #ffffff14}
+.sw i{display:block;height:92px}.sw div{padding:10px 12px;background:#111;font-size:.82rem}.sw b{display:block;font-weight:600}.sw span{color:#888;font-size:.74rem}
+.type{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.t{border:1px solid #ffffff14;border-radius:14px;padding:26px;background:#111}
+.t .aa{font-size:5rem;line-height:1;margin:8px 0 12px}.t p{color:#aaa;font-size:.95rem}.t .sample{color:#eee;font-size:1.35rem;margin-top:10px;line-height:1.25}
+.apps{display:grid;grid-template-columns:repeat(4,auto);gap:16px;align-items:start;justify-content:start}
+.av{width:130px;height:130px;border-radius:50%;display:grid;place-items:center;border:1px solid #ffffff18}
+.fav{display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;justify-content:center}.fav div{display:grid;place-items:center;border-radius:20%;border:1px solid #ffffff18}
+.card{width:300px;height:176px;border-radius:10px;padding:20px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid #ffffff18;box-shadow:0 14px 34px #0006}
+.card .nm{font-family:var(--f1);font-weight:600;font-size:1rem}.card .ct{font-size:.74rem;opacity:.85;line-height:1.55}
+.post{width:260px;height:260px;border-radius:12px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid #ffffff18}
+.post h4{font-family:var(--f1);font-size:1.45rem;line-height:1.1;letter-spacing:-.02em;font-weight:var(--wmw)}
+.mock{border-radius:14px;overflow:hidden;border:1px solid #ffffff18;margin-top:0}
+.mock .bar{display:flex;justify-content:space-between;align-items:center;padding:16px 26px}
+.mock .bar nav{display:flex;gap:20px;font-size:.8rem;opacity:.75}
+.mock .hero{padding:46px 26px 54px}
+.mock h3{font-family:var(--f1);font-size:clamp(1.8rem,4vw,3rem);line-height:1.02;letter-spacing:-.035em;max-width:16ch;font-weight:var(--wmw)}
+.mock p{max-width:46ch;margin:14px 0 22px;opacity:.75}
+.btn{display:inline-block;padding:12px 22px;border-radius:999px;font-weight:600;font-size:.9rem}
+.use{display:grid;grid-template-columns:1fr 1fr;gap:14px}.use div{border:1px solid #ffffff14;border-radius:12px;padding:18px;background:#111;color:#bbb;font-size:.9rem}.use b{display:block;color:#eee;margin-bottom:4px}
+.foot{padding:60px 0 90px;color:#9a9a94}.foot h2{color:#fff;font-family:'Space Grotesk';font-size:1.8rem;margin-bottom:14px}.foot ol{padding-left:22px;display:grid;gap:8px;max-width:70ch}
+@media(max-width:900px){.g3,.g5{grid-template-columns:1fr 1fr}.apps{grid-template-columns:1fr 1fr}.type,.use,.g2{grid-template-columns:1fr}.dir__h{grid-template-columns:1fr}}
+@media(max-width:560px){.panel{padding:18px}.wrap{width:90%}.g3,.g5,.apps{grid-template-columns:1fr}.card,.post{width:100%}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <p class="mono" style="color:#8a8a84">Proposta de identidade visual</p>
+  <h1>ADVM Technology: 3 direções para escolher.</h1>
+  <p>Todas mantêm o nome <b>ADVM</b> e a ideia do símbolo "A" que a empresa já tem, mas com logo vetorial, paleta e tipografia definidas. Cada direção mostra a logo, as cores, as fontes e como ela aparece em perfil de rede social, cartão, post e no site.</p>
+  <nav class="nav"><a href="#d1">01 Núcleo</a><a href="#d2">02 Confiança</a><a href="#d3">03 Íris</a><a href="#proximos">Próximos passos</a></nav>
+</div></header>
+<main id="out"></main>
+<footer class="foot" id="proximos"><div class="wrap">
+  <h2>Próximos passos</h2>
+  <ol>
+    <li>Escolher uma direção (ou misturar elementos de duas).</li>
+    <li>Ajustar nome, tagline e cores finais com a Denise.</li>
+    <li>Entregar o pacote: logo em SVG e PNG, versões claras e escuras, paleta, fontes e guia de uso.</li>
+    <li>Aplicar no site e criar o perfil do Instagram e do Google com a mesma identidade.</li>
+    <li>Incluir o selo oficial do programa da Intelbras, separado da logo da ADVM e sem alterações, conforme o manual de parceiros.</li>
+  </ol>
+</div></footer>
+<script>
+const P_A = "M42 22H58L80 64L75 70H25L20 64ZM50 41L56 53H44Z";
+function mark(t, c1, c2, s) {
+  const a = `width="${s}" height="${s}" viewBox="0 0 100 100" aria-hidden="true"`;
+  if (t === "a") return `<svg ${a}><circle cx="50" cy="50" r="46" fill="none" stroke="${c1}" stroke-width="4"/><path fill="${c1}" fill-rule="evenodd" d="${P_A}"/></svg>`;
+  if (t === "shield") return `<svg ${a}><path d="M50 4L90 18V50C90 74 73 90 50 97C27 90 10 74 10 50V18Z" fill="${c1}"/><path transform="translate(20 20) scale(.6)" fill="${c2}" fill-rule="evenodd" d="${P_A}"/></svg>`;
+  return `<svg ${a}><circle cx="50" cy="50" r="46" fill="none" stroke="${c1}" stroke-width="2.5"/><path d="M29 74L50 26L71 74" fill="none" stroke="${c1}" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter"/><path d="M39 60H61" stroke="${c1}" stroke-width="5"/><circle cx="50" cy="45" r="3.6" fill="${c2}"/></svg>`;
+}
+const D = [
+ { id: "d1", n: "01", name: "Núcleo", tag: "Tecnologia e precisão", why: "Evolução direta do que a empresa já tem: preto, verde-limão e o símbolo em círculo. Passa inovação e controle. Boa para quem vende tecnologia a condomínios, escolas e construtoras.",
+   m: "a", page: "#101210", bg: "#101210", fg: "#eef2e4", ac: "#dbe88f", ac2: "#dbe88f", light: "#f1f4e6", lfg: "#1a2012", on: "#14180d",
+   f1: "'Space Grotesk',sans-serif", f2: "'JetBrains Mono',monospace", wmw: 700, wmls: ".14em", subls: ".42em", sub: "Technology", fn: ["Space Grotesk", "Títulos e logo"], fn2: ["JetBrains Mono", "Detalhes técnicos e rótulos"],
+   pal: [["Verde-limão", "#dbe88f", "Destaque, botões"], ["Oliva", "#5e694f", "Superfícies e brilho"], ["Grafite", "#101210", "Fundo principal"], ["Névoa", "#eef2e4", "Texto sobre escuro"], ["Alerta", "#ff4a4a", "Alarmes e avisos"]] },
+ { id: "d2", n: "02", name: "Confiança", tag: "Corporativa e institucional", why: "Azul-marinho com azul-sinal. Transmite estabilidade e seriedade para fechar com hospitais, universidades e grandes construtoras. O símbolo vira um escudo.",
+   m: "shield", page: "#0a1a2f", bg: "#0a1a2f", fg: "#f4f6f8", ac: "#3d9bff", ac2: "#0a1a2f", light: "#f4f6f8", lfg: "#0a1a2f", on: "#04101f",
+   f1: "'Sora',sans-serif", f2: "'Inter',sans-serif", wmw: 700, wmls: ".1em", subls: ".38em", sub: "Technology", fn: ["Sora", "Títulos e logo"], fn2: ["Inter", "Textos e interface"],
+   pal: [["Azul-marinho", "#0a1a2f", "Fundo e logo"], ["Azul-sinal", "#3d9bff", "Destaque, botões"], ["Aço", "#8aa0b8", "Textos de apoio"], ["Névoa", "#f4f6f8", "Fundo claro"], ["Âmbar", "#ffb020", "Alertas"]] },
+ { id: "d3", n: "03", name: "Íris", tag: "Sóbria e premium", why: "Grafite quente com champagne. O A ganha um ponto central, como o olho de uma câmera. Visual mais elegante, para projetos de alto padrão, hotéis e condomínios de luxo.",
+   m: "iris", page: "#141312", bg: "#141312", fg: "#f3efe6", ac: "#c9ad72", ac2: "#c9ad72", light: "#f3efe6", lfg: "#141312", on: "#141312",
+   f1: "'Outfit',sans-serif", f2: "'Inter',sans-serif", wmw: 500, wmls: ".3em", subls: ".5em", sub: "Technology", fn: ["Outfit", "Títulos e logo"], fn2: ["Inter", "Textos e interface"],
+   pal: [["Grafite", "#141312", "Fundo principal"], ["Champagne", "#c9ad72", "Destaque, detalhes"], ["Bronze", "#8c7545", "Linhas e sombras"], ["Areia", "#f3efe6", "Fundo claro"], ["Chumbo", "#2a2825", "Superfícies"]] }
+];
+function lock(d, c1, c2, fg, v, size) {
+  return `<div class="lock ${v ? "v" : ""}" style="color:${fg}">${mark(d.m, c1, c2, size)}<div class="wm" style="font-size:${v ? 34 : 30}px"><b>ADVM</b><small>${d.sub}</small></div></div>`;
+}
+document.getElementById("out").innerHTML = D.map(d => `
+<section class="dir" id="${d.id}" style="--page:${d.page};--ac:${d.ac};--f1:${d.f1};--f2:${d.f2};--wmw:${d.wmw};--wmls:${d.wmls};--subls:${d.subls}">
+<div class="wrap">
+  <div class="dir__h"><div class="dir__n">${d.n}</div><div><h2>${d.name}: ${d.tag}</h2><p>${d.why}</p></div></div>
+
+  <p class="lab mono">Logo</p>
+  <div class="grid g3">
+    <div class="panel" style="background:${d.bg}">${lock(d, d.ac, d.ac2, d.fg, false, 54)}</div>
+    <div class="panel" style="background:${d.light}">${lock(d, d.id === "d2" ? "#0a1a2f" : d.id === "d3" ? "#8c7545" : "#1a2012", d.id === "d2" ? "#3d9bff" : d.id === "d3" ? "#8c7545" : "#1a2012", d.lfg, false, 54)}</div>
+    <div class="panel" style="background:${d.ac}">${lock(d, d.on, d.m === "shield" ? d.ac : d.on, d.on, true, 62)}</div>
+  </div>
+
+  <p class="lab mono">Símbolo e ícones (perfil, favicon)</p>
+  <div class="grid g2">
+    <div class="panel" style="background:${d.bg}"><div class="fav" style="color:${d.fg}">
+      ${[96, 56, 32, 20].map(s => `<div style="width:${s + 24}px;height:${s + 24}px;background:${d.id === "d2" ? "#0f2540" : "#ffffff08"}">${mark(d.m, d.ac, d.ac2, s)}</div>`).join("")}
+    </div></div>
+    <div class="panel" style="background:${d.light}"><div class="fav">
+      ${[96, 56, 32, 20].map(s => `<div style="width:${s + 24}px;height:${s + 24}px;background:#00000008">${mark(d.m, d.id === "d2" ? "#0a1a2f" : d.id === "d3" ? "#8c7545" : "#1a2012", d.id === "d2" ? "#3d9bff" : d.id === "d3" ? "#8c7545" : "#1a2012", s)}</div>`).join("")}
+    </div></div>
+  </div>
+
+  <p class="lab mono">Paleta</p>
+  <div class="grid g5">${d.pal.map(p => `<div class="sw"><i style="background:${p[1]}"></i><div><b>${p[0]}</b>${p[1].toUpperCase()}<br><span>${p[2]}</span></div></div>`).join("")}</div>
+
+  <p class="lab mono">Tipografia</p>
+  <div class="type">
+    <div class="t"><span class="mono" style="color:${d.ac}">Títulos · ${d.fn[0]}</span><div class="aa" style="font-family:${d.f1};font-weight:${d.wmw}">Aa</div><p>${d.fn[1]}</p><div class="sample" style="font-family:${d.f1};font-weight:${d.wmw}">Segurança que vigia, detecta e responde.</div></div>
+    <div class="t"><span class="mono" style="color:${d.ac}">Texto · ${d.fn2[0]}</span><div class="aa" style="font-family:${d.f2}">Aa</div><p>${d.fn2[1]}</p><div class="sample" style="font-family:${d.f2};font-size:1rem;color:#ccc">Controle de acesso, CFTV, alarme e detecção de incêndio. Do projeto à manutenção, com um único responsável pela obra.</div></div>
+  </div>
+
+  <p class="lab mono">Aplicações</p>
+  <div class="apps">
+    <div><div class="av" style="background:${d.bg}">${mark(d.m, d.ac, d.ac2, 78)}</div><p class="mono" style="color:#777;margin-top:8px">Perfil Instagram</p></div>
+    <div><div class="card" style="background:${d.bg};color:${d.fg}">${lock(d, d.ac, d.ac2, d.fg, false, 34).replace('font-size:30px', 'font-size:20px')}<div><div class="nm">Nome Sobrenome</div><div class="ct">Cargo · (00) 00000-0000<br>contato@seudominio.com.br</div></div></div><p class="mono" style="color:#777;margin-top:8px">Cartão · frente</p></div>
+    <div><div class="card" style="background:${d.ac};color:${d.on};align-items:center;justify-content:center">${lock(d, d.on, d.m === "shield" ? d.ac : d.on, d.on, true, 46).replace('font-size:34px', 'font-size:24px')}</div><p class="mono" style="color:#777;margin-top:8px">Cartão · verso</p></div>
+    <div><div class="post" style="background:${d.light};color:${d.lfg}"><div style="display:flex;align-items:center;gap:10px">${mark(d.m, d.id === "d2" ? "#0a1a2f" : d.id === "d3" ? "#8c7545" : "#1a2012", d.id === "d2" ? "#3d9bff" : d.id === "d3" ? "#8c7545" : "#1a2012", 26)}<span class="mono" style="font-size:.6rem">ADVM Technology</span></div><h4>Segurança que vigia, detecta e responde.</h4><span class="mono" style="font-size:.6rem;color:${d.id === "d2" ? "#1c5fb5" : d.id === "d3" ? "#8c7545" : "#4a5a2a"}">Controle de acesso · CFTV · Incêndio</span></div><p class="mono" style="color:#777;margin-top:8px">Post para Instagram</p></div>
+  </div>
+
+  <p class="lab mono">No site</p>
+  <div class="mock" style="background:${d.bg};color:${d.fg}">
+    <div class="bar" style="border-bottom:1px solid #ffffff14">${lock(d, d.ac, d.ac2, d.fg, false, 30).replace('font-size:30px', 'font-size:17px')}<nav><span>Soluções</span><span>Obras</span><span>Sobre</span><span style="color:${d.ac}">Orçamento</span></nav></div>
+    <div class="hero"><h3 style="color:${d.fg}">Segurança que <span style="color:${d.ac}">vigia</span>, detecta e responde.</h3><p style="font-family:${d.f2}">Controle de acesso, CFTV, alarme e detecção de incêndio para condomínios, escolas e hospitais.</p><span class="btn" style="background:${d.ac};color:${d.on}">Falar com a central →</span></div>
+  </div>
+</div></section>`).join("");
+</script>
+</body>
+</html>
