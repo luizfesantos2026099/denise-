@@ -3,188 +3,114 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ADVM Technology | Central de Segurança Eletrônica</title>
-<meta name="description" content="Projeto, instalação e manutenção de controle de acesso, CFTV, alarme e detecção de incêndio para condomínios, escolas, hotéis, hospitais e obras corporativas.">
+<title>ADVM Technology | Segurança eletrônica para edifícios de uso intenso</title>
+<meta name="description" content="Projeto, instalação e manutenção de controle de acesso, câmeras, alarme e detecção de incêndio para escolas, condomínios, hotéis e hospitais.">
+<meta name="theme-color" content="#e8ebde">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='none' stroke='%23b98f2c' stroke-width='5'/%3E%3Ccircle cx='50' cy='50' r='36' fill='%231d2417'/%3E%3Cpath fill='%23e8ebde' fill-rule='evenodd' d='M50 24L72 74H62L58 64H42L38 74H28ZM50 42L56 56H44Z'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23161816'/%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%23dbe88f' stroke-width='5'/%3E%3Cpath fill='%23dbe88f' fill-rule='evenodd' d='M43 28H57L74 62L70 67H30L26 62ZM50 44L55 54H45Z'/%3E%3C/svg%3E">
-<meta name="theme-color" content="#101210">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
+<a class="skip" href="#conteudo">Ir para o conteúdo</a>
 
-<div class="boot" id="boot" aria-hidden="true"><pre id="bootTxt"></pre></div>
-<canvas class="static" id="static" aria-hidden="true"></canvas>
-<div class="cross" id="cross" aria-hidden="true"><i></i><i></i></div>
-<div class="shade" id="shade"></div>
-
-<header class="nav">
-  <a href="#inicio" class="brand" data-cam aria-label="ADVM Technology"><svg viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#adb671"/><stop offset="1" stop-color="#e4f09a"/></linearGradient></defs><circle cx="50" cy="50" r="46" fill="none" stroke="url(#lg)" stroke-width="4"/><path fill="url(#lg)" fill-rule="evenodd" d="M42 22H58L80 64L75 70H25L20 64ZM50 41L56 53H44Z"/></svg><span><b>ADVM</b><small class="mono">TECHNOLOGY</small></span></a>
-  <nav class="nav__links" id="nav" aria-label="Principal">
-    <a href="#solucoes" data-cam><small class="mono">CAM 01</small>Soluções</a>
-    <a href="#planta" data-cam><small class="mono">CAM 02</small>Perímetro</a>
-    <a href="#incendio" data-cam><small class="mono">CAM 03</small>Incêndio</a>
-    <a href="#obras" data-cam><small class="mono">CAM 04</small>Obras</a>
-    <a href="#contato" data-cam class="pill">Orçamento</a>
+<header class="top">
+  <a class="brand" href="#inicio" aria-label="ADVM Technology, início">
+    <svg viewBox="0 0 100 100" aria-hidden="true"><defs><mask id="bm"><rect width="100" height="100" fill="#fff"/><path d="M50 24L72 74H62L58 64H42L38 74H28ZM50 42L56 56H44Z" fill="#000" fill-rule="evenodd"/></mask></defs><circle cx="50" cy="50" r="46" fill="none" stroke="#b98f2c" stroke-width="4"/><circle cx="50" cy="50" r="36" fill="currentColor" mask="url(#bm)"/></svg>
+    <span><b>ADVM</b><small>Technology</small></span>
+  </a>
+  <nav class="nav" id="nav" aria-label="Principal">
+    <a href="#servicos">Serviços</a><a href="#obras">Obras</a><a href="#etapas">Como trabalhamos</a><a href="#contato" class="nav__cta">Pedir orçamento</a>
   </nav>
-  <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false"><i></i><i></i></button>
+  <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false"><span></span></button>
 </header>
 
-<main>
-<!-- ===== HERO: parede de monitores ===== -->
+<main id="conteudo">
+<!-- ===== Prancha de abertura ===== -->
 <section class="hero" id="inicio">
-  <div class="hero__txt">
-    <p class="mono tag"><span class="dot"></span> CENTRAL DE MONITORAMENTO · AO VIVO</p>
-    <h1 class="big">Segurança que <em>vigia</em>, <em>detecta</em> e responde.</h1>
-    <p class="lead">Controle de acesso, CFTV, alarme e detecção de incêndio. Do projeto à manutenção, com um único responsável pela obra.</p>
-    <div class="hero__cta">
-      <a href="#contato" class="btn" data-cam>Falar com a central <span>→</span></a>
-      <a href="#planta" class="btn btn--ghost" data-cam>Ver em ação</a>
+  <div class="hero__top">
+    <h1>Segurança eletrônica para edifícios que não podem parar.</h1>
+    <div class="hero__side">
+      <p>Projetamos, instalamos e mantemos controle de acesso, câmeras, alarme e detecção de incêndio em escolas, condomínios, hotéis e hospitais. Um único responsável, da planta à manutenção.</p>
+      <div class="hero__cta"><a class="btn" href="#contato">Pedir orçamento</a><a class="btn btn--line" href="#obras">Ver obras</a></div>
     </div>
   </div>
 
-  <div class="wall" id="wall" aria-label="Painel de câmeras de demonstração">
-    <figure class="feed" data-scene="fachada" tabindex="0" role="button" aria-label="Ampliar câmera 1, fachada do condomínio">
-      <canvas width="320" height="180"></canvas>
-      <div class="ov"><span class="cam">CAM 01 · FACHADA</span><span class="rec"><i></i>REC</span><span class="ts"></span><span class="st">SEM MOVIMENTO</span></div>
-    </figure>
-    <figure class="feed" data-scene="garagem" tabindex="0" role="button" aria-label="Ampliar câmera 2, garagem">
-      <canvas width="320" height="180"></canvas>
-      <div class="ov"><span class="cam">CAM 02 · GARAGEM</span><span class="rec"><i></i>REC</span><span class="ts"></span><span class="st">SEM MOVIMENTO</span></div>
-    </figure>
-    <figure class="feed" data-scene="acesso" tabindex="0" role="button" aria-label="Ampliar câmera 3, portaria">
-      <canvas width="320" height="180"></canvas>
-      <div class="ov"><span class="cam">CAM 03 · PORTARIA</span><span class="rec"><i></i>REC</span><span class="ts"></span><span class="st">AGUARDANDO</span></div>
-    </figure>
-    <figure class="feed" data-scene="corredor" tabindex="0" role="button" aria-label="Ampliar câmera 4, corredor">
-      <canvas width="320" height="180"></canvas>
-      <div class="ov"><span class="cam">CAM 04 · CORREDOR</span><span class="rec"><i></i>REC</span><span class="ts"></span><span class="st">ÁREA OK</span></div>
-    </figure>
-    <p class="wall__hint mono">Clique em uma câmera para ampliar</p>
+  <div class="sheet">
+    <div class="sheet__scroll"><svg id="plan" class="plan" viewBox="0 0 1200 540" role="img" aria-labelledby="planT planD">
+      <title id="planT">Planta de segurança eletrônica de um condomínio</title>
+      <desc id="planD">Desenho ilustrativo com câmeras, leitores de acesso, sensores de perímetro, detectores de fumaça e pontos de rede.</desc>
+    </svg></div>
+    <p class="sheet__note">Exemplo ilustrativo. Passe o mouse sobre um item da legenda para ver onde ele entra na planta.</p>
+  </div>
+
+  <ul class="legend" id="servicos" aria-label="Legenda e serviços"></ul>
+</section>
+
+<!-- ===== Obras ===== -->
+<section class="obras" id="obras">
+  <div class="wrap">
+    <h2>Onde já instalamos e onde estamos instalando</h2>
+    <!-- CONFIRMAR com a Denise quais nomes podem aparecer publicamente. -->
+    <table class="tbl">
+      <thead><tr><th scope="col">Tipo de obra</th><th scope="col">O que instalamos</th><th scope="col">Referência</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Universidades e escolas</th><td>Controle de acesso por área, câmeras em pátios e corredores, alarme de perímetro.</td><td>UNESP</td></tr>
+        <tr><th scope="row">Empreendimentos residenciais</th><td>Portaria, garagem, áreas comuns e pontos de acesso, da obra à entrega das chaves.</td><td>ADN MRV, Grupo Field</td></tr>
+        <tr><th scope="row">Condomínios</th><td>Controle de moradores e visitantes, câmeras e alarme nas áreas comuns.</td><td>Obras em andamento</td></tr>
+        <tr><th scope="row">Hotéis</th><td>Acesso por andar e por ambiente, câmeras nas áreas de circulação.</td><td>Obras em andamento</td></tr>
+        <tr><th scope="row">Hospitais</th><td>Áreas restritas, controle do fluxo de pessoas e detecção de incêndio.</td><td>Obras em andamento</td></tr>
+        <tr><th scope="row">Construtoras</th><td>Sistema de detecção e alarme de incêndio durante a obra.</td><td>Obras em andamento</td></tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
-<section class="status" aria-label="Diferenciais">
-  <div><strong>1</strong><span class="mono">responsável por todo o sistema</span></div>
-  <div><strong>24/7</strong><span class="mono">suporte técnico</span></div>
-  <div><strong>100%</strong><span class="mono">projeto sob medida</span></div>
-  <div><strong>Pós-obra</strong><span class="mono">manutenção contínua</span></div>
-</section>
-
-<!-- ===== SOLUÇÕES ===== -->
-<section class="sec" id="solucoes">
-  <div class="head rv"><p class="mono tag">CAM 01 / SOLUÇÕES</p><h2 class="big m">Tudo que protege, <em>integrado.</em></h2></div>
-  <ul class="sol">
-    <li class="rv"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="10" y="20" width="28" height="22" rx="3"/><path d="M16 20v-6a8 8 0 0 1 16 0v6"/><circle cx="24" cy="31" r="3"/></svg><h3>Controle de acesso</h3><p>Catracas, cancelas, biometria e reconhecimento facial, com gestão de visitantes, prestadores e horários.</p></li>
-    <li class="rv"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="14" width="26" height="18" rx="3"/><path d="M32 20l10-5v18l-10-5"/><path d="M14 38h10"/></svg><h3>CFTV e monitoramento</h3><p>Câmeras IP, gravação e análise de vídeo, com acesso remoto pelo celular e central de monitoramento.</p></li>
-    <li class="rv"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6l16 6v12c0 10-7 16-16 19C15 40 8 34 8 24V12z"/><path d="M17 24l5 5 9-10"/></svg><h3>Alarme e perímetro</h3><p>Sensores, cerca elétrica e alarmes integrados, com resposta rápida a invasões.</p></li>
-    <li class="rv"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6c2 8 10 10 10 20a10 10 0 0 1-20 0c0-4 2-6 4-8 0 4 2 5 3 5 0-6-1-10 3-17z"/></svg><h3>Detecção de incêndio</h3><p>Detectores, centrais endereçáveis e sinalização, conforme as normas aplicáveis.</p></li>
-    <li class="rv"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="10" r="4"/><circle cx="10" cy="36" r="4"/><circle cx="38" cy="36" r="4"/><path d="M24 14v8M24 22L10 32M24 22l14 10"/></svg><h3>Redes e infraestrutura</h3><p>Cabeamento estruturado, racks e rede dedicada para os sistemas de segurança.</p></li>
-    <li class="rv"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M30 8a10 10 0 0 0-8 14L8 36l4 4 14-14a10 10 0 0 0 14-8l-6 6-5-5z"/></svg><h3>Manutenção</h3><p>Contratos preventivos e corretivos para manter tudo funcionando depois da entrega.</p></li>
-  </ul>
-</section>
-
-<!-- ===== SIMULAÇÃO: PLANTA ===== -->
-<section class="sec sec--alt" id="planta">
-  <div class="head rv"><p class="mono tag">CAM 02 / PERÍMETRO</p><h2 class="big m">Alguém entrou. <em>A central já sabe.</em></h2>
-    <p class="lead">Simule uma invasão no condomínio: os sensores disparam, a câmera mais próxima segue o alvo e o alerta é registrado.</p></div>
-  <div class="sim rv">
-    <div class="sim__view"><svg id="plan" viewBox="0 0 800 480" role="img" aria-label="Planta de um condomínio com câmeras e sensores de perímetro"></svg></div>
-    <aside class="panel">
-      <div class="panel__st"><span class="led" id="planLed"></span><span class="mono" id="planSt">SISTEMA ARMADO</span></div>
-      <div class="panel__btns">
-        <button class="btn" id="planGo" type="button">Simular invasão</button>
-        <button class="btn btn--ghost" id="planReset" type="button">Reiniciar</button>
-      </div>
-      <ul class="log mono" id="planLog" aria-live="polite"></ul>
-    </aside>
+<!-- ===== Etapas ===== -->
+<section class="etapas" id="etapas">
+  <div class="wrap">
+    <h2>Como uma obra acontece</h2>
+    <ol class="route">
+      <li><span class="stn">Etapa 1</span><h3>Levantamento</h3><p>Visita técnica ao local, análise dos riscos e conversa com quem usa o espaço.</p></li>
+      <li><span class="stn">Etapa 2</span><h3>Projeto</h3><p>Planta com a posição de cada equipamento, lista de materiais e orçamento fechado.</p></li>
+      <li><span class="stn">Etapa 3</span><h3>Instalação</h3><p>Equipe técnica própria, cabeamento, configuração e testes em campo.</p></li>
+      <li><span class="stn">Etapa 4</span><h3>Entrega e manutenção</h3><p>Treinamento da equipe do cliente, projeto como construído e contrato de manutenção.</p></li>
+    </ol>
   </div>
 </section>
 
-<!-- ===== SIMULAÇÃO: INCÊNDIO ===== -->
-<section class="sec" id="incendio">
-  <div class="head rv"><p class="mono tag">CAM 03 / INCÊNDIO</p><h2 class="big m">Fumaça detectada. <em>Resposta em segundos.</em></h2>
-    <p class="lead">Veja como um detector endereçável localiza o foco, aciona o alarme e orienta a evacuação.</p></div>
-  <div class="sim rv">
-    <div class="sim__view sim__view--tall"><svg id="fire" viewBox="0 0 600 500" role="img" aria-label="Prédio em corte com detectores de fumaça"></svg></div>
-    <aside class="panel">
-      <div class="panel__st"><span class="led" id="fireLed"></span><span class="mono" id="fireSt">CENTRAL NORMAL</span></div>
-      <div class="panel__btns">
-        <button class="btn" id="fireGo" type="button">Simular incêndio</button>
-        <button class="btn btn--ghost" id="fireReset" type="button">Reiniciar</button>
-      </div>
-      <ul class="log mono" id="fireLog" aria-live="polite"></ul>
-    </aside>
-  </div>
-</section>
-
-<!-- ===== OBRAS ===== -->
-<section class="sec obras" id="obras">
-  <div class="head rv"><p class="mono tag">CAM 04 / OBRAS</p><h2 class="big m">Em campo, <em>agora.</em></h2></div>
-  <!-- CONFIRMAR com a Denise quais nomes podem aparecer publicamente. -->
-  <div class="marq"><div class="marq__t">
-    <span>UNESP</span><span>ADN MRV</span><span>Grupo Field</span><span>Segurança escolar</span><span>Condomínios</span><span>Hotéis</span><span>Sistema de incêndio</span><span>Hospitais</span>
-    <span>UNESP</span><span>ADN MRV</span><span>Grupo Field</span><span>Segurança escolar</span><span>Condomínios</span><span>Hotéis</span><span>Sistema de incêndio</span><span>Hospitais</span>
-  </div></div>
-</section>
-
-<!-- ===== PROCESSO ===== -->
-<section class="sec sec--alt" id="processo">
-  <div class="head rv"><p class="mono tag">CAM 05 / COMO TRABALHAMOS</p><h2 class="big m">Do levantamento <em>à operação.</em></h2></div>
-  <ol class="steps">
-    <li class="rv"><span class="mono n">01</span><h3>Levantamento</h3><p>Visita técnica, análise de riscos e conversa com quem usa o espaço.</p></li>
-    <li class="rv"><span class="mono n">02</span><h3>Projeto</h3><p>Posição de câmeras, sensores e acessos, com orçamento claro.</p></li>
-    <li class="rv"><span class="mono n">03</span><h3>Instalação</h3><p>Equipe técnica, cabeamento, configuração e testes em campo.</p></li>
-    <li class="rv"><span class="mono n">04</span><h3>Operação e manutenção</h3><p>Treinamento, suporte e revisões periódicas depois da entrega.</p></li>
-  </ol>
-</section>
-
-<!-- ===== CONTATO ===== -->
-<section class="sec" id="contato">
-  <div class="head rv"><p class="mono tag">CONTATO / ACESSO</p><h2 class="big">Vamos proteger<br>o seu <em>projeto?</em></h2></div>
-  <div class="contato__g rv">
-    <div class="info">
-      <p><span class="mono">TEL</span><a href="tel:+5500000000000">(00) 00000-0000</a></p>
-      <p><span class="mono">EMAIL</span><a href="mailto:contato@seudominio.com.br">contato@seudominio.com.br</a></p>
-      <p><span class="mono">BASE</span>Cidade / UF · atendemos toda a região</p>
+<!-- ===== Contato ===== -->
+<section class="contato" id="contato">
+  <div class="wrap contato__g">
+    <div>
+      <h2>Conte o que precisa proteger</h2>
+      <p class="lead">Respondemos com os próximos passos e, se fizer sentido, marcamos uma visita técnica.</p>
+      <dl class="dados">
+        <div><dt>Telefone</dt><dd><a href="tel:+5500000000000">(00) 00000-0000</a></dd></div>
+        <div><dt>E-mail</dt><dd><a href="mailto:contato@seudominio.com.br">contato@seudominio.com.br</a></dd></div>
+        <div><dt>Onde atendemos</dt><dd>Cidade e região, UF</dd></div>
+      </dl>
       <!-- Colocar aqui o selo oficial do Programa de Canais, exatamente como baixado do portal Sou Parceiro. -->
-      <div class="selo mono">[ espaço para o selo oficial do parceiro ]</div>
+      <div class="selo">Espaço reservado ao selo oficial do parceiro</div>
     </div>
-    <div class="gate" id="gate">
-      <form id="form" class="form">
-        <label><span class="mono">Nome</span><input name="nome" required></label>
-        <label><span class="mono">Telefone</span><input name="tel" type="tel" required></label>
-        <label><span class="mono">Projeto</span>
-          <select name="tipo"><option>Controle de acesso</option><option>CFTV</option><option>Alarme / perímetro</option><option>Detecção de incêndio</option><option>Manutenção</option><option>Outro</option></select>
-        </label>
-        <label><span class="mono">Mensagem</span><textarea name="msg" rows="3"></textarea></label>
-        <button class="btn" type="submit">Enviar pelo WhatsApp <span>→</span></button>
-        <p class="lgpd mono">Os dados informados são usados apenas por ADVM Technology para responder ao seu contato.</p>
-      </form>
-      <div class="door" id="door" aria-hidden="false">
-        <div class="door__p door__p--l"></div><div class="door__p door__p--r"></div>
-        <div class="reader">
-          <button class="reader__btn" id="readerBtn" type="button" aria-label="Segure para autenticar e abrir o formulário">
-            <svg viewBox="0 0 100 100" aria-hidden="true"><circle class="rg" cx="50" cy="50" r="44"/><circle class="rp" id="readerRing" cx="50" cy="50" r="44"/></svg>
-            <span class="reader__ico" aria-hidden="true">⌁</span>
-          </button>
-          <p class="mono" id="readerTxt">SEGURE PARA AUTENTICAR</p>
-        </div>
-      </div>
-    </div>
+    <form id="form" class="form">
+      <label>Nome<input name="nome" autocomplete="name" required></label>
+      <label>Telefone com DDD<input name="tel" type="tel" autocomplete="tel" required></label>
+      <label>Tipo de projeto
+        <select name="tipo"><option>Controle de acesso</option><option>Câmeras</option><option>Alarme e perímetro</option><option>Detecção de incêndio</option><option>Manutenção</option><option>Outro</option></select>
+      </label>
+      <label>Mensagem<textarea name="msg" rows="4"></textarea></label>
+      <button class="btn" type="submit">Enviar pelo WhatsApp</button>
+      <p class="lgpd">Os dados informados ficam com a ADVM Technology e servem apenas para responder ao seu contato.</p>
+    </form>
   </div>
 </section>
 </main>
 
-<footer class="foot mono">
-  <span>© <span id="ano"></span> ADVM Technology · CNPJ 00.000.000/0000-00</span>
-  <span>As marcas citadas pertencem aos seus respectivos proprietários.</span>
+<footer class="foot">
+  <div class="wrap"><span>© <span id="ano"></span> ADVM Technology · CNPJ 00.000.000/0000-00</span><span>As marcas citadas pertencem aos seus respectivos proprietários.</span></div>
 </footer>
-
-<div class="sys mono" id="sys"><span class="dot"></span><span id="sysTxt">SISTEMA ONLINE · 4/4 CÂMERAS</span></div>
-<a class="zap" id="zap" href="#">WhatsApp</a>
 <script src="script.js"></script>
 </body>
 </html>
