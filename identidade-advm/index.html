@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manual de marca | ADVM technology</title>
+<link rel="icon" href="logos/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--noite:#0b0812;--ameixa:#190926;--vio:#7c35fd;--lav:#c9bff2;--nev:#f3effd;--mut:#a79dc9;--ln:#2a1f45}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--noite);color:var(--nev);font:17px/1.6 'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Outfit',sans-serif;font-weight:500;letter-spacing:-.025em;line-height:1.05}
+.w{width:min(1180px,90%);margin:0 auto}a{color:inherit}
+.nav{position:sticky;top:0;z-index:20;background:#0b0812ee;backdrop-filter:blur(8px);border-bottom:1px solid var(--ln)}
+.nav .w{display:flex;gap:26px;align-items:center;overflow-x:auto;padding:14px 0;white-space:nowrap;font-size:.92rem}.nav a{text-decoration:none;color:var(--mut)}.nav a:hover{color:#fff}.nav img{height:30px}
+.cover{min-height:92vh;display:grid;align-content:space-between;padding:60px 0 50px;background:radial-gradient(ellipse 60% 80% at 90% 0,#3a1b78 0,transparent 70%)}
+.cover h1{font-size:clamp(3.2rem,9vw,8rem);max-width:12ch}.cover p{max-width:48ch;color:#cfc5ee;margin-top:22px;font-size:1.2rem}
+.cover .meta{display:flex;gap:50px;flex-wrap:wrap;color:var(--mut);font-size:.9rem}
+section.s{padding:96px 0;border-top:1px solid var(--ln)}
+.k{color:var(--lav);font-size:.95rem;margin-bottom:14px}
+h2{font-size:clamp(2.2rem,4.6vw,3.8rem);max-width:20ch;margin-bottom:22px}h3{font-size:1.6rem;margin:0 0 10px}
+.lead{max-width:62ch;color:#d6cdf2;font-size:1.15rem;margin-bottom:44px}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:56px}.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+.col{border-top:2px solid var(--ln);padding-top:22px}.col p{color:#d6cdf2;font-size:1rem}
+.tile{border-radius:10px;display:grid;place-items:center;min-height:200px;position:relative;padding:30px;border:1px solid #ffffff14}
+.tile .cap{position:absolute;left:14px;bottom:10px;font-size:.78rem;opacity:.6}
+.tile img{max-width:80%;max-height:130px}
+.sws{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-radius:10px;overflow:hidden;border:1px solid #ffffff1a}
+.sw{padding:130px 20px 18px;font-size:.84rem;display:grid;gap:2px}.sw b{font:500 1.5rem 'Outfit';letter-spacing:-.02em}.sw span{font-variant-numeric:tabular-nums;opacity:.9}.sw p{margin-top:10px;font-size:.82rem;line-height:1.45;opacity:.9}
+.prop{display:flex;height:64px;border-radius:8px;overflow:hidden;margin:26px 0 8px}
+.tbl{width:100%;border-collapse:collapse;margin-top:10px}.tbl th{text-align:left;color:var(--mut);font-weight:500;font-size:.85rem;padding:0 0 10px;border-bottom:2px solid var(--ln)}
+.tbl td{padding:14px 0;border-bottom:1px solid var(--ln)}.tbl td:first-child{display:flex;align-items:center;gap:16px}.tbl i{display:grid;place-items:center;width:62px;height:40px;border-radius:6px;font-style:normal;border:1px solid #ffffff22}.tbl i b{font:500 1.2rem 'Outfit'}
+.clear{position:relative;display:inline-block;padding:42px;border:2px dashed var(--vio);background:#ffffff08}.clear img{height:104px;display:block}
+.clear::before{content:"x";position:absolute;left:14px;top:6px;color:var(--vio);font-weight:600}
+.bad{position:relative;border-radius:10px;display:grid;place-items:center;min-height:170px;border:1px solid #ff4a4a66;overflow:hidden;background:#150d24}
+.bad img{height:64px}.bad span{position:absolute;left:14px;bottom:10px;font-size:.82rem;color:#e7dcff}.bad::after{content:"✕";position:absolute;right:12px;top:6px;color:#ff4a4a;font-size:1.5rem}
+.type{border:1px solid var(--ln);border-radius:10px;padding:34px}.type .aa{font-size:7rem;line-height:1;margin:10px 0 18px}
+.scale div{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:14px 0;border-bottom:1px solid var(--ln)}.scale small{color:var(--mut);white-space:nowrap}
+.do{display:grid;grid-template-columns:1fr 1fr;gap:20px}.do div{border-radius:10px;padding:24px;border:1px solid var(--ln)}.do .y{border-color:#7c35fd88;background:#1a1030}.do b{display:block;color:var(--lav);margin-bottom:8px;font-size:.9rem}.do .n b{color:#ff8a8a}.do p{font-size:1.05rem;color:#e7dcff}
+.mock{border-radius:12px;display:grid;place-items:center;min-height:300px;position:relative;overflow:hidden;border:1px solid #ffffff14;padding:26px}
+.mock .cap{position:absolute;left:16px;bottom:10px;font-size:.8rem;opacity:.65}
+.card{width:290px;height:168px;border-radius:8px;box-shadow:0 14px 34px #0009;position:relative;overflow:hidden}
+.list{list-style:none;display:grid;gap:12px}.list li{padding-left:28px;position:relative;color:#d6cdf2}.list li::before{content:"";position:absolute;left:0;top:.55em;width:12px;height:12px;border-radius:50%;background:var(--vio)}
+.list.no li::before{background:none;border:2px solid #7d72a3}
+.files{font:.92rem/1.9 ui-monospace,Menlo,monospace;color:#d6cdf2;background:#120b1f;border:1px solid var(--ln);border-radius:10px;padding:24px;white-space:pre-wrap}
+.note{border-left:3px solid var(--vio);padding:6px 0 6px 20px;color:#d6cdf2;max-width:70ch;margin-top:26px}
+footer{padding:50px 0 80px;border-top:1px solid var(--ln);color:var(--mut);font-size:.9rem}
+@media(max-width:900px){.g2,.g3,.g4,.sws,.do{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.g2,.g3,.g4,.sws,.do{grid-template-columns:1fr}.sw{padding-top:70px}.mock{grid-column:auto!important}.clear{padding:22px}.clear img{height:70px}.cover .meta{gap:18px}.tile{padding:18px}}
+img{max-width:100%}.files{overflow-x:auto}.tbl td:first-child{flex-wrap:wrap}
+</style></head><body>
+<nav class="nav"><div class="w"><img src="logos/simbolo-fundo-escuro.svg" alt="ADVM"><a href="#essencia">Essência</a><a href="#logo">Logo</a><a href="#cores">Cores</a><a href="#tipografia">Tipografia</a><a href="#aplicacoes">Aplicações</a><a href="#imagem">Imagem e voz</a><a href="#intelbras">Selo Intelbras</a><a href="#arquivos">Arquivos</a></div></nav>
+
+<header class="cover"><div class="w"><img src="logos/logo-horizontal-fundo-escuro.svg" alt="ADVM technology" style="height:84px"></div>
+<div class="w"><p class="k">Manual de marca · versão 1.0</p><h1>Segurança que vigia, detecta e responde.</h1><p>Como a ADVM technology se apresenta: logo, cores, fontes, aplicações e as regras para manter tudo igual, em qualquer lugar.</p></div>
+<div class="w meta"><span>ADVM technology</span><span>Integradora de segurança eletrônica</span><span>Novembro de 2026</span></div></header>
+
+<section class="s" id="essencia"><div class="w"><p class="k">Essência</p><h2>Uma empresa que cuida da obra inteira.</h2>
+<p class="lead">A ADVM projeta, instala e mantém sistemas de segurança eletrônica em lugares onde falhar não é opção: escolas, universidades, condomínios, hotéis e hospitais.</p>
+<div class="g3"><div class="col"><h3>Propósito</h3><p>Proteger pessoas e patrimônio em ambientes de uso intenso, com um sistema que funciona no dia a dia e continua funcionando anos depois.</p></div>
+<div class="col"><h3>Promessa</h3><p>Um único responsável, da planta à manutenção. O cliente não precisa coordenar vários fornecedores nem descobrir de quem é a falha.</p></div>
+<div class="col"><h3>Personalidade</h3><p>Técnica sem ser fria. Direta, organizada e confiável. Fala claro, mostra o que vai fazer e entrega o que prometeu.</p></div></div>
+<p class="note">A frase da marca é <b>"Segurança que vigia, detecta e responde."</b> Ela resume os três trabalhos do sistema: câmeras que vigiam, sensores que detectam e uma resposta rápida quando algo acontece.</p></div></section>
+
+<section class="s" id="logo"><div class="w"><p class="k">Logo</p><h2>O A dentro do foco de uma câmera.</h2>
+<p class="lead">O símbolo une a inicial da marca ao enquadramento de uma câmera: é o ponto onde a atenção se fixa. Os cantos em violeta formam o foco, e o A em lavanda é o que está sendo protegido.</p>
+<div class="g3"><div class="tile" style="background:var(--noite)"><img src="logos/logo-horizontal-fundo-escuro.svg" alt=""><span class="cap">horizontal, fundo escuro</span></div>
+<div class="tile" style="background:var(--nev)"><img src="logos/logo-horizontal-fundo-claro.svg" alt=""><span class="cap" style="color:#190926">horizontal, fundo claro</span></div>
+<div class="tile" style="background:var(--vio)"><img src="logos/logo-horizontal-fundo-violeta.svg" alt=""><span class="cap">horizontal, fundo violeta</span></div>
+<div class="tile" style="background:var(--noite)"><img src="logos/logo-vertical-fundo-escuro.svg" alt="" style="max-height:150px"><span class="cap">vertical</span></div>
+<div class="tile" style="background:var(--noite)"><img src="logos/simbolo-fundo-escuro.svg" alt="" style="max-height:130px"><span class="cap">símbolo</span></div>
+<div class="tile" style="background:#2b2340"><img src="logos/logo-horizontal-branco.svg" alt=""><span class="cap">versão toda branca (uma cor)</span></div></div>
+
+<div class="g2" style="margin-top:70px"><div><h3>Área de proteção</h3><p class="lead" style="margin-bottom:26px;font-size:1rem">Mantenha livre ao redor da logo um espaço igual à altura do A do símbolo (x). Nenhum texto, borda ou imagem entra nessa área.</p><div class="clear"><img src="logos/logo-horizontal-fundo-escuro.svg" alt=""></div></div>
+<div><h3>Tamanho mínimo</h3><p class="lead" style="margin-bottom:26px;font-size:1rem">Abaixo destes tamanhos o texto "technology" fica ilegível. Use só o símbolo.</p>
+<div style="display:flex;gap:46px;align-items:flex-end"><div><img src="logos/logo-horizontal-fundo-escuro.svg" style="width:120px;display:block" alt=""><p class="mut" style="font-size:.85rem;margin-top:10px;color:var(--mut)">Logo horizontal<br>120 px de largura<br>30 mm no impresso</p></div>
+<div><img src="logos/simbolo-fundo-escuro.svg" style="width:24px;display:block" alt=""><p style="font-size:.85rem;margin-top:10px;color:var(--mut)">Símbolo<br>24 px (favicon 16 px)<br>6 mm no impresso</p></div></div></div></div>
+
+<h3 style="margin:70px 0 22px">Usos incorretos</h3>
+<div class="g3"><div class="bad"><img src="logos/logo-horizontal-fundo-escuro.svg" style="transform:scaleX(1.5) scaleY(.7)" alt=""><span>Não distorcer ou esticar</span></div>
+<div class="bad"><img src="logos/logo-horizontal-fundo-escuro.svg" style="transform:rotate(-14deg)" alt=""><span>Não girar</span></div>
+<div class="bad"><img src="logos/logo-horizontal-fundo-escuro.svg" style="filter:hue-rotate(110deg) saturate(2)" alt=""><span>Não trocar as cores</span></div>
+<div class="bad" style="background:#d9cff7"><img src="logos/logo-horizontal-fundo-escuro.svg" alt=""><span style="color:#190926">Não usar sobre fundo sem contraste</span></div>
+<div class="bad"><img src="logos/logo-horizontal-fundo-escuro.svg" style="filter:drop-shadow(0 0 12px #7c35fd) drop-shadow(4px 4px 0 #ff4a4a)" alt=""><span>Não aplicar sombra, brilho ou contorno</span></div>
+<div class="bad" style="background:linear-gradient(135deg,#ffb020,#ff4a4a)"><img src="logos/logo-horizontal-fundo-escuro.svg" alt=""><span>Não usar sobre fundos coloridos fora da paleta</span></div></div></div></section>
+
+<section class="s" id="cores"><div class="w"><p class="k">Cores</p><h2>Violeta como assinatura, noite como base.</h2>
+<p class="lead">O violeta elétrico é o que torna a marca reconhecível. Ele aparece sobre fundos muito escuros ou muito claros, nunca disputando com outras cores fortes.</p>
+<div class="sws"><div class="sw" style="background:#7c35fd;color:#f3effd"><b>Violeta</b><span>#7C35FD</span><span>RGB 124, 53, 253</span><span>CMYK 51 79 0 1</span><p>Cor da marca. Botões, links, destaques e os cantos do símbolo.</p></div><div class="sw" style="background:#0b0812;color:#f3effd"><b>Noite</b><span>#0B0812</span><span>RGB 11, 8, 18</span><span>CMYK 39 56 0 93</span><p>Fundo principal escuro. Também texto sobre fundo claro quando precisar de contraste máximo.</p></div><div class="sw" style="background:#190926;color:#f3effd"><b>Ameixa</b><span>#190926</span><span>RGB 25, 9, 38</span><span>CMYK 34 76 0 85</span><p>Superfícies escuras, ícone de app e texto sobre fundo claro.</p></div><div class="sw" style="background:#c9bff2;color:#190926"><b>Lavanda</b><span>#C9BFF2</span><span>RGB 201, 191, 242</span><span>CMYK 17 21 0 5</span><p>Detalhes e textos de apoio sobre fundo escuro. O A do logo.</p></div><div class="sw" style="background:#f3effd;color:#190926"><b>Névoa</b><span>#F3EFFD</span><span>RGB 243, 239, 253</span><span>CMYK 4 6 0 1</span><p>Fundo claro e texto sobre fundo escuro.</p></div><div class="sw" style="background:#ff4a4a;color:#f3effd"><b>Alerta</b><span>#FF4A4A</span><span>RGB 255, 74, 74</span><span>CMYK 0 71 71 0</span><p>Somente avisos e erros. Nunca como cor de marca.</p></div><div class="sw" style="background:#d6b25e;color:#190926"><b>Ouro</b><span>#D6B25E</span><span>RGB 214, 178, 94</span><span>CMYK 0 17 56 16</span><p>Acento opcional, uso pontual (selos, destaques especiais). Máximo 5% da peça.</p></div></div>
+<h3 style="margin:56px 0 0">Proporção de uso</h3>
+<div class="prop"><div style="flex:55;background:#0b0812;border:1px solid #2a1f45"></div><div style="flex:20;background:#190926"></div><div style="flex:12;background:#f3effd"></div><div style="flex:10;background:#7c35fd"></div><div style="flex:3;background:#c9bff2"></div></div>
+<p style="color:var(--mut);font-size:.9rem">Noite 55% · Ameixa 20% · Névoa 12% · Violeta 10% · Lavanda 3%. Em peças claras, inverta Noite e Névoa. Ouro e Alerta ficam fora da conta e têm uso pontual.</p>
+<h3 style="margin:56px 0 4px">Contraste dos textos</h3><p style="color:var(--mut);margin-bottom:6px">Razão de contraste calculada pela regra WCAG: 4,5:1 é o mínimo para texto normal.</p>
+<table class="tbl"><thead><tr><th>Combinação</th><th>Contraste</th><th>Resultado</th></tr></thead><tbody><tr><td><i style="background:#0b0812"><b style="color:#f3effd">Aa</b></i>Névoa sobre Noite</td><td>17.6:1</td><td>AAA</td></tr><tr><td><i style="background:#0b0812"><b style="color:#c9bff2">Aa</b></i>Lavanda sobre Noite</td><td>11.6:1</td><td>AAA</td></tr><tr><td><i style="background:#0b0812"><b style="color:#7c35fd">Aa</b></i>Violeta sobre Noite</td><td>3.6:1</td><td>só texto grande</td></tr><tr><td><i style="background:#f3effd"><b style="color:#7c35fd">Aa</b></i>Violeta sobre Névoa</td><td>4.9:1</td><td>AA</td></tr><tr><td><i style="background:#f3effd"><b style="color:#190926">Aa</b></i>Ameixa sobre Névoa</td><td>16.8:1</td><td>AAA</td></tr><tr><td><i style="background:#7c35fd"><b style="color:#ffffff">Aa</b></i>Branco sobre Violeta</td><td>5.5:1</td><td>AA</td></tr><tr><td><i style="background:#7c35fd"><b style="color:#c9bff2">Aa</b></i>Lavanda sobre Violeta</td><td>3.2:1</td><td>só texto grande</td></tr><tr><td><i style="background:#0b0812"><b style="color:#d6b25e">Aa</b></i>Ouro sobre Noite</td><td>9.8:1</td><td>AAA</td></tr></tbody></table>
+<p class="note">Os valores CMYK são aproximações automáticas. Antes de imprimir em grande quantidade, peça uma prova de cor à gráfica, porque o violeta elétrico costuma sair mais escuro no papel.</p></div></section>
+
+<section class="s" id="tipografia"><div class="w"><p class="k">Tipografia</p><h2>Duas fontes, uma única voz.</h2>
+<p class="lead">As duas são gratuitas (Google Fonts) e funcionam em site, Word, Google Docs e Canva.</p>
+<div class="g2"><div class="type"><p style="color:var(--lav);font-size:.9rem">Títulos e logo</p><div class="aa" style="font-family:'Outfit';font-weight:500">Outfit</div><p style="font-family:'Outfit';font-size:1.4rem;font-weight:500">Segurança que vigia, detecta e responde.</p><p style="color:var(--mut);margin-top:12px;font-size:.95rem">Pesos 500 e 600. Frases em letras minúsculas com a primeira maiúscula. Evite caixa-alta, exceto na sigla ADVM.</p></div>
+<div class="type"><p style="color:var(--lav);font-size:.9rem">Textos e interface</p><div class="aa" style="font-family:'Inter'">Inter</div><p style="font-size:1.1rem">Controle de acesso, câmeras, alarme e detecção de incêndio, do projeto à manutenção.</p><p style="color:var(--mut);margin-top:12px;font-size:.95rem">Pesos 400, 500 e 600. Tamanho mínimo de 16 px na tela e 9 pt no impresso.</p></div></div>
+<div class="scale" style="margin-top:50px"><div><span style="font:500 3.4rem/1 Outfit;letter-spacing:-.03em">Título principal</span><small>Outfit 500 · 56/60</small></div><div><span style="font:500 2.4rem/1.1 Outfit;letter-spacing:-.02em">Título de seção</span><small>Outfit 500 · 40/44</small></div><div><span style="font:500 1.6rem/1.2 Outfit">Subtítulo</span><small>Outfit 500 · 26/32</small></div><div><span style="font:400 1.05rem/1.6 Inter">Texto corrido, com linhas de no máximo 75 caracteres.</span><small>Inter 400 · 17/27</small></div><div><span style="font:400 .85rem/1.5 Inter;color:var(--mut)">Legenda e observação</span><small>Inter 400 · 14/21</small></div></div>
+<p class="note">Sem a fonte instalada (por exemplo, em um e-mail), use <b>Arial</b>. A logo nunca é digitada: use sempre os arquivos prontos.</p></div></section>
+
+<section class="s" id="aplicacoes"><div class="w"><p class="k">Aplicações</p><h2>A mesma marca em tudo que a empresa toca.</h2>
+<p class="lead">Os arquivos desta pasta já vêm prontos. Os exemplos abaixo mostram como cada peça se monta.</p>
+<div class="g3">
+<div class="mock" style="background:#e4def5"><img src="papelaria/cartao-frente.png" class="card" alt=""><span class="cap" style="color:#190926">Cartão de visita, frente (90 × 50 mm)</span></div>
+<div class="mock" style="background:#e4def5"><img src="papelaria/cartao-verso.png" class="card" alt=""><span class="cap" style="color:#190926">Cartão de visita, verso</span></div>
+<div class="mock" style="background:#1a1229"><img src="papelaria/papel-timbrado-a4.png" style="height:260px;box-shadow:0 14px 34px #0009" alt=""><span class="cap">Papel timbrado A4</span></div>
+<div class="mock" style="background:#120b1f"><img src="redes/avatar-1080.png" style="width:200px;border-radius:50%;box-shadow:0 0 0 2px #2a1f45" alt=""><span class="cap">Avatar do Instagram, LinkedIn e Google</span></div>
+<div class="mock" style="background:#120b1f;grid-column:span 2"><img src="redes/capa-linkedin-1584x396.png" style="width:100%;max-width:640px;border-radius:6px" alt=""><span class="cap">Capa do LinkedIn (1584 × 396 px)</span></div>
+<div class="mock" style="background:#120b1f"><img src="redes/post-1-apresentacao.png" style="width:230px;border-radius:6px" alt=""><span class="cap">Post 1, apresentação</span></div>
+<div class="mock" style="background:#120b1f"><img src="redes/post-2-servico.png" style="width:230px;border-radius:6px" alt=""><span class="cap">Post 2, serviço</span></div>
+<div class="mock" style="background:#120b1f"><img src="redes/post-3-obra.png" style="width:230px;border-radius:6px" alt=""><span class="cap">Post 3, obra (coloque foto real)</span></div>
+<div class="mock" style="background:#d4cbee"><svg viewBox="0 0 420 170" width="100%" style="max-width:400px" aria-hidden="true"><path d="M20 120V60Q20 40 40 40H280L340 80H380Q400 80 400 100V120Z" fill="#f3effd" stroke="#bdb2e0" stroke-width="2"/><path d="M290 48L336 80H290Z" fill="#9fb3d9"/><rect x="48" y="50" width="216" height="58" rx="5" fill="#0b0812"/><image href="logos/logo-horizontal-fundo-escuro.svg" x="62" y="60" width="188" height="38"/><circle cx="100" cy="124" r="20" fill="#190926"/><circle cx="330" cy="124" r="20" fill="#190926"/><circle cx="100" cy="124" r="8" fill="#bdb2e0"/><circle cx="330" cy="124" r="8" fill="#bdb2e0"/></svg><span class="cap" style="color:#190926">Veículo</span></div>
+<div class="mock" style="background:#1a1229"><svg viewBox="0 0 260 300" width="220" aria-hidden="true"><path d="M70 40C95 22 165 22 190 40L238 72L224 130L196 118L196 288H64L64 118L36 130L22 72Z" fill="#0b0812" stroke="#2a1f45" stroke-width="2"/><image href="logos/simbolo-fundo-escuro.svg" x="94" y="72" width="72" height="72"/><image href="logos/logo-vertical-fundo-escuro.svg" x="88" y="160" width="84" height="84"/></svg><span class="cap">Uniforme (camiseta ou jaqueta)</span></div>
+<div class="mock" style="background:#e9e4f7"><svg viewBox="0 0 120 240" width="100" aria-hidden="true"><path d="M60 0V30" stroke="#7c35fd" stroke-width="14"/><rect x="8" y="30" width="104" height="190" rx="12" fill="#0b0812"/><circle cx="60" cy="84" r="20" fill="#2a1f45"/><image href="logos/simbolo-fundo-escuro.svg" x="38" y="124" width="44" height="44"/><rect x="26" y="180" width="68" height="6" rx="3" fill="#f3effd"/><rect x="38" y="194" width="44" height="4" rx="2" fill="#7c35fd"/></svg><span class="cap" style="color:#190926">Crachá de identificação</span></div>
+</div>
+<p class="note"><b>Assinatura de e-mail:</b> use o arquivo <code>papelaria/assinatura-email.html</code>. Ele tem as instruções para colar no Gmail ou no Outlook.</p></div></section>
+
+<section class="s" id="imagem"><div class="w"><p class="k">Imagem e voz</p><h2>Mostrar o trabalho de verdade.</h2>
+<div class="g2"><div><h3>Fotografia</h3><ul class="list"><li>Fotos reais de obras, equipe e equipamentos instalados. Evite imagens de banco com cadeado e hacker.</li><li>Formato horizontal, luz natural, com a obra ou o equipamento em destaque.</li><li>Para dar identidade, use os cantos do símbolo como moldura de foco sobre a imagem.</li><li>Peça autorização do cliente antes de publicar fotos de obras ou citar o nome dele.</li></ul></div>
+<div style="background:linear-gradient(135deg,#1b1233,#35205f);border-radius:12px;min-height:280px;position:relative;display:grid;place-items:center;color:#a79dc9"><svg viewBox="0 0 100 100" style="position:absolute;inset:26px;width:calc(100% - 52px);height:calc(100% - 52px)" preserveAspectRatio="none"><path d="M12 34V12H34M66 12H88V34M88 66V88H66M34 88H12V66" fill="none" stroke="#7c35fd" stroke-width="6" stroke-linecap="square" vector-effect="non-scaling-stroke"/></svg>foto real da obra</div></div>
+<h3 style="margin:60px 0 18px">Tom de voz</h3>
+<div class="do"><div class="y"><b>Faça</b><p>"Instalamos, configuramos e deixamos tudo testado antes de entregar."</p></div><div class="n"><b>Evite</b><p>"Soluções inovadoras de ponta em segurança 360 graus."</p></div>
+<div class="y"><b>Faça</b><p>"Um único responsável, da planta à manutenção."</p></div><div class="n"><b>Evite</b><p>"Somos os melhores do mercado e imbatíveis em qualidade."</p></div>
+<div class="y"><b>Faça</b><p>"Atendemos escolas, condomínios, hotéis e hospitais."</p></div><div class="n"><b>Evite</b><p>"Segurança 100% garantida, nenhum risco para você."</p></div></div>
+<p class="note">Em resumo: frases curtas, verbos no começo, números reais, nenhuma promessa que a empresa não controla e nenhuma comparação com outras marcas.</p></div></section>
+
+<section class="s" id="intelbras"><div class="w"><p class="k">Selo Intelbras</p><h2>A ADVM e a Intelbras aparecem separadas.</h2>
+<p class="lead">As regras abaixo vêm do Manual de diretrizes para parceiros Intelbras (versão 2025). Confira o manual atual no portal Sou Parceiro Intelbras e, para casos que não estejam nele, fale com o Trade Marketing da Intelbras.</p>
+<div class="g2"><div><h3>Faça</h3><ul class="list"><li>Use o <b>selo oficial</b> do Programa de Canais conforme a classificação da ADVM, baixado do portal Sou Parceiro, na área de Materiais de Marketing.</li><li>Aplique o selo <b>exatamente como veio</b>, respeitando tamanho, proporção e cores.</li><li>Em peças impressas e fachadas, reserve cerca de 25% da área para os selos e 75% para a ADVM.</li><li>No site, coloque o selo no rodapé ou na seção "Quem somos", separado da logo.</li><li>Use palavras genéricas nos anúncios, como "câmeras de segurança" e "controle de acesso".</li><li>Em campanhas de captação, avise que os dados ficam com a ADVM.</li></ul></div>
+<div><h3>Não faça</h3><ul class="list no"><li>Não use o <b>logotipo da Intelbras isolado</b>. Só vale o selo.</li><li>Não coloque "Intelbras" no nome da empresa, nos perfis, no Google nem no e-mail.</li><li>Não anuncie promoções ou garantias em nome da Intelbras.</li><li>Não compare produtos da Intelbras com outras marcas.</li><li>Não copie o layout do site ou da loja da Intelbras.</li><li>Não use os personagens Léo e Nina, nem ofereça suporte técnico em nome da Intelbras.</li></ul></div></div>
+<div class="tile" style="margin-top:44px;background:#120b1f;min-height:150px;display:flex;flex-wrap:wrap;align-items:center;gap:30px;justify-content:center;padding-bottom:44px"><img src="logos/logo-horizontal-fundo-escuro.svg" alt="" style="max-height:80px;max-width:300px"><div style="border:2px dashed #7d72a3;border-radius:10px;padding:26px 40px;color:var(--mut);text-align:center;font-size:.9rem">espaço do selo<br>oficial Intelbras</div><span class="cap">Logo da ADVM e selo lado a lado, com espaço entre os dois</span></div></div></section>
+
+<section class="s" id="arquivos"><div class="w"><p class="k">Arquivos</p><h2>O que está nesta pasta.</h2>
+<div class="files">logos/            logos em vetor (SVG) e imagens (PNG com fundo transparente)
+  logo-horizontal-*   para o dia a dia
+  logo-vertical-*     para capas e peças quadradas
+  simbolo-*           só o símbolo
+  icone-app, favicon  para app e site
+  *-fundo-escuro / fundo-claro / fundo-violeta / branco / preto
+cores/            cores.css (para o site) e cores.json
+redes/            avatar, capa do LinkedIn e 3 modelos de post
+papelaria/        cartão (frente e verso, PNG e PDF), papel timbrado A4, assinatura de e-mail</div>
+<p class="note">Os textos das logos já estão convertidos em curvas: abrem corretamente em qualquer programa, mesmo sem a fonte instalada. Os PDFs de cartão e papel timbrado são imagens em 300 dpi no tamanho exato; para gráfica rápida, acrescente a sangria de 3 mm que ela pedir.</p>
+<h3 style="margin:56px 0 14px">Próximos passos</h3><ul class="list"><li>Aplicar a marca no site e na apresentação.</li><li>Criar o perfil no Instagram, no LinkedIn e no Google com o avatar e a capa deste pacote.</li><li>Baixar o selo oficial da Intelbras e posicionar conforme as regras acima.</li><li>Trocar os dados de exemplo (nome, cargo, telefone, e-mail, CNPJ) nos cartões, no timbrado e na assinatura.</li></ul></div></section>
+<footer><div class="w">ADVM technology · Manual de marca 1.0 · Fontes: Outfit e Inter, licença SIL Open Font License.</div></footer>
+</body></html>

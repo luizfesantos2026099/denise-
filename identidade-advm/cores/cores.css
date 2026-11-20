@@ -1,0 +1,10 @@
+/* ADVM technology: cores da marca */
+:root{
+  --advm-noite:#0b0812;     /* fundo principal escuro */
+  --advm-ameixa:#190926;    /* superfícies escuras, ícone de app */
+  --advm-violeta:#7c35fd;   /* cor da marca: destaque, botões, links */
+  --advm-lavanda:#c9bff2;   /* detalhes sobre fundo escuro */
+  --advm-nevoa:#f3effd;     /* fundo claro e texto sobre escuro */
+  --advm-alerta:#ff4a4a;    /* só para alertas e erros */
+  --advm-ouro:#d6b25e;      /* acento opcional, uso pontual */
+}
