@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proposta comercial | ADVM Technology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--night:#0b0812;--plum:#190926;--vio:#7c35fd;--lav:#c9bff2;--mist:#f3effd;--mut:#a79dc9;--line:#2c2147}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#000;overflow:hidden;font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+#stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:0 0;background:var(--night);color:var(--mist);overflow:hidden}
+.slide{position:absolute;inset:0;padding:110px 140px 100px;opacity:0;visibility:hidden;transition:opacity .45s,transform .45s;transform:translateX(30px)}
+.slide.on{opacity:1;visibility:visible;transform:none}.slide.past{transform:translateX(-30px)}
+.glow{position:absolute;inset:0;background:radial-gradient(ellipse 55% 70% at 92% 0,#3a1b78 0,transparent 70%);pointer-events:none}
+h1,h2,h3,.num{font-family:'Outfit',sans-serif;font-weight:500;letter-spacing:-.025em;line-height:1.02}
+h2{font-size:82px;max-width:1300px;margin-bottom:56px}
+.k{font-size:26px;color:var(--lav);margin-bottom:22px}
+.mut{color:var(--mut)}
+p{font-size:30px;line-height:1.5}
+.small{font-size:23px}
+.logo{display:flex;align-items:center;gap:20px}.logo b{font-family:'Outfit';font-weight:500;font-size:44px;letter-spacing:.08em;display:block;line-height:1}.logo small{font-family:'Outfit';font-weight:300;font-size:17px;letter-spacing:.34em;color:var(--lav);display:block;margin-top:7px}
+.foot{position:absolute;left:140px;right:140px;bottom:44px;display:flex;justify-content:space-between;color:#7d72a3;font-size:20px}
+/* capa */
+.cover{display:grid;align-content:space-between}
+.cover h1{font-size:150px;max-width:1400px}
+.cover .meta{display:grid;grid-template-columns:repeat(4,auto);gap:70px;justify-content:start;font-size:24px}
+.cover .meta dt{color:var(--mut);font-size:20px;margin-bottom:6px}
+/* colunas */
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:2px solid var(--line)}
+.cols>div{padding:36px 44px 0 0}.cols>div+div{padding-left:44px;border-left:1px solid var(--line)}
+.cols h3{font-size:44px;margin-bottom:18px}.cols p{font-size:27px;color:#d6cdf2}
+ul.l{list-style:none;display:grid;gap:14px;font-size:27px;color:#d6cdf2}ul.l li{padding-left:34px;position:relative;line-height:1.35}ul.l li::before{content:"";position:absolute;left:0;top:.5em;width:14px;height:14px;border-radius:50%;background:var(--vio)}
+ul.l.no li::before{background:none;border:2px solid #6b5f93}
+/* caminho */
+.path{display:grid;grid-template-columns:repeat(3,1fr);gap:70px;position:relative;margin-top:30px}
+.path::before{content:"";position:absolute;left:0;right:0;top:34px;border-top:3px solid var(--line)}
+.path>div{position:relative;padding-top:92px}
+.path .dot{position:absolute;top:10px;left:0;width:52px;height:52px;border-radius:50%;background:var(--night);border:4px solid var(--vio);display:grid;place-items:center;font-family:'Outfit';font-size:26px}
+.path h3{font-size:54px;margin-bottom:14px}.path p{font-size:27px;color:#d6cdf2}
+.tag{display:inline-block;margin-top:20px;padding:8px 20px;border-radius:999px;border:1px solid var(--vio);color:var(--lav);font-size:21px}
+.tag.ok{background:var(--vio);color:#fff}
+/* preço */
+.price{font-family:'Outfit';font-weight:500;font-size:110px;letter-spacing:-.03em;line-height:1}
+.price small{font-size:34px;font-weight:300;color:var(--mut);letter-spacing:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:2px solid var(--line)}
+.two>div{padding:34px 54px 0 0}.two>div+div{padding-left:54px;border-left:1px solid var(--line)}
+.two h3{font-size:50px;margin-bottom:6px}.two .for{font-size:23px;color:var(--mut);margin-bottom:22px;min-height:60px}
+.two .price{margin:6px 0 26px}.hl h3{color:var(--lav)}
+.badge{font-size:20px;background:var(--vio);padding:5px 16px;border-radius:999px;vertical-align:middle;margin-left:14px;font-family:'Inter';letter-spacing:0}
+/* tabela */
+.tbl{width:100%;border-collapse:collapse}.tbl th{font:500 22px 'Inter';color:var(--mut);text-align:left;padding:0 0 16px;border-bottom:2px solid var(--line)}
+.tbl td{padding:22px 0;border-bottom:1px solid var(--line);font-size:32px;vertical-align:top}.tbl td:last-child,.tbl th:last-child{text-align:right;white-space:nowrap}
+.tbl td small{display:block;font-size:21px;color:var(--mut);margin-top:4px}
+.tbl tr.tot td{border-bottom:0;font-family:'Outfit';font-size:56px;padding-top:30px}.tbl tr.rec td{color:var(--lav)}
+.sc{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:2px solid var(--line);margin-top:6px}
+.sc>div{padding:30px 40px 0 0}.sc>div+div{padding-left:40px;border-left:1px solid var(--line)}
+.sc h3{font-size:36px;margin-bottom:12px}.sc .price{font-size:78px;margin:10px 0 14px}.sc p{font-size:23px;color:#d6cdf2}.sc .rc{background:linear-gradient(#1c1033,transparent);margin-top:-2px}
+/* condições */
+.cond{display:grid;grid-template-columns:1fr 1fr;gap:70px 90px}.cond h3{font-size:42px;margin-bottom:14px;color:var(--lav)}.cond p{font-size:26px;color:#d6cdf2;line-height:1.45}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:50px;margin-top:20px;counter-reset:s}
+.steps>div{border-top:3px solid var(--vio);padding-top:28px}.steps h3{font-size:48px;margin-bottom:12px}.steps p{font-size:26px;color:#d6cdf2}
+.steps .w{font-size:21px;color:var(--lav);margin-bottom:12px}
+/* UI */
+#hud{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;align-items:center;gap:14px;padding:12px 22px;background:linear-gradient(transparent,#000c);opacity:0;transition:opacity .3s}
+body.ui #hud,#hud:hover{opacity:1}
+#hud button{width:42px;height:42px;border-radius:50%;border:0;background:#ffffff1f;color:#fff;font:inherit;font-size:17px;cursor:pointer}#hud button:hover{background:#ffffff40}
+#bar{flex:1;display:flex;gap:5px;height:7px}#bar i{flex:1;background:#ffffff30;border-radius:4px;cursor:pointer}#bar i.on{background:#fff}
+#cnt{color:#fff;font:14px 'Inter';min-width:54px;text-align:right}
+@media print{
+  @page{size:1920px 1080px;margin:0}
+  html,body{overflow:visible;height:auto;background:#000}
+  #stage{position:static;transform:none!important;width:1920px;height:auto;overflow:visible}
+  .slide{position:relative;opacity:1!important;visibility:visible!important;transform:none!important;height:1080px;page-break-after:always;break-after:page;transition:none}
+  #hud{display:none}
+}
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<div id="hud"><button id="bp" aria-label="Anterior">‹</button><button id="bn" aria-label="Próximo">›</button><div id="bar"></div><span id="cnt"></span><button id="bpr" aria-label="Imprimir ou salvar em PDF" title="Imprimir ou salvar em PDF">⎙</button></div>
+<script>
+/* ========= EDITE AQUI: seus dados e valores ========= */
+const CFG = {
+  de: "Seu nome",                         // quem apresenta a proposta
+  contato: "(00) 00000-0000 · voce@seudominio.com.br",
+  para: "ADVM Technology",
+  responsavel: "Denise",
+  validadeDias: 15,
+  site: 1400,                              // já aprovado
+  ident: { essencial: 2800, profissional: 5500 },
+  plano: { presenca: 900, crescimento: 1900 },   // por mês
+  descIdent: 0.15,                         // desconto na identidade ao contratar um plano
+  mesesMin: 6,
+  entrada: 0.5
+};
+/* =================================================== */
+const brl = n => "R$ " + Math.round(n).toLocaleString("pt-BR");
+const data = new Date().toLocaleDateString("pt-BR", { day: "numeric", month: "long", year: "numeric" });
+const C = CFG, dIdent = C.ident.profissional * (1 - C.descIdent);
+const rec = C.site + dIdent;
+const mark = `<svg viewBox="0 0 100 100" width="62" height="62" aria-hidden="true"><path d="M12 34V12H34M66 12H88V34M88 66V88H66M34 88H12V66" fill="none" stroke="#7c35fd" stroke-width="7" stroke-linecap="square"/><path d="M32 70L50 30L68 70" fill="none" stroke="#c9bff2" stroke-width="7.5"/><path d="M40 58H60" stroke="#c9bff2" stroke-width="5"/></svg>`;
+const foot = (n) => `<div class="foot"><span>Proposta para ${C.para}</span><span>${n}</span></div>`;
+const slides = [
+`<section class="slide cover"><div class="glow"></div>
+  <div class="logo" style="visibility:hidden">${mark}<div><b>ADVM</b><small>technology</small></div></div>
+  <div><p class="k">Proposta comercial</p><h1>Site, identidade visual e presença digital.</h1></div>
+  <dl class="meta"><div><dt>Para</dt><dd>${C.para}</dd></div><div><dt>Preparada por</dt><dd>${C.de}</dd></div><div><dt>Data</dt><dd>${data}</dd></div><div><dt>Validade</dt><dd>${C.validadeDias} dias</dd></div></dl></section>`,
+
+`<section class="slide"><div class="glow"></div><p class="k">Ponto de partida</p><h2>A ADVM entrega obras grandes. Falta uma presença à altura.</h2>
+  <div class="cols"><div><h3>O que a ADVM faz</h3><p>Controle de acesso, câmeras, alarme e detecção de incêndio em escolas, universidades, condomínios, hotéis e hospitais.</p></div>
+  <div><h3>O que falta hoje</h3><ul class="l"><li>Site próprio</li><li>Logo em vetor, com cores e regras de uso</li><li>Perfil no Google e nas redes</li></ul></div>
+  <div><h3>Onde queremos chegar</h3><p>Ser encontrada por quem contrata obras de segurança e passar a confiança que o trabalho já merece.</p></div></div>${foot(2)}</section>`,
+
+`<section class="slide"><div class="glow"></div><p class="k">O caminho</p><h2>Três etapas, cada uma sustenta a seguinte.</h2>
+  <div class="path"><div><span class="dot">1</span><h3>Site</h3><p>A vitrine da empresa: serviços, obras e um jeito simples de pedir orçamento.</p><span class="tag ok">Aprovado</span></div>
+  <div><span class="dot">2</span><h3>Identidade visual</h3><p>Logo, cores, fontes e regras. É o que faz o site, o uniforme e as redes parecerem uma só empresa.</p><span class="tag">Proposta nesta apresentação</span></div>
+  <div><span class="dot">3</span><h3>Presença contínua</h3><p>Perfil no Google, redes e manutenção do site, todo mês, com relatório de resultados.</p><span class="tag">Opcional, mensal</span></div></div>${foot(3)}</section>`,
+
+`<section class="slide"><div class="glow"></div><p class="k">Etapa 1</p><h2>Site institucional</h2>
+  <div class="two"><div><div class="price">${brl(C.site)}<small> pagamento único</small></div><ul class="l"><li>Site de uma página, que funciona bem no celular</li><li>Serviços, obras, etapas de trabalho e contato</li><li>Botão e formulário que abrem o WhatsApp</li><li>Publicação no ar e ajuste final com você</li></ul></div>
+  <div><p class="small mut" style="margin-bottom:20px">Fica de fora, e pode ser contratado à parte</p><ul class="l no"><li>Domínio e hospedagem (custo da empresa, com ajuda na configuração)</li><li>Textos e fotos além dos que forem enviados</li><li>Novas páginas depois da entrega</li></ul></div></div>${foot(4)}</section>`,
+
+`<section class="slide"><div class="glow"></div><p class="k">Etapa 2</p><h2>Identidade visual, do zero</h2>
+  <div class="two"><div><h3>Essencial</h3><p class="for">Para ter uma marca profissional e começar a usar.</p><div class="price">${brl(C.ident.essencial)}</div><ul class="l"><li>Logo em vetor, em versões escura, clara e vertical</li><li>Paleta de cores e duas fontes</li><li>Mini guia de uso</li><li>Avatar e ícone do site</li></ul></div>
+  <div class="hl"><h3>Profissional<span class="badge">Recomendado</span></h3><p class="for">Para a marca aparecer igual em tudo.</p><div class="price">${brl(C.ident.profissional)}</div><ul class="l"><li>Tudo do Essencial</li><li>Manual de marca completo</li><li>Cartão, assinatura de e-mail e capa de rede social</li><li>Modelos de post, uniforme e adesivo de veículo</li></ul></div></div>${foot(5)}</section>`,
+
+`<section class="slide"><div class="glow"></div><p class="k">Etapa 3</p><h2>Presença contínua, todo mês</h2>
+  <div class="two"><div><h3>Presença</h3><p class="for">Para ser encontrada e manter tudo no ar.</p><div class="price">${brl(C.plano.presenca)}<small> por mês</small></div><ul class="l"><li>Hospedagem e manutenção do site</li><li>Perfil no Google atualizado</li><li>Relatório mensal de contatos</li></ul></div>
+  <div class="hl"><h3>Crescimento</h3><p class="for">Para gerar mais pedidos de orçamento.</p><div class="price">${brl(C.plano.crescimento)}<small> por mês</small></div><ul class="l"><li>Tudo do plano Presença</li><li>Conteúdo para redes e Google</li><li>Anúncios de busca, com verba paga à parte</li></ul></div></div>
+  <p class="small mut" style="margin-top:36px">Contrato mínimo de ${C.mesesMin} meses. Anúncios seguem as regras de comunicação da Intelbras para parceiros.</p>${foot(6)}</section>`,
+
+`<section class="slide"><div class="glow"></div><p class="k">Investimento</p><h2>Três jeitos de começar.</h2>
+  <div class="sc"><div><h3>Só o site</h3><div class="price">${brl(C.site)}</div><p>O que já foi aprovado. A marca e a presença ficam para depois.</p></div>
+  <div><h3>Site e identidade</h3><div class="price">${brl(C.site + C.ident.profissional)}</div><p>Site mais identidade Profissional, pagos uma vez.</p></div>
+  <div class="rc"><h3>Completo, recomendado</h3><div class="price">${brl(rec)}</div><p style="font-size:30px;color:#c9bff2;margin:-6px 0 12px">e ${brl(C.plano.presenca)} por mês</p><p>Com o plano Presença, a identidade Profissional sai por ${brl(dIdent)}, ${Math.round(C.descIdent * 100)}% menos.</p></div></div>
+  <p class="small mut" style="margin-top:34px">Valores em reais. O plano mensal tem contrato mínimo de ${C.mesesMin} meses, o que dá ${brl(C.plano.presenca * C.mesesMin)} no período.</p>${foot(7)}</section>`,
+
+`<section class="slide"><div class="glow"></div><p class="k">Condições</p><h2>Como funciona o combinado.</h2>
+  <div class="cond"><div><h3>Pagamento</h3><p>${Math.round(C.entrada * 100)}% de entrada para começar e o restante na entrega. Pix ou transferência. Plano mensal pago todo dia 5.</p></div>
+  <div><h3>Ajustes</h3><p>Até 2 rodadas de ajuste em cada entrega. Pedidos além disso são orçados à parte.</p></div>
+  <div><h3>Direitos de uso</h3><p>Depois do pagamento final, a logo e os arquivos são da ${C.para}, com todos os direitos de uso.</p></div>
+  <div><h3>Prazos</h3><p>Identidade em cerca de 3 semanas. Plano mensal começa após a aprovação. Prazos contam a partir do envio do material pela empresa.</p></div></div>${foot(8)}</section>`,
+
+`<section class="slide"><div class="glow"></div><p class="k">Próximos passos</p><h2>Para começar, são quatro passos.</h2>
+  <div class="steps"><div><div class="w">Esta semana</div><h3>Aprovar</h3><p>Escolher a identidade e o plano mensal.</p></div><div><div class="w">Em seguida</div><h3>Assinar</h3><p>Confirmar o combinado por escrito.</p></div><div><div class="w">No início</div><h3>Entrada</h3><p>Pagamento de ${Math.round(C.entrada * 100)}% para reservar a agenda.</p></div><div><div class="w">Logo depois</div><h3>Começar</h3><p>Reunião de partida e envio de fotos, textos e arquivos.</p></div></div>
+  <div style="margin-top:90px;border-top:2px solid var(--line);padding-top:34px"><p class="mut" style="font-size:24px">Dúvidas ou ajustes na proposta</p><p style="font-size:40px;font-family:'Outfit'">${C.de} · ${C.contato}</p><p class="mut" style="font-size:22px;margin-top:10px">Proposta válida por ${C.validadeDias} dias a partir de ${data}.</p></div>${foot(9)}</section>`
+];
+const st = document.getElementById("stage"); st.innerHTML = slides.join("");
+const els = [...st.querySelectorAll(".slide")], bar = document.getElementById("bar"); bar.innerHTML = els.map((_, i) => `<i data-i="${i}"></i>`).join("");
+let cur = 0;
+function go(i) { cur = Math.max(0, Math.min(els.length - 1, i)); els.forEach((e, k) => { e.classList.toggle("on", k === cur); e.classList.toggle("past", k < cur); }); [...bar.children].forEach((b, k) => b.classList.toggle("on", k <= cur)); document.getElementById("cnt").textContent = `${cur + 1} / ${els.length}`; history.replaceState(null, "", "#" + (cur + 1)); }
+function fit() { const s = Math.min(innerWidth / 1920, innerHeight / 1080); st.style.transform = `translate(${-960 * s}px,${-540 * s}px) scale(${s})`; }
+addEventListener("resize", fit); fit();
+document.getElementById("bn").onclick = () => go(cur + 1); document.getElementById("bp").onclick = () => go(cur - 1); document.getElementById("bpr").onclick = () => print();
+bar.addEventListener("click", e => { if (e.target.dataset.i) go(+e.target.dataset.i); });
+addEventListener("keydown", e => { if (["ArrowRight", "PageDown", " "].includes(e.key)) { e.preventDefault(); go(cur + 1); } else if (["ArrowLeft", "PageUp"].includes(e.key)) go(cur - 1); else if (e.key === "Home") go(0); else if (e.key === "End") go(els.length - 1); });
+st.addEventListener("click", e => { const r = st.getBoundingClientRect(); go(e.clientX > r.left + r.width / 2 ? cur + 1 : cur - 1); });
+let t; const ui = () => { document.body.classList.add("ui"); clearTimeout(t); t = setTimeout(() => document.body.classList.remove("ui"), 2400); }; addEventListener("pointermove", ui); ui();
+go((parseInt(location.hash.slice(1)) || 1) - 1);
+</script>
+</body>
+</html>
