@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mockups | ADVM technology</title>
+<link rel="icon" href="../logos/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}body{background:#0b0812;color:#f3effd;font:17px/1.6 'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.w{width:min(1240px,92%);margin:0 auto}h1,h2{font-family:'Outfit',sans-serif;font-weight:500;letter-spacing:-.025em;line-height:1.05}
+header{padding:60px 0 20px}header h1{font-size:clamp(2.2rem,5vw,3.8rem)}header p{color:#b9b0d6;max-width:66ch;margin-top:14px}
+.note{border-left:3px solid #7c35fd;padding:4px 0 4px 18px;color:#d6cdf2;max-width:74ch;margin-top:20px;font-size:.95rem}
+a.back{color:#c9bff2;font-size:.9rem;text-decoration:none;display:inline-block;margin-bottom:22px}
+section{padding:46px 0;border-top:1px solid #2a1f45}section h2{font-size:1.9rem;margin-bottom:6px}section p.d{color:#a79dc9;margin-bottom:18px;max-width:70ch;font-size:.95rem}
+.sc{border-radius:14px;overflow:hidden;border:1px solid #2a1f45;line-height:0}.sc svg{width:100%;height:auto;display:block}
+.dl{display:inline-block;margin-top:12px;color:#c9bff2;font-size:.9rem}
+footer{padding:40px 0 70px;color:#8e84b3;font-size:.85rem;border-top:1px solid #2a1f45}
+</style></head><body>
+<div class="w"><header><a class="back" href="../index.html">← Manual de marca</a><h1>Mockups da identidade</h1>
+<p>Cartão de visita, camisas, fachada, escritório e uma opção de carro, todos com a logo violeta da ADVM.</p>
+<p class="note">São <b>ilustrações</b> feitas para mostrar o conceito, não fotografias. Para apresentar a um cliente com aparência de foto, use esta logo em modelos de mockup profissionais (PSD) de um banco como Envato ou Freepik. O carro é um hatch compacto genérico, sem logo nem detalhes de fabricante.</p></header>
+<div id="out"></div><footer>ADVM technology · mockups ilustrativos, versão 1.0</footer></div>
+<script>
+const L = "../logos/";
+const IM = (f, x, y, w, h, extra = "") => `<image href="${L}${f}" x="${x}" y="${y}" width="${w}" height="${h}" ${extra}/>`;
+const DEFS = (id) => `<defs>
+ <filter id="b${id}" x="-30%" y="-30%" width="160%" height="170%"><feGaussianBlur stdDeviation="22"/></filter>
+ <filter id="s${id}" x="-30%" y="-30%" width="160%" height="170%"><feGaussianBlur stdDeviation="8"/></filter>
+ <filter id="g${id}" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="30"/></filter></defs>`;
+/* ---------- 1. cartões ---------- */
+function cartoes() {
+  const card = (f, x, y, r) => `<g transform="translate(${x} ${y}) rotate(${r})"><rect x="14" y="26" width="620" height="345" rx="12" fill="#12002e" opacity=".55" filter="url(#b1)"/><rect width="620" height="345" rx="10" fill="#e9e4f7"/><clipPath id="c${f.length}${x}"><rect width="620" height="345" rx="10"/></clipPath><g clip-path="url(#c${f.length}${x})"><image href="../papelaria/${f}" width="620" height="345"/></g><rect width="620" height="345" rx="10" fill="none" stroke="#fff" stroke-opacity=".18"/><rect width="620" height="345" rx="10" fill="url(#lg1)"/></g>`;
+  return `<svg viewBox="0 0 1600 1000">${DEFS(1)}<defs><linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9457ff"/><stop offset="1" stop-color="#4318a8"/></linearGradient><radialGradient id="lg1" cx="20%" cy="0%" r="110%"><stop offset="0" stop-color="#fff" stop-opacity=".16"/><stop offset=".6" stop-color="#fff" stop-opacity="0"/></radialGradient><radialGradient id="vg1" cx="50%" cy="50%" r="75%"><stop offset=".55" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".35"/></radialGradient></defs>
+  <rect width="1600" height="1000" fill="url(#bg1)"/>
+  <g opacity=".9">${card("cartao-verso.png", 880, 640, 4)}</g>${card("cartao-verso.png", 250, 420, -8)}${card("cartao-frente.png", 700, 160, 9)}
+  <rect width="1600" height="1000" fill="url(#vg1)"/></svg>`;
+}
+/* ---------- 2. camisas ---------- */
+const TEE = "M250 80C292 124 408 124 450 80L568 128L672 262L590 322L548 268L548 650L152 650L152 268L110 322L28 262L132 128Z";
+const POLO = "M250 82C292 112 408 112 450 82L568 130L650 244L578 296L548 258L548 650L152 650L152 258L122 296L50 244L132 130Z";
+function shirt(x, y, s, kind, color, art) {
+  const polo = kind === "polo", d = polo ? POLO : TEE, dark = color === "#14101c" ? "#000" : "#0a0418";
+  const collar = polo ? `<path d="M250 82L296 150L350 120L304 70Z" fill="${color}" stroke="#ffffff22"/><path d="M450 82L404 150L350 120L396 70Z" fill="${color}" stroke="#ffffff22"/><path d="M296 150L350 120L404 150L350 300Z" fill="${color}" opacity=".9"/><rect x="338" y="124" width="24" height="170" fill="#ffffff10"/>${[160,205,250].map(yy => `<circle cx="350" cy="${yy}" r="6" fill="#ffffff55"/>`).join("")}` :
+    `<path d="M256 88C296 148 404 148 444 88" fill="none" stroke="${dark}" stroke-opacity=".55" stroke-width="14" stroke-linecap="butt"/><path d="M252 92C294 140 406 140 448 92" fill="none" stroke="#fff" stroke-opacity=".08" stroke-width="3"/>`;
+  return `<g transform="translate(${x} ${y}) scale(${s})"><ellipse cx="350" cy="672" rx="270" ry="22" fill="#2a1f45" opacity=".35" filter="url(#s2)"/>
+   <path d="${d}" fill="${color}"/>
+   <path d="${d}" fill="url(#sh2)"/>
+   <path d="M152 268C230 330 260 520 200 650M548 268C470 330 440 520 500 650M300 330C330 420 330 540 310 650" fill="none" stroke="#000" stroke-opacity=".16" stroke-width="10" stroke-linecap="round" filter="url(#s2)"/>
+   <path d="M170 300C230 360 250 480 230 640M530 300C470 360 450 480 470 640" fill="none" stroke="#fff" stroke-opacity=".05" stroke-width="12" stroke-linecap="round" filter="url(#s2)"/>
+   ${collar}${art}</g>`;
+}
+function camisas() {
+  const front = IM("simbolo-fundo-escuro.svg", 400, 210, 74, 74);
+  const back = IM("logo-vertical-fundo-escuro.svg", 215, 170, 270, 270) + `<text x="350" y="470" text-anchor="middle" font-family="Outfit" font-weight="300" font-size="17" letter-spacing="4" fill="#c9bff2">SEGURANÇA ELETRÔNICA</text>`;
+  const poloArt = IM("simbolo-fundo-escuro.svg", 398, 230, 58, 58, 'opacity=".95"');
+  return `<svg viewBox="0 0 1600 1000">${DEFS(2)}<defs><linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1edfb"/><stop offset="1" stop-color="#d3c9ec"/></linearGradient><linearGradient id="sh2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#000" stop-opacity=".34"/><stop offset=".25" stop-color="#000" stop-opacity="0"/><stop offset=".6" stop-color="#fff" stop-opacity=".06"/><stop offset="1" stop-color="#000" stop-opacity=".4"/></linearGradient></defs>
+  <rect width="1600" height="1000" fill="url(#bg2)"/>
+  ${shirt(10, 120, .8, "tee", "#14101c", front)}${shirt(540, 120, .8, "tee", "#14101c", back)}${shirt(1070, 120, .8, "polo", "#2b1457", poloArt)}
+  <g font-family="Inter" font-size="22" fill="#4a3d66" text-anchor="middle"><text x="292" y="780">Camiseta, frente</text><text x="822" y="780">Camiseta, costas</text><text x="1352" y="780">Polo, bordado no peito</text></g></svg>`;
+}
+/* ---------- 3. fachada ---------- */
+function fachada() {
+  const win = (x) => `<g><clipPath id="wc${x}"><rect x="${x}" y="540" width="250" height="300"/></clipPath><rect x="${x}" y="540" width="250" height="300" fill="#2a2140"/><rect x="${x}" y="540" width="250" height="300" fill="url(#gl3)"/><rect x="${x + 10}" y="560" width="230" height="270" fill="#ffd9a8" opacity=".12"/><path clip-path="url(#wc${x})" d="M${x} 840L${x + 250} 540" stroke="#fff" stroke-opacity=".07" stroke-width="40"/></g>`;
+  return `<svg viewBox="0 0 1600 1000">${DEFS(3)}<defs><linearGradient id="sk3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b1048"/><stop offset=".55" stop-color="#6b3fc4"/><stop offset="1" stop-color="#e9a3b5"/></linearGradient><linearGradient id="gl3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8fb0ff" stop-opacity=".25"/><stop offset="1" stop-color="#ffd9a8" stop-opacity=".25"/></linearGradient><linearGradient id="gd3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c2438"/><stop offset="1" stop-color="#17121f"/></linearGradient><linearGradient id="sw3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3348"/><stop offset="1" stop-color="#1e1a28"/></linearGradient></defs>
+  <rect width="1600" height="1000" fill="url(#sk3)"/>
+  <g fill="#fff" opacity=".7">${[[120,80],[300,150],[560,60],[900,110],[1180,70],[1420,140],[1500,50],[760,170]].map(([x,y]) => `<circle cx="${x}" cy="${y}" r="2"/>`).join("")}</g>
+  <rect x="0" y="870" width="1600" height="130" fill="url(#sw3)"/><rect x="0" y="866" width="1600" height="8" fill="#4a4258"/>
+  <path d="M0 930H1600" stroke="#ffffff10" stroke-width="2" stroke-dasharray="60 40"/>
+  <rect x="200" y="260" width="1200" height="610" fill="url(#gd3)"/>
+  ${Array.from({ length: 24 }, (_, i) => `<path d="M${200 + i * 50} 470V870" stroke="#fff" stroke-opacity=".035" stroke-width="2"/>`).join("")}
+  <rect x="200" y="260" width="1200" height="210" fill="#7c35fd"/><rect x="200" y="260" width="1200" height="210" fill="url(#bs3)"/>
+  <defs><linearGradient id="bs3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".14"/><stop offset="1" stop-color="#000" stop-opacity=".18"/></linearGradient></defs>
+  <rect x="150" y="250" width="1300" height="240" fill="#7c35fd" opacity=".35" filter="url(#g3)"/>
+  ${IM("logo-horizontal-branco.svg", 250, 290, 760, 134)}
+  <path d="M1050 290V440" stroke="#ffffff55" stroke-width="2"/>
+  <rect x="1090" y="290" width="270" height="150" rx="6" fill="none" stroke="#ffffffaa" stroke-width="2" stroke-dasharray="10 8"/><text x="1225" y="360" text-anchor="middle" font-family="Inter" font-size="19" fill="#fff" opacity=".95">espaço do selo</text><text x="1225" y="388" text-anchor="middle" font-family="Inter" font-size="19" fill="#fff" opacity=".95">oficial Intelbras</text>
+  ${win(240)}${win(1110)}
+  <rect x="640" y="540" width="320" height="330" fill="#1c1626"/><rect x="654" y="552" width="140" height="318" fill="#2a2140"/><rect x="654" y="552" width="140" height="318" fill="url(#gl3)"/><rect x="806" y="552" width="140" height="318" fill="#2a2140"/><rect x="806" y="552" width="140" height="318" fill="url(#gl3)"/>
+  <rect x="772" y="700" width="10" height="90" rx="5" fill="#cfc6e6"/><rect x="818" y="700" width="10" height="90" rx="5" fill="#cfc6e6"/>
+  ${IM("simbolo-fundo-escuro.svg", 708, 600, 84, 84, 'opacity=".95"')}
+  <text x="800" y="500" text-anchor="middle" font-family="Outfit" font-weight="400" font-size="26" letter-spacing="3" fill="#c9bff2">SEGURANÇA ELETRÔNICA</text>
+  <rect x="1000" y="560" width="70" height="70" rx="6" fill="#0b0812" stroke="#ffffff30"/><text x="1035" y="610" text-anchor="middle" font-family="Outfit" font-weight="500" font-size="36" fill="#f3effd">000</text>
+  <rect x="270" y="590" width="190" height="14" rx="3" fill="#ffffff" opacity=".0"/>
+  <g font-family="Inter" font-size="20" fill="#f3effd"><text x="268" y="580" opacity=".75">Seg a sex, 8h às 18h</text><text x="268" y="610" opacity=".75">(00) 00000-0000</text></g>
+  <rect x="200" y="260" width="1200" height="14" fill="#000" opacity=".25"/>
+  <path d="M640 500H960" stroke="#7c35fd" stroke-width="4" opacity=".0"/>
+  <ellipse cx="800" cy="905" rx="520" ry="26" fill="#7c35fd" opacity=".28" filter="url(#g3)"/>
+  <g><rect x="120" y="760" width="60" height="110" rx="6" fill="#2b2336"/><ellipse cx="150" cy="740" rx="64" ry="70" fill="#2f6b4a"/><ellipse cx="128" cy="752" rx="40" ry="50" fill="#3a8a5d"/><ellipse cx="1450" cy="780" rx="58" ry="62" fill="#2f6b4a"/><rect x="1420" y="800" width="60" height="70" rx="6" fill="#2b2336"/></g>
+  <g><rect x="60" y="400" width="10" height="470" fill="#17121f"/><circle cx="65" cy="395" r="16" fill="#ffe2a8"/><circle cx="65" cy="395" r="60" fill="#ffe2a8" opacity=".2" filter="url(#g3)"/></g></svg>`;
+}
+/* ---------- 4. escritório ---------- */
+function escritorio() {
+  const frame = (x, y, w, h) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#f3effd"/><rect x="${x + 10}" y="${y + 10}" width="${w - 20}" height="${h - 20}" fill="#190926"/><g transform="translate(${x + 24} ${y + 24})" stroke="#c9bff2" stroke-width="2" fill="none" opacity=".8"><rect width="${w - 48}" height="${h - 48}"/><path d="M0 ${(h - 48) / 2}H${w - 48}M${(w - 48) / 2} 0V${h - 48}"/></g>`;
+  return `<svg viewBox="0 0 1600 1000">${DEFS(4)}<defs><linearGradient id="wl4" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1a1029"/><stop offset=".5" stop-color="#241540"/><stop offset="1" stop-color="#150c24"/></linearGradient><linearGradient id="fl4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#26202e"/><stop offset="1" stop-color="#0f0b16"/></linearGradient><linearGradient id="dk4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3effd"/><stop offset="1" stop-color="#cfc6e6"/></linearGradient></defs>
+  <rect width="1600" height="1000" fill="url(#wl4)"/>
+  <rect y="720" width="1600" height="280" fill="url(#fl4)"/><rect y="716" width="1600" height="8" fill="#31283d"/>
+  ${Array.from({ length: 10 }, (_, i) => `<path d="M${i * 180 - 100} 1000L${300 + i * 110} 724" stroke="#fff" stroke-opacity=".04" stroke-width="2"/>`).join("")}
+  <ellipse cx="800" cy="330" rx="520" ry="200" fill="#7c35fd" opacity=".45" filter="url(#g4)"/>
+  <rect x="380" y="150" width="840" height="360" rx="18" fill="#2a1659" opacity=".0"/>
+  ${IM("logo-horizontal-fundo-escuro.svg", 410, 215, 780, 138)}
+  <text x="800" y="420" text-anchor="middle" font-family="Outfit" font-weight="300" font-size="28" letter-spacing="8" fill="#c9bff2">SEGURANÇA QUE VIGIA, DETECTA E RESPONDE</text>
+  <g stroke="#2a1f45" stroke-width="4">${[300, 800, 1300].map(x => `<path d="M${x} 0V60"/>`).join("")}</g>
+  ${[300, 800, 1300].map(x => `<ellipse cx="${x}" cy="76" rx="40" ry="18" fill="#f3effd"/><ellipse cx="${x}" cy="94" rx="120" ry="40" fill="#ffe2a8" opacity=".14" filter="url(#g4)"/>`).join("")}
+  ${frame(110, 190, 190, 250)}${frame(1300, 190, 190, 250)}
+  <rect x="470" y="600" width="660" height="240" rx="6" fill="url(#dk4)"/><rect x="470" y="600" width="660" height="22" fill="#fff" opacity=".6"/>
+  <rect x="470" y="660" width="660" height="180" fill="#1a1029"/><rect x="470" y="826" width="660" height="6" fill="#7c35fd" filter="url(#s4)"/><rect x="470" y="828" width="660" height="4" fill="#9a63ff"/>
+  ${IM("simbolo-fundo-escuro.svg", 740, 685, 120, 120)}
+  <ellipse cx="800" cy="850" rx="400" ry="18" fill="#7c35fd" opacity=".35" filter="url(#g4)"/>
+  <g><rect x="530" y="560" width="120" height="14" rx="3" fill="#2a1f45"/><rect x="560" y="520" width="60" height="42" rx="3" fill="#0b0812" stroke="#ffffff30"/><rect x="900" y="578" width="100" height="22" rx="4" fill="#cfc6e6"/><rect x="915" y="568" width="70" height="12" rx="2" fill="#7c35fd"/></g>
+  <g><rect x="1330" y="640" width="90" height="170" rx="10" fill="#2a2036"/><rect x="1316" y="810" width="118" height="22" rx="6" fill="#17121f"/>${[[1375,560,0],[1330,600,-30],[1420,598,30],[1355,520,-12],[1398,528,14]].map(([x, y, r]) => `<ellipse cx="${x}" cy="${y}" rx="22" ry="80" fill="${r % 2 ? "#3a8a5d" : "#2f6b4a"}" transform="rotate(${r} ${x} ${y + 60})"/>`).join("")}</g>
+  <g><rect x="150" y="610" width="140" height="22" rx="10" fill="#7c35fd"/><rect x="170" y="632" width="100" height="200" rx="10" fill="#1d1428"/><rect x="150" y="760" width="140" height="22" rx="10" fill="#7c35fd"/></g>
+  <rect x="470" y="842" width="660" height="30" fill="#000" opacity=".35" filter="url(#s4)"/></svg>`;
+}
+/* ---------- 5. carro (opcional) ---------- */
+function carro() {
+  const wheel = (cx) => `<circle cx="${cx}" cy="650" r="86" fill="#0b0812"/><circle cx="${cx}" cy="650" r="62" fill="#2b2536"/><circle cx="${cx}" cy="650" r="49" fill="#cfc6e6"/>${Array.from({ length: 5 }, (_, i) => `<path d="M${cx} 650L${cx + Math.cos(i * 1.2566 - 1.57) * 47} ${650 + Math.sin(i * 1.2566 - 1.57) * 47}" stroke="#7d7590" stroke-width="13" stroke-linecap="round"/>`).join("")}<circle cx="${cx}" cy="650" r="11" fill="#2b2536"/>`;
+  return `<svg viewBox="0 0 1600 1000">${DEFS(5)}<defs><linearGradient id="bg5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ece7f8"/><stop offset="1" stop-color="#c9bfe6"/></linearGradient><linearGradient id="bd5" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".55" stop-color="#ece9f3"/><stop offset="1" stop-color="#b9b2cc"/></linearGradient><linearGradient id="gl5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3a3350"/><stop offset="1" stop-color="#14101f"/></linearGradient></defs>
+  <rect width="1600" height="1000" fill="url(#bg5)"/><rect y="745" width="1600" height="255" fill="#b7acd6" opacity=".55"/>
+  <ellipse cx="800" cy="742" rx="520" ry="28" fill="#2a1f45" opacity=".42" filter="url(#s5)"/>
+  <path d="M320 660V565C320 538 338 528 375 520L545 482C600 418 665 354 765 350L1085 346C1160 346 1205 402 1232 470L1252 478C1272 484 1282 502 1282 534V660Z" fill="url(#bd5)" stroke="#9a92b3" stroke-width="3"/>
+  <path d="M580 468C628 408 680 372 758 368L1075 366C1128 366 1165 408 1192 468Z" fill="url(#gl5)"/><path d="M905 368V468" stroke="#9a92b3" stroke-width="7"/>
+  <path d="M620 460L700 372" stroke="#fff" stroke-opacity=".13" stroke-width="30"/>
+  <path d="M322 610H1282" stroke="#c9c2dc" stroke-width="3"/>
+  <path d="M905 468V620M1150 470V620M585 470V620" stroke="#b3abc9" stroke-width="3" fill="none"/>
+  <rect x="800" y="500" width="62" height="9" rx="4" fill="#9a92b3"/><rect x="1048" y="504" width="62" height="9" rx="4" fill="#9a92b3"/>
+  <path d="M590 472L538 458L526 492L592 488Z" fill="#cfc6e6" stroke="#9a92b3"/>
+  <path d="M1262 500C1278 502 1286 514 1286 534L1240 532Z" fill="#ff4a4a" opacity=".85"/><path d="M322 540C336 536 356 538 372 548L322 560Z" fill="#fffbe6"/>
+  <path d="M320 660H1282V682H320Z" fill="#cfc6e6" opacity=".6"/>
+  ${wheel(470)}${wheel(1110)}
+  <g>${IM("logo-horizontal-fundo-claro.svg", 925, 506, 215, 40)}
+  <text x="925" y="562" font-family="Outfit" font-weight="500" font-size="19" fill="#190926">Segurança eletrônica</text></g>
+  <g font-family="Inter" font-size="20" fill="#4a3d66"><text x="800" y="830" text-anchor="middle">Hatch compacto genérico, formato de referência para o adesivo</text></g></svg>`;
+}
+const SC = [
+ ["Cartão de visita", "Frente em violeta e verso escuro, no tamanho padrão de 90 × 50 mm.", cartoes, "cartoes"],
+ ["Camisas e uniforme", "Camiseta preta (frente e costas) e polo ameixa com símbolo bordado no peito.", camisas, "camisas"],
+ ["Fachada", "Letreiro iluminado em violeta, vidro com adesivo e a faixa reservada ao selo oficial da Intelbras, com cerca de 25% da largura, como pede o manual de parceiros.", fachada, "fachada"],
+ ["Escritório", "Recepção com a logo iluminada na parede, balcão com o símbolo e luz de LED em violeta.", escritorio, "escritorio"],
+ ["Carro (opcional)", "Adesivo na lateral de um hatch compacto. O desenho é genérico, sem logo ou detalhes de fabricante. Para um modelo específico, use um mockup profissional.", carro, "carro"]
+];
+document.getElementById("out").innerHTML = SC.map(([t, d, fn, id]) => `<section id="${id}"><h2>${t}</h2><p class="d">${d}</p><div class="sc" data-id="${id}">${fn()}</div><a class="dl" href="png/${id}.png" download>Baixar ${id}.png (1600 × 1000)</a></section>`).join("");
+</script></body></html>
