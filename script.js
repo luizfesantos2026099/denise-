@@ -134,6 +134,21 @@ addEventListener("scroll", onScroll, { passive: true }); addEventListener("resiz
   (function loop() { x += (tx - x) * .18; y += (ty - y) * .18; cur.style.transform = `translate(${x}px,${y}px)`; requestAnimationFrame(loop); })();
 })();
 
+
+/* ---------- números que contam ---------- */
+(function () {
+  const box = $("#stats"); if (!box) return;
+  const items = $$("dt[data-count]", box), fmt = n => n.toLocaleString("pt-BR");
+  const set = (el, v) => { el.textContent = (el.dataset.pre || "") + fmt(v) + (el.dataset.suf || ""); };
+  if (RM) { items.forEach(el => set(el, +el.dataset.count)); return; }
+  let done = false;
+  function run() {
+    if (done) return; done = true; const t0 = performance.now(), dur = 1700;
+    (function f(now) { const k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3); items.forEach(el => set(el, Math.round(e * +el.dataset.count))); if (k < 1) requestAnimationFrame(f); })(t0);
+  }
+  new IntersectionObserver((es, ob) => { if (es[0].isIntersecting) { setTimeout(run, 700); ob.disconnect(); } }, { threshold: .5 }).observe(box);
+})();
+
 /* ---------- botões magnéticos ---------- */
 if (fine && !RM) $$(".magnet").forEach(b => {
   b.addEventListener("pointermove", e => { const r = b.getBoundingClientRect(); b.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .2}px,${(e.clientY - r.top - r.height / 2) * .28}px)`; });
