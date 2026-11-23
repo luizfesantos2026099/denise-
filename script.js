@@ -69,8 +69,8 @@ addEventListener("scroll", onScroll, { passive: true }); addEventListener("resiz
       return { P, cum, total: cum[cum.length - 1] };
     }
     function at(t, s) { s = Math.max(0, Math.min(t.total, s)); let i = 1; while (i < t.cum.length - 1 && t.cum[i] < s) i++; const k = (s - t.cum[i - 1]) / ((t.cum[i] - t.cum[i - 1]) || 1); return [t.P[i - 1][0] + (t.P[i][0] - t.P[i - 1][0]) * k, t.P[i - 1][1] + (t.P[i][1] - t.P[i - 1][1]) * k]; }
-    const cf = (x, y) => { if (!calm) return 1; const r0 = Math.min(W, H) * .1, r1 = Math.max(W, H) * .52, d = Math.hypot(x - W / 2, y - H * .46), f = Math.max(0, Math.min(1, (d - r0) / (r1 - r0))); return 1 - .72 * (1 - f); };
-    const newPulse = (i, init) => ({ i, s: init ? rand(0, traces[i].total) : -rand(0, 300), v: rand(90, 190), len: rand(70, 130) });
+    const cf = (x, y) => { if (!calm) return 1; const r0 = Math.min(W, H) * .1, r1 = Math.max(W, H) * .52, d = Math.hypot(x - W / 2, y - H * .46), f = Math.max(0, Math.min(1, (d - r0) / (r1 - r0))); return 1 - .5 * (1 - f); };
+    const newPulse = (i, init) => ({ i, s: init ? rand(0, traces[i].total) : -rand(0, 300), v: rand(130, 240), len: rand(90, 160) });
 
     function build() {
       const r = cv.getBoundingClientRect(); W = Math.max(1, r.width); H = Math.max(1, r.height); dpr = Math.min(devicePixelRatio || 1, 1.5);
@@ -83,11 +83,11 @@ addEventListener("scroll", onScroll, { passive: true }); addEventListener("resiz
     function bake() {
       bctx.setTransform(dpr, 0, 0, dpr, 0, 0); bctx.clearRect(0, 0, W, H); const [r, g, b] = C.a; bctx.lineJoin = "round"; bctx.lineCap = "round";
       traces.forEach(t => {
-        bctx.beginPath(); t.P.forEach(([x, y], i) => i ? bctx.lineTo(x, y) : bctx.moveTo(x, y)); bctx.strokeStyle = `rgba(${r},${g},${b},.28)`; bctx.lineWidth = 1.3; bctx.stroke();
-        [t.P[0], t.P[t.P.length - 1]].forEach(([x, y]) => { bctx.beginPath(); bctx.arc(x, y, 4, 0, 7); bctx.strokeStyle = `rgba(${r},${g},${b},.45)`; bctx.lineWidth = 1.4; bctx.stroke(); bctx.beginPath(); bctx.arc(x, y, 1.6, 0, 7); bctx.fillStyle = `rgba(${r},${g},${b},.6)`; bctx.fill(); });
-        for (let i = 1; i < t.P.length - 1; i += 2) { bctx.beginPath(); bctx.arc(t.P[i][0], t.P[i][1], 1.8, 0, 7); bctx.fillStyle = `rgba(${r},${g},${b},.35)`; bctx.fill(); }
+        bctx.beginPath(); t.P.forEach(([x, y], i) => i ? bctx.lineTo(x, y) : bctx.moveTo(x, y)); bctx.strokeStyle = `rgba(${r},${g},${b},.5)`; bctx.lineWidth = 1.6; bctx.stroke();
+        [t.P[0], t.P[t.P.length - 1]].forEach(([x, y]) => { bctx.beginPath(); bctx.arc(x, y, 4, 0, 7); bctx.strokeStyle = `rgba(${r},${g},${b},.8)`; bctx.lineWidth = 1.6; bctx.stroke(); bctx.beginPath(); bctx.arc(x, y, 2.2, 0, 7); bctx.fillStyle = `rgba(${r},${g},${b},.9)`; bctx.fill(); });
+        for (let i = 1; i < t.P.length - 1; i += 2) { bctx.beginPath(); bctx.arc(t.P[i][0], t.P[i][1], 2.2, 0, 7); bctx.fillStyle = `rgba(${r},${g},${b},.55)`; bctx.fill(); }
       });
-      if (calm) { bctx.globalCompositeOperation = "destination-out"; const gr = bctx.createRadialGradient(W / 2, H * .46, Math.min(W, H) * .1, W / 2, H * .46, Math.max(W, H) * .52); gr.addColorStop(0, "rgba(0,0,0,.72)"); gr.addColorStop(1, "rgba(0,0,0,0)"); bctx.fillStyle = gr; bctx.fillRect(0, 0, W, H); bctx.globalCompositeOperation = "source-over"; }
+      if (calm) { bctx.globalCompositeOperation = "destination-out"; const gr = bctx.createRadialGradient(W / 2, H * .46, Math.min(W, H) * .1, W / 2, H * .46, Math.max(W, H) * .52); gr.addColorStop(0, "rgba(0,0,0,.5)"); gr.addColorStop(1, "rgba(0,0,0,0)"); bctx.fillStyle = gr; bctx.fillRect(0, 0, W, H); bctx.globalCompositeOperation = "source-over"; }
     }
     function draw(dt, now) {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H); ctx.drawImage(base, 0, 0, W, H);
@@ -99,9 +99,9 @@ addEventListener("scroll", onScroll, { passive: true }); addEventListener("resiz
         for (let k = 0; k < steps; k++) {
           const d1 = p.s - p.len * k / steps, d0 = p.s - p.len * (k + 1) / steps; if (d1 < 0 || d0 > t.total) continue;
           const A = at(t, d0), B = at(t, d1); ctx.beginPath(); ctx.moveTo(A[0], A[1]); ctx.lineTo(B[0], B[1]);
-          ctx.strokeStyle = `rgba(${r},${g},${b},${.95 * (1 - k / steps) * cf(A[0], A[1])})`; ctx.lineWidth = 2.2 * (1 - k / steps) + .6; ctx.stroke();
+          ctx.strokeStyle = `rgba(${r},${g},${b},${.95 * (1 - k / steps) * cf(A[0], A[1])})`; ctx.lineWidth = 3 * (1 - k / steps) + .8; ctx.stroke();
         }
-        if (p.s >= 0 && p.s <= t.total) { const h = at(t, p.s), q = cf(h[0], h[1]); [[10, .1], [6, .24]].forEach(([rr, aa]) => { ctx.beginPath(); ctx.arc(h[0], h[1], rr, 0, 7); ctx.fillStyle = `rgba(${r},${g},${b},${aa * q})`; ctx.fill(); }); ctx.beginPath(); ctx.arc(h[0], h[1], 2.7, 0, 7); ctx.fillStyle = `rgba(${r2},${g2},${b2},${q})`; ctx.fill(); }
+        if (p.s >= 0 && p.s <= t.total) { const h = at(t, p.s), q = cf(h[0], h[1]); [[14, .14], [8, .3]].forEach(([rr, aa]) => { ctx.beginPath(); ctx.arc(h[0], h[1], rr, 0, 7); ctx.fillStyle = `rgba(${r},${g},${b},${aa * q})`; ctx.fill(); }); ctx.beginPath(); ctx.arc(h[0], h[1], 3.4, 0, 7); ctx.fillStyle = `rgba(${r2},${g2},${b2},${q})`; ctx.fill(); }
       });
       pulses = pulses.filter(p => !p.dead);
       flashes = flashes.filter(f => now - f.t0 < 700);

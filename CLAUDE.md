@@ -33,6 +33,7 @@ Site e identidade visual para a **ADVM tecnologia**, integradora de segurança e
 - **Símbolo:** "Foco" (A dentro de um enquadramento de câmera). Escolha provisória: há outros 3 símbolos nas propostas v3.
 - **Cores:** violeta `#7c35fd`, noite `#0b0812`, ameixa `#190926`, lavanda `#c9bff2`, névoa `#f3effd`. O site tem um botão "Testar cores" (violeta, oliva e dourado, azul-marinho) para a cliente escolher na reunião. Esse botão é só do protótipo.
 - **Fontes:** Outfit (títulos) e Inter (textos). Ficam em `fonts/`.
+- **Circuitos (reforçados):** traços mais fortes e densos no hero (`data-density` no canvas); se a cliente achar fraco ou forte, ajuste alfa em `bake` e `data-density` no `index.html`. Só desenham quando a seção está visível.
 - **Tom do site:** sério. Sem partículas. Tem circuitos de rede com energia no fundo, círculo que segue o mouse, botões principais que pulsam.
 - **Preços (estimativas minhas, a confirmar):** identidade Profissional R$ 5.500 (Essencial R$ 2.800); preparar o conteúdo R$ 2.400; conteúdo mensal R$ 2.200 (mín. 6 meses); oferta combinada R$ 8.475 para começar mais R$ 2.200 por mês, com 15% de desconto na identidade se fechar o mensal. A produção física (uniforme, impressão, adesivo, fachada) NÃO está inclusa.
 - **Margem:** a R$ 2.200 o plano mensal só dá lucro se a produção levar até uns 22 a 25 horas. Revisar o preço com o custo real por hora, imposto e ferramentas.
