@@ -47,20 +47,6 @@ addEventListener("scroll", onScroll, { passive: true }); addEventListener("resiz
   }, 2400);
 })();
 
-/* ---------- partículas e círculo que segue o mouse ---------- */
-(function () {
-  const box = $("#parts"); if (box && !RM) {
-    const kinds = ["d", "c", "s", "d", "c"];
-    for (let n = 0; n < 22; n++) { const p = document.createElement("span"), k = kinds[n % kinds.length]; p.className = "pt " + k; if (k === "s") p.textContent = "✦"; p.style.left = Math.random() * 100 + "%"; p.style.top = 30 + Math.random() * 65 + "%"; p.style.animationDuration = 9 + Math.random() * 10 + "s"; p.style.animationDelay = -Math.random() * 14 + "s"; p.style.setProperty("--dx", (Math.random() * 80 - 40) + "px"); box.append(p); }
-  }
-  const cur = $("#cur"); if (!cur || RM || !fine) return;
-  let x = innerWidth / 2, y = innerHeight / 2, tx = x, ty = y;
-  addEventListener("pointermove", e => { tx = e.clientX; ty = e.clientY; cur.classList.add("on"); });
-  document.addEventListener("pointerleave", () => cur.classList.remove("on"));
-  document.addEventListener("pointerover", e => cur.classList.toggle("big", !!e.target.closest("a,button,[role=tab],input,select,textarea")));
-  (function loop() { x += (tx - x) * .18; y += (ty - y) * .18; cur.style.transform = `translate(${x}px,${y}px)`; requestAnimationFrame(loop); })();
-})();
-
 /* ---------- botões magnéticos ---------- */
 if (fine && !RM) $$(".magnet").forEach(b => {
   b.addEventListener("pointermove", e => { const r = b.getBoundingClientRect(); b.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .2}px,${(e.clientY - r.top - r.height / 2) * .28}px)`; });
