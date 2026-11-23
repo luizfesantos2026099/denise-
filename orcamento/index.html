@@ -50,6 +50,9 @@ ul.l.no li::before{background:none;border:2px solid #6b5f93}
 .two h3{font-size:50px;margin-bottom:6px}.two .for{font-size:23px;color:var(--mut);margin-bottom:22px;min-height:60px}
 .two .price{margin:6px 0 26px}.hl h3{color:var(--lav)}
 .badge{font-size:20px;background:var(--vio);padding:5px 16px;border-radius:999px;vertical-align:middle;margin-left:14px;font-family:'Inter';letter-spacing:0}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:2px solid var(--line)}
+.three>div{padding:34px 40px 0 0}.three>div+div{padding-left:40px;border-left:1px solid var(--line)}
+.three h3{font-size:46px;margin-bottom:6px}.three .for{font-size:22px;color:var(--mut);margin-bottom:18px;min-height:56px}.three .price{font-size:84px;margin:4px 0 22px}.three ul.l{font-size:24px;gap:12px}.three .hl h3{color:var(--lav)}
 /* tabela */
 .tbl{width:100%;border-collapse:collapse}.tbl th{font:500 22px 'Inter';color:var(--mut);text-align:left;padding:0 0 16px;border-bottom:2px solid var(--line)}
 .tbl td{padding:22px 0;border-bottom:1px solid var(--line);font-size:32px;vertical-align:top}.tbl td:last-child,.tbl th:last-child{text-align:right;white-space:nowrap}
@@ -92,7 +95,8 @@ const CFG = {
   validadeDias: 15,
   site: 1400,                              // já aprovado
   ident: { essencial: 2800, profissional: 5500 },
-  plano: { presenca: 900, crescimento: 1900 },   // por mês
+  plano: { presenca: 900, conteudo: 2200, crescimento: 3900 },   // por mês
+  setup: 2400,                             // setup do funil de conteúdo (uma vez)
   descIdent: 0.15,                         // desconto na identidade ao contratar um plano
   mesesMin: 6,
   entrada: 0.5
@@ -101,7 +105,7 @@ const CFG = {
 const brl = n => "R$ " + Math.round(n).toLocaleString("pt-BR");
 const data = new Date().toLocaleDateString("pt-BR", { day: "numeric", month: "long", year: "numeric" });
 const C = CFG, dIdent = C.ident.profissional * (1 - C.descIdent);
-const rec = C.site + dIdent;
+const rec = C.site + dIdent + C.setup;
 const mark = `<svg viewBox="0 0 100 100" width="62" height="62" aria-hidden="true"><path d="M12 34V12H34M66 12H88V34M88 66V88H66M34 88H12V66" fill="none" stroke="#7c35fd" stroke-width="7" stroke-linecap="square"/><path d="M32 70L50 30L68 70" fill="none" stroke="#c9bff2" stroke-width="7.5"/><path d="M40 58H60" stroke="#c9bff2" stroke-width="5"/></svg>`;
 const foot = (n) => `<div class="foot"><span>Proposta para ${C.para}</span><span>${n}</span></div>`;
 const slides = [
@@ -128,16 +132,17 @@ const slides = [
   <div class="two"><div><h3>Essencial</h3><p class="for">Para ter uma marca profissional e começar a usar.</p><div class="price">${brl(C.ident.essencial)}</div><ul class="l"><li>Logo em vetor, em versões escura, clara e vertical</li><li>Paleta de cores e duas fontes</li><li>Mini guia de uso</li><li>Avatar e ícone do site</li></ul></div>
   <div class="hl"><h3>Profissional<span class="badge">Recomendado</span></h3><p class="for">Para a marca aparecer igual em tudo.</p><div class="price">${brl(C.ident.profissional)}</div><ul class="l"><li>Tudo do Essencial</li><li>Manual de marca completo</li><li>Cartão, assinatura de e-mail e capa de rede social</li><li>Modelos de post, uniforme e adesivo de veículo</li></ul></div></div>${foot(5)}</section>`,
 
-`<section class="slide"><div class="glow"></div><p class="k">Etapa 3</p><h2>Presença contínua, todo mês</h2>
-  <div class="two"><div><h3>Presença</h3><p class="for">Para ser encontrada e manter tudo no ar.</p><div class="price">${brl(C.plano.presenca)}<small> por mês</small></div><ul class="l"><li>Hospedagem e manutenção do site</li><li>Perfil no Google atualizado</li><li>Relatório mensal de contatos</li></ul></div>
-  <div class="hl"><h3>Crescimento</h3><p class="for">Para gerar mais pedidos de orçamento.</p><div class="price">${brl(C.plano.crescimento)}<small> por mês</small></div><ul class="l"><li>Tudo do plano Presença</li><li>Conteúdo para redes e Google</li><li>Anúncios de busca, com verba paga à parte</li></ul></div></div>
-  <p class="small mut" style="margin-top:36px">Contrato mínimo de ${C.mesesMin} meses. Anúncios seguem as regras de comunicação da Intelbras para parceiros.</p>${foot(6)}</section>`,
+`<section class="slide"><div class="glow"></div><p class="k">Etapa 3</p><h2>Conteúdo e presença, todo mês</h2>
+  <div class="three"><div><h3>Presença</h3><p class="for">Para ser encontrada e manter tudo no ar.</p><div class="price">${brl(C.plano.presenca)}<small> por mês</small></div><ul class="l"><li>Hospedagem e manutenção do site</li><li>Perfil no Google atualizado</li><li>Relatório mensal de contatos</li></ul></div>
+  <div class="hl"><h3>Conteúdo<span class="badge">Recomendado</span></h3><p class="for">Para a marca aparecer e gerar confiança.</p><div class="price">${brl(C.plano.conteudo)}<small> por mês</small></div><ul class="l"><li>Tudo do plano Presença</li><li>12 posts e 4 vídeos curtos por mês</li><li>Instagram e LinkedIn geridos</li></ul></div>
+  <div><h3>Crescimento</h3><p class="for">Para transformar alcance em pedidos de orçamento.</p><div class="price">${brl(C.plano.crescimento)}<small> por mês</small></div><ul class="l"><li>Tudo do plano Conteúdo, com 8 vídeos</li><li>Funil no WhatsApp e página de captação</li><li>Anúncios (verba à parte)</li></ul></div></div>
+  <p class="small mut" style="margin-top:30px">Contrato mínimo de ${C.mesesMin} meses. Antes, um setup único do funil de conteúdo por ${brl(C.setup)}: estratégia, calendário de 90 dias, 10 roteiros e página de captação. Anúncios seguem as regras de comunicação da Intelbras para parceiros.</p>${foot(6)}</section>`,
 
 `<section class="slide"><div class="glow"></div><p class="k">Investimento</p><h2>Três jeitos de começar.</h2>
   <div class="sc"><div><h3>Só o site</h3><div class="price">${brl(C.site)}</div><p>O que já foi aprovado. A marca e a presença ficam para depois.</p></div>
   <div><h3>Site e identidade</h3><div class="price">${brl(C.site + C.ident.profissional)}</div><p>Site mais identidade Profissional, pagos uma vez.</p></div>
-  <div class="rc"><h3>Completo, recomendado</h3><div class="price">${brl(rec)}</div><p style="font-size:30px;color:#c9bff2;margin:-6px 0 12px">e ${brl(C.plano.presenca)} por mês</p><p>Com o plano Presença, a identidade Profissional sai por ${brl(dIdent)}, ${Math.round(C.descIdent * 100)}% menos.</p></div></div>
-  <p class="small mut" style="margin-top:34px">Valores em reais. O plano mensal tem contrato mínimo de ${C.mesesMin} meses, o que dá ${brl(C.plano.presenca * C.mesesMin)} no período.</p>${foot(7)}</section>`,
+  <div class="rc"><h3>Completo, recomendado</h3><div class="price">${brl(rec)}</div><p style="font-size:30px;color:#c9bff2;margin:-6px 0 12px">e ${brl(C.plano.conteudo)} por mês</p><p>Site, identidade Profissional por ${brl(dIdent)} (${Math.round(C.descIdent * 100)}% menos com o plano) e setup do funil.</p></div></div>
+  <p class="small mut" style="margin-top:34px">Valores em reais. O plano mensal tem contrato mínimo de ${C.mesesMin} meses, o que dá ${brl(C.plano.conteudo * C.mesesMin)} no período, no plano Conteúdo.</p>${foot(7)}</section>`,
 
 `<section class="slide"><div class="glow"></div><p class="k">Condições</p><h2>Como funciona o combinado.</h2>
   <div class="cond"><div><h3>Pagamento</h3><p>${Math.round(C.entrada * 100)}% de entrada para começar e o restante na entrega. Pix ou transferência. Plano mensal pago todo dia 5.</p></div>

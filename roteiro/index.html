@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roteiro da reunião com a Denise | ADVM technology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#190926;--vio:#7c35fd;--vio-d:#5b21d6;--tint:#f3effd;--line:#e2d9f5;--mut:#5d4f82;--ok:#1f9d63;--warn:#b25e00;--bg:#fbfaff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Outfit',sans-serif;font-weight:500;letter-spacing:-.02em;line-height:1.1}
+.w{width:min(920px,92%);margin:0 auto}
+.nav{position:sticky;top:0;z-index:10;background:#fbfaffee;backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav .w{display:flex;gap:6px;overflow-x:auto;padding:10px 0;white-space:nowrap;scrollbar-width:none}.nav .w::-webkit-scrollbar{display:none}
+.nav a{padding:7px 14px;border-radius:999px;text-decoration:none;color:var(--mut);font-size:.9rem;font-weight:500}.nav a:hover{background:var(--tint);color:var(--ink)}
+header{padding:56px 0 30px}
+header .k{color:var(--vio-d);font-weight:600;font-size:.95rem;margin-bottom:12px}
+header h1{font-size:clamp(2.2rem,6vw,3.6rem);max-width:16ch}
+header p{color:var(--mut);margin-top:16px;max-width:60ch;font-size:1.1rem}
+.goals{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.goal{border:1px solid var(--line);border-radius:18px;padding:20px;background:#fff}.goal b{display:block;font:500 1.15rem 'Outfit';margin-bottom:6px}.goal span{color:var(--mut);font-size:.96rem;line-height:1.45;display:block}
+.min{margin-top:16px;padding:16px 20px;border-radius:16px;background:var(--ink);color:#fff}.min b{color:#c9bff2}
+section{padding:48px 0;border-top:1px solid var(--line)}
+section>.w>h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:8px}
+.lead{color:var(--mut);margin-bottom:26px;max-width:62ch}
+h3{font-size:1.35rem;margin:28px 0 10px}
+ul.l,ol.l{padding-left:22px;display:grid;gap:8px}ul.l li::marker{color:var(--vio)}
+.chk{list-style:none;display:grid;gap:8px}.chk label{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:#fff;cursor:pointer}
+.chk input{margin-top:.35em;width:18px;height:18px;accent-color:var(--vio);flex:none}.chk input:checked+span{color:#8d83a8;text-decoration:line-through}
+.blk{border:1px solid var(--line);border-radius:22px;background:#fff;margin:18px 0;overflow:hidden}
+.blk__h{display:flex;gap:14px;align-items:center;padding:16px 22px;background:var(--tint);border-bottom:1px solid var(--line)}
+.blk__h .t{font:600 .85rem 'Inter';background:var(--vio);color:#fff;padding:5px 12px;border-radius:999px;white-space:nowrap}.blk__h h3{margin:0;font-size:1.3rem}
+.blk__b{padding:20px 22px;display:grid;gap:14px}
+.say{border-left:4px solid var(--vio);background:#faf7ff;padding:12px 16px;border-radius:0 12px 12px 0;font-size:1.04rem}.say small{display:block;color:var(--vio-d);font-weight:600;margin-bottom:2px;font-size:.8rem}
+.do{padding:12px 16px;border-radius:12px;background:#f1f9f4;border:1px solid #cfeadb}.do small{display:block;color:var(--ok);font-weight:600;font-size:.8rem;margin-bottom:2px}
+.ask{padding:12px 16px;border-radius:12px;background:#fff8ec;border:1px solid #f1dcb4}.ask small{display:block;color:var(--warn);font-weight:600;font-size:.8rem;margin-bottom:2px}
+.note{padding:14px 18px;border-radius:14px;background:#fff8ec;border:1px solid #f1dcb4;color:#6b4a14;font-size:.98rem;margin:14px 0}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.col{border:1px solid var(--line);border-radius:18px;padding:18px;background:#fff}.col b{display:block;font:500 1.15rem 'Outfit';margin-bottom:6px;color:var(--vio-d)}.col p,.col li{font-size:.96rem;color:var(--mut);line-height:1.5}
+.col ul{padding-left:18px;margin-top:6px}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;margin:12px 0 6px;font-size:.98rem}
+th{background:var(--tint);text-align:left;font-weight:600;padding:12px 14px;font-size:.88rem;color:var(--mut)}
+td{padding:14px;border-top:1px solid var(--line);vertical-align:top}
+td.n{white-space:nowrap;font:500 1.15rem 'Outfit'}td small{display:block;color:var(--mut);font-size:.88rem;margin-top:2px}
+.rec{background:#faf7ff}.rec td:first-child{border-left:4px solid var(--vio)}
+.badge{display:inline-block;font-size:.72rem;font-weight:600;background:var(--vio);color:#fff;padding:2px 9px;border-radius:999px;margin-left:8px;vertical-align:middle}
+details{border:1px solid var(--line);border-radius:16px;background:#fff;margin:10px 0;overflow:hidden}
+summary{cursor:pointer;padding:16px 20px;font:500 1.12rem 'Outfit';list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:"+";color:var(--vio);font-size:1.4rem;line-height:1}details[open] summary::after{content:"−"}
+details>div{padding:0 20px 18px;display:grid;gap:10px}
+.funnel{display:grid;gap:10px;margin:14px 0}
+.fl{border-radius:16px;padding:18px 20px;color:#fff}.fl b{display:block;font:500 1.2rem 'Outfit';margin-bottom:4px}.fl span{font-size:.96rem;opacity:.95;display:block;line-height:1.45}
+.fl.a{background:#a98bff;width:100%}.fl.b{background:#7c35fd;width:90%;margin-inline:auto}.fl.c{background:#4a1aa8;width:80%;margin-inline:auto}
+.hooks{counter-reset:h;list-style:none;display:grid;gap:8px}.hooks li{counter-increment:h;padding:12px 14px 12px 52px;border:1px solid var(--line);border-radius:14px;background:#fff;position:relative}
+.hooks li::before{content:counter(h);position:absolute;left:14px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:50%;background:var(--tint);color:var(--vio-d);font:600 .85rem 'Inter';display:grid;place-items:center}
+.msg{background:#0b0812;color:#e7dcff;border-radius:18px;padding:20px 22px;white-space:pre-wrap;font-size:1rem;line-height:1.6;position:relative}
+.copy{position:absolute;right:12px;top:12px;border:1px solid #ffffff40;background:#ffffff14;color:#fff;border-radius:999px;padding:6px 14px;font:500 .85rem 'Inter';cursor:pointer}
+footer{padding:40px 0 80px;color:var(--mut);font-size:.9rem;border-top:1px solid var(--line)}
+@media(max-width:720px){table{display:block;overflow-x:auto}.goals,.cols{grid-template-columns:1fr}.fl.b,.fl.c{width:100%}table{font-size:.9rem}td,th{padding:10px}.blk__h{flex-wrap:wrap}}
+@media print{.nav,.copy{display:none}section{break-inside:avoid-page}details{break-inside:avoid}details>div{display:grid}}
+</style>
+</head>
+<body>
+<div class="nav"><div class="w"><a href="#antes">Antes</a><a href="#roteiro">Roteiro</a><a href="#cores">Cores</a><a href="#perguntas">Perguntas</a><a href="#conteudo">Conteúdo</a><a href="#precos">Preços</a><a href="#objecoes">Objeções</a><a href="#fechar">Fechar</a></div></div>
+
+<header><div class="w">
+  <p class="k">Reunião de amanhã com a Denise</p>
+  <h1>Roteiro: do site pronto à venda da identidade e do conteúdo.</h1>
+  <p>Foi feito para você ler antes e consultar durante a conversa. Tudo está em ordem de reunião, com o que falar, o que mostrar e o que perguntar.</p>
+  <div class="goals">
+    <div class="goal"><b>1. Aprovar o site</b><span>Mostrar o protótipo e ouvir o que ela mudaria.</span></div>
+    <div class="goal"><b>2. Decidir a cor</b><span>Como a empresa não tem identidade, escolher juntos usando o seletor de cores do site.</span></div>
+    <div class="goal"><b>3. Vender o próximo passo</b><span>Identidade visual e conteúdo mensal, com o funil que traz pedidos de orçamento.</span></div>
+  </div>
+  <p class="min"><b>Meta mínima:</b> sair da reunião com uma ação marcada. Pode ser "cor aprovada e sinal da identidade pago", ou, no mínimo, "entrevista de descoberta agendada".</p>
+</div></header>
+
+<section id="antes"><div class="w"><h2>Antes de entrar</h2><p class="lead">Marque cada item. O que você marca fica salvo neste aparelho.</p>
+<ul class="chk" id="chk">
+<li><label><input type="checkbox"><span>Abrir o <b>site</b> em tela cheia e conferir o botão "Testar cores" no canto de baixo.</span></label></li>
+<li><label><input type="checkbox"><span>Deixar abertos em abas: <b>site</b>, <b>manual de marca</b> (com os mockups), <b>apresentação do orçamento</b> e <b>identidade v3</b>.</span></label></li>
+<li><label><input type="checkbox"><span>Trocar no site o número do <b>WhatsApp</b> e os dados de exemplo (telefone, e-mail, CNPJ, cidade) pelos reais, se já tiver.</span></label></li>
+<li><label><input type="checkbox"><span>Editar o bloco <b>CFG</b> da apresentação do orçamento: seu nome, seu contato e os valores que você decidiu.</span></label></li>
+<li><label><input type="checkbox"><span>Confirmar se os nomes <b>UNESP, ADN MRV e Grupo Field</b> podem aparecer no site.</span></label></li>
+<li><label><input type="checkbox"><span>Definir seu <b>preço mínimo</b> e o <b>desconto máximo</b> que aceita dar, antes de ela perguntar.</span></label></li>
+<li><label><input type="checkbox"><span>Levar internet de reserva (celular como roteador) e o notebook carregado.</span></label></li>
+<li><label><input type="checkbox"><span>Preparar um caderno ou um documento para anotar as respostas dela. Elas valem mais do que qualquer slide.</span></label></li>
+</ul></div></section>
+
+<section id="roteiro"><div class="w"><h2>O roteiro, em blocos</h2><p class="lead">Tempo total de cerca de uma hora. Se ela tiver menos, pule o bloco 4 e marque a descoberta para outro dia.</p>
+
+<div class="blk"><div class="blk__h"><span class="t">0 a 5 min</span><h3>1. Abertura</h3></div><div class="blk__b">
+<div class="say"><small>FALE</small>"Denise, obrigado pelo tempo. Hoje eu quero fazer três coisas: te mostrar o site, decidir com você a identidade visual da ADVM, porque hoje a empresa ainda não tem, e ver como a gente faz as pessoas certas descobrirem vocês. Pode ser assim?"</div>
+<div class="do"><small>FAÇA</small>Peça licença para anotar. Combine o horário final logo no começo, para você não ficar sem tempo de chegar na proposta.</div></div></div>
+
+<div class="blk"><div class="blk__h"><span class="t">5 a 15 min</span><h3>2. Mostrar o site</h3></div><div class="blk__b">
+<div class="do"><small>MOSTRE, NESTA ORDEM</small>
+<ol class="l"><li><b>Início:</b> deixe a palavra trocar sozinha (condomínios, escolas, hotéis...) e as faixas se mexerem.</li><li><b>Serviços:</b> passe o mouse nos cartões.</li><li><b>Para quem trabalhamos:</b> clique nas abas e deixe os itens aparecerem.</li><li><b>Como funciona:</b> o passo a passo se anima sozinho.</li><li><b>Contato:</b> preencha o formulário de exemplo para ela ver abrir o WhatsApp.</li></ol></div>
+<div class="say"><small>FALE (UMA FRASE POR SEÇÃO)</small>"Quem chega aqui entende em 5 segundos o que a ADVM faz e para quem. Cada parte responde uma pergunta do cliente: o que fazem, para quem, como funciona e como eu peço orçamento."</div>
+<div class="ask"><small>PERGUNTE</small>"O que você mudaria? Tem algum serviço ou obra que está faltando? Os textos estão com a sua voz?" Anote tudo e <b>não defenda o site</b>: aceite as sugestões.</div></div></div>
+
+<div class="blk"><div class="blk__h"><span class="t">15 a 25 min</span><h3>3. A questão das cores</h3></div><div class="blk__b">
+<div class="say"><small>FALE</small>"Repara que o site está em violeta. Isso é uma sugestão minha, não uma decisão. Como a ADVM ainda não tem identidade visual, eu preciso de você para escolher. Dá para testar agora, é só clicar aqui."</div>
+<div class="do"><small>FAÇA</small>Clique nas três opções do botão <b>Testar cores</b> (violeta, oliva e dourado, azul-marinho) e deixe <b>ela</b> clicar. Veja os detalhes na seção <a href="#cores">Como escolher a cor</a>.</div>
+<div class="ask"><small>PERGUNTE</small>"O que você não gostou na logo que fez com IA?" Ela já passou por isso. O que ela rejeitou ajuda a escolher.</div></div></div>
+
+<div class="blk"><div class="blk__h"><span class="t">25 a 35 min</span><h3>4. Conhecer o negócio</h3></div><div class="blk__b">
+<div class="say"><small>FALE</small>"Antes de falar de preço, quero entender como a ADVM vende hoje. Posso te fazer algumas perguntas?"</div>
+<div class="do"><small>FAÇA</small>Use as perguntas da seção <a href="#perguntas">Perguntas de descoberta</a>. As duas mais importantes: <b>o ticket médio de uma obra</b> e <b>como os clientes chegam hoje</b>.</div></div></div>
+
+<div class="blk"><div class="blk__h"><span class="t">35 a 50 min</span><h3>5. Apresentar a proposta</h3></div><div class="blk__b">
+<div class="say"><small>FALE</small>"O site é a vitrine. Agora falta o que faz as pessoas chegarem nela e confiarem: a identidade visual, e um conteúdo constante que mostre a ADVM trabalhando. Vou te mostrar como eu organizo isso em três degraus."</div>
+<div class="do"><small>MOSTRE</small>A apresentação do orçamento. Comece pelo <b>cenário completo</b> (o mais caro) e só depois mostre os menores. Veja os valores em <a href="#precos">Preços</a>.</div>
+<div class="say"><small>FALE (A CONTA QUE FECHA A VENDA, COM O NÚMERO DELA)</small>"Você me disse que uma obra de [tipo] fica em torno de R$ [ticket]. O investimento dos primeiros seis meses é de R$ 20.275. Então, se o conteúdo trouxer <b>uma única obra</b> a mais, ele já se pagou."<br><small style="margin-top:6px">Preencha o ticket na hora. Só use essa frase se o ticket dela for maior que o investimento. Não prometa que vai trazer a obra.</small></div></div></div>
+
+<div class="blk"><div class="blk__h"><span class="t">50 a 60 min</span><h3>6. Fechar</h3></div><div class="blk__b">
+<div class="say"><small>FALE</small>"Pelo que conversamos, o que mais faz sentido é [pacote]. Se você aprovar hoje, eu começo na próxima semana. O que falta para você decidir?"</div>
+<div class="do"><small>FAÇA</small>Peça uma decisão e depois fique em silêncio. Se ela não decidir, peça o <b>menor sim possível</b>: aprovar a cor hoje e agendar a próxima conversa com data e hora.</div></div></div>
+</div></section>
+
+<section id="cores"><div class="w"><h2>Como escolher a cor sem ter marca</h2>
+<p class="lead">Sem identidade nem Instagram, não há o que "seguir". A decisão é dela, mas você conduz com método. Não deixe que seja só gosto.</p>
+<div class="cols">
+<div class="col"><b>Violeta</b><p>Tecnologia, inovação, modernidade. Diferencia de quase todos os concorrentes de segurança, que usam azul, vermelho ou preto. Risco: pode parecer "de startup" para um cliente conservador.</p></div>
+<div class="col"><b>Oliva e dourado</b><p>Robustez, seriedade e acabamento. Combina com obras grandes e com quem valoriza solidez. Risco: pode parecer mais sóbrio e menos tecnológico.</p></div>
+<div class="col"><b>Azul-marinho</b><p>Confiança e instituição. É a escolha mais segura para hospitais e universidades. Risco: parece com a maioria do mercado.</p></div>
+</div>
+<p class="note">Essas leituras são orientações comuns de mercado, não regras. A cor certa é a que a Denise consegue sustentar por anos e que o cliente dela reconhece.</p>
+<h3>As 3 perguntas para decidir</h3>
+<ol class="l"><li><b>Qual passa mais confiança</b> para quem assina o contrato (síndico, gestor de escola, engenheiro de construtora)?</li><li><b>Qual combina com a Denise</b> e a equipe, a ponto de ela usar no uniforme e no carro sem constrangimento?</li><li><b>Qual se destaca</b> dos concorrentes dela? Peça para ela citar dois concorrentes e olhem os sites juntos.</li></ol>
+<h3>Se ela ficar em dúvida</h3>
+<ul class="l"><li>Mostre os <b>mockups</b> (cartão, camisa, fachada, escritório) nas duas cores finalistas.</li><li>Peça <b>três marcas que ela admira</b>, de qualquer setor, e veja o que elas têm em comum.</li><li>Ofereça uma decisão em duas etapas: escolher hoje a cor para o site e confirmar a identidade completa depois.</li></ul>
+<p class="note"><b>Honestidade importante:</b> as logos que eu mostrei são propostas, não artes finais. Antes de registrar ou imprimir em quantidade, vale uma busca no INPI para conferir se não há marca parecida.</p>
+</div></section>
+
+<section id="perguntas"><div class="w"><h2>Perguntas de descoberta</h2><p class="lead">Faça poucas e escute. Anote as palavras exatas dela, que podem virar texto de site e de post.</p>
+<div class="cols">
+<div class="col"><b>Negócio</b><ul><li>O que vocês fazem melhor que os outros?</li><li>Qual obra de que mais se orgulham?</li><li>Quantos orçamentos pedem por mês e quantos fecham?</li><li><b>Qual o ticket médio de uma obra?</b></li></ul></div>
+<div class="col"><b>Clientes</b><ul><li>Quem decide a compra: síndico, gestor, engenheiro, setor de compras?</li><li><b>Como os clientes chegam hoje?</b> Indicação, licitação, parceiros?</li><li>Que cliente ela mais quer ter nos próximos anos?</li></ul></div>
+<div class="col"><b>Marca e conteúdo</b><ul><li>Ela quer aparecer como rosto da empresa?</li><li>Dá para gravar vídeos curtos de obra com o celular?</li><li>Pode divulgar fotos das obras? Os clientes autorizam?</li><li>Que perfil de empresa ela admira?</li></ul></div>
+</div></div></section>
+
+<section id="conteudo"><div class="w"><h2>Conteúdo e funil, sem prometer viral</h2>
+<p class="lead">Este é o ponto mais delicado da venda. Seja honesto, porque é isso que sustenta uma recorrência longa.</p>
+<div class="say" style="margin-bottom:16px"><small>FALE</small>"Eu não prometo viralizar, e desconfie de quem promete. Para uma empresa como a ADVM, o que vende é alcançar as pessoas certas: síndicos, gestores e construtoras. Eu prometo um sistema: conteúdo que mostra a ADVM trabalhando, um caminho simples para a pessoa chamar no WhatsApp, e um relatório todo mês com o que funcionou."</div>
+<h3>O funil em três níveis</h3>
+<div class="funnel">
+<div class="fl a"><b>Topo: descobrir</b><span>Vídeos curtos de bastidor da obra, dicas rápidas, mito x verdade. Objetivo: alcance entre as pessoas certas.</span></div>
+<div class="fl b"><b>Meio: confiar</b><span>Carrosséis educativos, casos de obras (com autorização), respostas às dúvidas de síndicos. Objetivo: mostrar que a ADVM entende do assunto.</span></div>
+<div class="fl c"><b>Fundo: decidir</b><span>Visita técnica, checklist para baixar, prova social. Objetivo: levar para o WhatsApp.</span></div></div>
+<h3>5 pilares de conteúdo</h3>
+<div class="cols">
+<div class="col"><b>Bastidores</b><p>A equipe instalando, testando e entregando.</p></div>
+<div class="col"><b>Educação</b><p>Como escolher, erros comuns, o que muda o preço.</p></div>
+<div class="col"><b>Obras</b><p>Casos e entregas, com autorização do cliente.</p></div>
+<div class="col"><b>Segurança</b><p>Prevenção de incêndio e acesso, em linguagem simples.</p></div>
+<div class="col"><b>Pessoas</b><p>A equipe, a Denise, a cultura da empresa.</p></div>
+</div>
+<h3>10 ideias de vídeo curto para começar</h3>
+<ol class="hooks">
+<li>3 erros que síndicos cometem ao contratar controle de acesso</li>
+<li>O que acontece quando um alarme dispara? O passo a passo</li>
+<li>Bastidores: como se instala a rede de segurança de um prédio</li>
+<li>Detector de fumaça: onde instalar e onde nunca instalar</li>
+<li>Por que a instalação barata costuma sair cara depois</li>
+<li>Antes e depois: portaria sem controle e com controle de acesso</li>
+<li>O que muda o preço de proteger um condomínio</li>
+<li>Checklist: sua escola está pronta para controlar entrada e saída?</li>
+<li>Um dia de obra em um hotel (com autorização)</li>
+<li>Mito ou verdade: cerca elétrica</li>
+</ol>
+<p class="note"><b>Regras da Intelbras para parceiros que valem para todo conteúdo:</b> não usar o logotipo da Intelbras isolado (só o selo oficial), não colocar "Intelbras" no nome do perfil, não prometer garantias em nome da marca, não comparar com outras marcas e, nas campanhas com formulário, deixar claro que os dados ficam com a ADVM. Peça autorização por escrito antes de mostrar a obra de um cliente.</p>
+<h3>Onde publicar (para este tipo de cliente)</h3>
+<ul class="l"><li><b>Google (Perfil da Empresa):</b> quem busca "controle de acesso em [cidade]" está pronto para comprar.</li><li><b>LinkedIn:</b> gestores e engenheiros de construtoras estão lá.</li><li><b>Instagram:</b> serve de vitrine e prova de trabalho. Não é o principal canal de venda neste mercado.</li></ul>
+</div></section>
+
+<section id="precos"><div class="w"><h2>Preços</h2>
+<p class="lead">São <b>estimativas de mercado</b>, que montei para você ajustar ao seu custo por hora e à sua região. Confira antes de apresentar.</p>
+<h3>Identidade visual, do zero</h3>
+<table><thead><tr><th>Pacote</th><th>O que inclui</th><th>Valor</th></tr></thead><tbody>
+<tr><td><b>Essencial</b></td><td>Logo em vetor (versões escura, clara e vertical), paleta, duas fontes, mini guia, avatar e ícone do site.<small>Faixa de mercado: R$ 2.500 a 4.000</small></td><td class="n">R$ 2.800</td></tr>
+<tr class="rec"><td><b>Profissional</b><span class="badge">Recomendado</span></td><td>Tudo do Essencial, mais manual de marca completo, cartão, papel timbrado, assinatura de e-mail, capa e modelos de rede social, mockups e regras do selo da Intelbras. <b>É o que já mostrei a ela.</b><small>Faixa de mercado: R$ 5.000 a 9.000</small></td><td class="n">R$ 5.500</td></tr></tbody></table>
+<h3>Conteúdo e funil</h3>
+<table><thead><tr><th>Serviço</th><th>O que inclui</th><th>Valor</th></tr></thead><tbody>
+<tr><td><b>Setup do funil</b><br>(uma vez)</td><td>Estratégia e pilares, calendário de 90 dias, 10 roteiros de vídeo, página de captação com WhatsApp, checklist como isca, configuração dos perfis (Instagram, LinkedIn, Google).</td><td class="n">R$ 2.400</td></tr>
+<tr><td><b>Presença</b><br>(mensal)</td><td>Hospedagem e manutenção do site, perfil no Google atualizado, relatório mensal de contatos.</td><td class="n">R$ 900/mês</td></tr>
+<tr class="rec"><td><b>Conteúdo</b><span class="badge">Recomendado</span><br>(mensal)</td><td>Tudo do Presença, mais calendário do mês, 12 posts e 4 vídeos curtos (roteiro e edição), gestão do Instagram e do LinkedIn, relatório.<small>As gravações são feitas pela equipe da ADVM, com o seu roteiro.</small></td><td class="n">R$ 2.200/mês</td></tr>
+<tr><td><b>Crescimento</b><br>(mensal)</td><td>Tudo do Conteúdo, mais 8 vídeos por mês, funil no WhatsApp com a página de captação e gestão de anúncios. <b>A verba dos anúncios é paga à parte, pela ADVM.</b></td><td class="n">R$ 3.900/mês</td></tr>
+<tr><td><b>Gravação presencial</b><br>(opcional)</td><td>Diária de captação de vídeo e foto em obra.<small>Estimativa de R$ 900 a 1.500 por diária, conforme deslocamento.</small></td><td class="n">sob consulta</td></tr></tbody></table>
+<h3>Como montar a oferta</h3>
+<table><thead><tr><th>Cenário</th><th>Conta</th><th>Investimento</th></tr></thead><tbody>
+<tr class="rec"><td><b>Completo</b><span class="badge">Apresente primeiro</span></td><td>Site (R$ 1.400, já aprovado) + identidade Profissional com 15% de desconto (R$ 4.675) + setup do funil (R$ 2.400) + plano Conteúdo.<small>Desconto só vale se ela contratar o plano mensal.</small></td><td class="n">R$ 8.475<br>+ R$ 2.200/mês</td></tr>
+<tr><td><b>Intermediário</b></td><td>Site + identidade Profissional (R$ 5.500) + plano Presença.</td><td class="n">R$ 6.900<br>+ R$ 900/mês</td></tr>
+<tr><td><b>Entrada</b><br>(se achar caro)</td><td>Site + identidade Essencial (R$ 2.800) + plano Presença.</td><td class="n">R$ 4.200<br>+ R$ 900/mês</td></tr></tbody></table>
+<p class="note"><b>Conta dos 6 meses no cenário completo (fora o site):</b> identidade R$ 4.675 + setup R$ 2.400 + 6 × R$ 2.200 = <b>R$ 20.275</b>. Use esse número na frase de retorno do bloco 5.</p>
+<h3>Condições</h3>
+<ul class="l"><li><b>50% de entrada</b> para começar e o restante na entrega. Plano mensal pago todo dia 5.</li><li><b>Contrato mínimo de 6 meses</b> para os planos mensais, porque conteúdo precisa de tempo para dar resultado.</li><li>Até <b>2 rodadas de ajuste</b> por entrega. O que passar disso é orçado à parte.</li><li>Direitos de uso da logo passam para a ADVM depois do pagamento final.</li></ul>
+<p class="note"><b>Verifique seu custo:</b> o plano Conteúdo (R$ 2.200) pressupõe cerca de 30 a 35 horas de trabalho por mês, o que dá uns R$ 65 a 75 por hora. Se o seu tempo de produção for maior, suba o preço ou reduza as entregas antes de oferecer.</p>
+</div></section>
+
+<section id="objecoes"><div class="w"><h2>Objeções e como responder</h2><p class="lead">Escute a objeção inteira, repita com as suas palavras e só então responda.</p>
+<details><summary>"Está caro."</summary><div><div class="say"><small>FALE</small>"Entendo. Me diz com o que você está comparando? [escute]. O que eu entrego é a marca, o manual e o conteúdo todo mês, e não só um logo. Se o valor for o problema, a gente começa menor: identidade Essencial e plano Presença, e sobe quando você vir resultado."</div></div></details>
+<details><summary>"Vou pensar."</summary><div><div class="say"><small>FALE</small>"Claro. O que ainda ficou em dúvida, para eu te ajudar a decidir? [escute]. Posso te mandar hoje um resumo por WhatsApp. Que dia a gente conversa de novo?"</div><div class="do"><small>FAÇA</small>Nunca saia sem uma <b>data</b> para a próxima conversa.</div></div></details>
+<details><summary>"Eu já tenho o site, não preciso de mais nada."</summary><div><div class="say"><small>FALE</small>"O site é a vitrine, mas ninguém passa na rua sem saber que ela existe. A identidade faz a ADVM ser reconhecida e o conteúdo faz as pessoas chegarem até ele. Sem isso, o site fica esperando visita."</div></div></details>
+<details><summary>"Instagram não traz cliente nesse mercado."</summary><div><div class="say"><small>FALE</small>"Você tem razão em parte. Para obra grande, o Instagram sozinho não vende. Por isso o plano inclui o Google, o LinkedIn e o WhatsApp. O Instagram mostra o trabalho para quem já ouviu falar da ADVM e decide confiar."</div></div></details>
+<details><summary>"Não tenho tempo para gravar."</summary><div><div class="say"><small>FALE</small>"Eu faço o roteiro e a edição. Você só precisa de uns 30 minutos por semana para gravar com o celular, em obra. E se preferir, temos a diária de captação presencial."</div></div></details>
+<details><summary>"E se não viralizar?"</summary><div><div class="say"><small>FALE</small>"Eu não vendo viral. Vendo um sistema que atrai as pessoas certas. A gente acompanha todo mês quantos contatos chegaram e ajusta. Se em dois meses não mudar nada, a gente revê a estratégia juntos."</div></div></details>
+<details><summary>"Não sei qual cor escolher."</summary><div><div class="say"><small>FALE</small>"Normal, é a decisão mais difícil sem uma marca. Vamos testar: qual passa mais confiança para o seu cliente? [use as 3 perguntas da seção de cores]. Se ainda houver dúvida, escolha duas e eu mostro o cartão e a camisa nas duas."</div></div></details>
+<details><summary>"Meu sócio/marido/diretor precisa ver."</summary><div><div class="say"><small>FALE</small>"Faz todo sentido. Que tal marcarmos 30 minutos com ele? Eu te mando o resumo antes, para ele já chegar sabendo."</div></div></details>
+</div></section>
+
+<section id="fechar"><div class="w"><h2>Fechar e o que vem depois</h2>
+<h3>Próximos passos, em ordem</h3>
+<ol class="l"><li>Ela aprova a cor e o pacote.</li><li>Você manda a proposta e o contrato no mesmo dia.</li><li>Ela paga os <b>50% de entrada</b>.</li><li>Reunião de partida em até 48 horas, com o envio de logos antigos, fotos de obras, textos e acessos.</li><li>Primeira entrega combinada com data.</li></ol>
+<h3>Mensagem pronta para mandar depois da reunião</h3>
+<div class="msg" id="msg">Oi, Denise! Obrigado pela conversa de hoje.
+
+Resumindo o que combinamos:
+• Site: [ajustes combinados]
+• Identidade visual: [pacote escolhido], com a cor [escolhida]
+• Conteúdo mensal: [plano escolhido]
+
+Investimento: R$ [valor] à vista (50% de entrada e 50% na entrega) e R$ [valor] por mês, com contrato de 6 meses.
+
+Próximo passo: [data] para confirmar e começar. Qualquer dúvida, me chama aqui.<button class="copy" id="copy">Copiar</button></div>
+<h3>Pontos de atenção</h3>
+<ul class="l"><li>Os valores acima são <b>estimativas</b>. Confirme com o seu custo e com o que o mercado da sua região cobra.</li><li>Conteúdo constante depende da <b>participação da Denise</b> (fotos, vídeos e autorizações). Combine isso no contrato.</li><li>Sem <b>autorização por escrito</b> do cliente, não publique fotos ou nomes de obras.</li><li>Leads de formulário e WhatsApp envolvem <b>dados pessoais</b> (LGPD): deixe claro quem guarda e para quê.</li></ul>
+</div></section>
+<footer><div class="w">Roteiro de reunião · ADVM technology · uso interno</div></footer>
+<script>
+(function(){
+  var box=document.querySelectorAll('#chk input'),K='roteiro-chk';
+  try{var s=JSON.parse(localStorage.getItem(K)||'[]');box.forEach(function(b,i){b.checked=!!s[i]});}catch(e){}
+  box.forEach(function(b){b.addEventListener('change',function(){try{localStorage.setItem(K,JSON.stringify([].map.call(box,function(x){return x.checked})))}catch(e){}})});
+  var c=document.getElementById('copy');
+  if(c)c.addEventListener('click',function(){var t=document.getElementById('msg').childNodes[0].textContent;var done=function(){c.textContent='Copiado';setTimeout(function(){c.textContent='Copiar'},1800)};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,function(){c.textContent='Selecione e copie'})}else{c.textContent='Selecione e copie'}});
+})();
+</script>
+</body>
+</html>
