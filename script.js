@@ -36,18 +36,6 @@ function onScroll() {
 }
 addEventListener("scroll", onScroll, { passive: true }); addEventListener("resize", onScroll); onScroll();
 
-/* ---------- palavra que troca no título ---------- */
-(function () {
-  const inner = $("#rotIn"); if (!inner) return;
-  const n = inner.children.length; inner.append(inner.children[0].cloneNode(true)); let i = 0;
-  if (RM) return;
-  setInterval(() => {
-    if (document.hidden) return; i++; inner.style.transform = `translateY(${-i * 1.12}em)`;
-    if (i === n) setTimeout(() => { inner.style.transition = "none"; inner.style.transform = "translateY(0)"; i = 0; reflow(inner); inner.style.transition = ""; }, 720);
-  }, 2400);
-})();
-
-
 /* ---------- circuitos de rede com energia passando ---------- */
 (function () {
   const canvases = $$("canvas.circuit"); if (!canvases.length) return;
