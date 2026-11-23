@@ -47,28 +47,18 @@ addEventListener("scroll", onScroll, { passive: true }); addEventListener("resiz
   }, 2400);
 })();
 
-/* ---------- prédio interativo ---------- */
+/* ---------- partículas e círculo que segue o mouse ---------- */
 (function () {
-  const svg = $(".bld__svg"), wins = $("#wins"); if (!svg) return;
-  const NS = "http://www.w3.org/2000/svg", W = [];
-  for (let r = 0; r < 4; r++) for (let c = 0; c < 4; c++) { const w = document.createElementNS(NS, "rect"); w.setAttribute("x", 192 + c * 58); w.setAttribute("y", 138 + r * 58); w.setAttribute("width", 40); w.setAttribute("height", 38); w.setAttribute("rx", 4); w.setAttribute("class", "win"); w.setAttribute("fill", Math.random() < .4 ? "#ffd9a8" : "#4b2f94"); w.setAttribute("opacity", ".85"); wins.append(w); W.push(w); }
-  const IC = ['<rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1.2"/>', '<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M6 11h3l2-3 2 5 2-2h3"/>', '<path d="M6 16v-5a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20a2 2 0 0 0 4 0"/>', '<path d="M12 3c1 3 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-5 1-9z"/>', '<circle cx="12" cy="5" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M12 7v5M12 12l-6 4M12 12l6 4"/>', '<path d="M14.5 6.5a4 4 0 0 0-5 5L4 17l3 3 5.5-5.5a4 4 0 0 0 5-5l-2.5 2.5-2.5-.5-.5-2.5z"/>'];
-  const S = [["Controle de acesso", "Leitores e catracas liberam só quem pode entrar."], ["Câmeras e monitoramento", "A portaria acompanha tudo, inclusive pelo celular."], ["Alarme e perímetro", "Sensores na cerca avisam antes de alguém chegar ao prédio."], ["Detecção de incêndio", "Detectores em cada andar mostram o ponto exato do alarme."], ["Redes e infraestrutura", "A sala técnica reúne a rede dedicada dos sistemas."], ["Manutenção", "Revisões e atendimento depois da entrega."]];
-  const hs = $$(".hs"), cap = $("#cap"), dots = $("#capDots"); dots.innerHTML = S.map(() => "<i><b></b></i>").join("");
-  let cur = 0, timer = null, paused = false, hold = 0;
-  function show(i, swap = true) {
-    cur = i; hs.forEach((h, k) => h.classList.toggle("on", k === i));
-    const paint = () => { $("#capT").textContent = S[i][0]; $("#capD").textContent = S[i][1]; $("#capIc").innerHTML = `<svg viewBox="0 0 24 24">${IC[i]}</svg>`; cap.classList.remove("swap"); };
-    if (swap && !RM) { cap.classList.add("swap"); setTimeout(paint, 220); } else paint();
-    $$("i", dots).forEach((d, k) => { d.className = k < i ? "done" : k === i ? "cur" : ""; });
-    const c = $$("i", dots)[i]; if (c) { c.classList.remove("cur"); reflow(c); c.classList.add("cur"); }
+  const box = $("#parts"); if (box && !RM) {
+    const kinds = ["d", "c", "s", "d", "c"];
+    for (let n = 0; n < 22; n++) { const p = document.createElement("span"), k = kinds[n % kinds.length]; p.className = "pt " + k; if (k === "s") p.textContent = "✦"; p.style.left = Math.random() * 100 + "%"; p.style.top = 30 + Math.random() * 65 + "%"; p.style.animationDuration = 9 + Math.random() * 10 + "s"; p.style.animationDelay = -Math.random() * 14 + "s"; p.style.setProperty("--dx", (Math.random() * 80 - 40) + "px"); box.append(p); }
   }
-  function next() { show((cur + 1) % S.length); }
-  function start() { clearInterval(timer); if (!RM) timer = setInterval(() => { if (!paused && !document.hidden && Date.now() > hold) next(); }, 3400); }
-  hs.forEach(h => h.addEventListener("click", () => { show(+h.dataset.i); hold = Date.now() + 9000; }));
-  $$(".bld").forEach(b => { b.addEventListener("pointerenter", () => { paused = true; cap.classList.add("pause"); }); b.addEventListener("pointerleave", () => { paused = false; cap.classList.remove("pause"); show(cur, false); }); });
-  show(0, false); start();
-  if (!RM) setInterval(() => { if (document.hidden) return; for (let k = 0; k < 2; k++) { const w = W[Math.floor(Math.random() * W.length)]; w.setAttribute("fill", w.getAttribute("fill") === "#ffd9a8" ? "#4b2f94" : "#ffd9a8"); } }, 900);
+  const cur = $("#cur"); if (!cur || RM || !fine) return;
+  let x = innerWidth / 2, y = innerHeight / 2, tx = x, ty = y;
+  addEventListener("pointermove", e => { tx = e.clientX; ty = e.clientY; cur.classList.add("on"); });
+  document.addEventListener("pointerleave", () => cur.classList.remove("on"));
+  document.addEventListener("pointerover", e => cur.classList.toggle("big", !!e.target.closest("a,button,[role=tab],input,select,textarea")));
+  (function loop() { x += (tx - x) * .18; y += (ty - y) * .18; cur.style.transform = `translate(${x}px,${y}px)`; requestAnimationFrame(loop); })();
 })();
 
 /* ---------- botões magnéticos ---------- */

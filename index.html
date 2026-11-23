@@ -12,6 +12,7 @@
 <body>
 <a class="skip" href="#conteudo">Ir para o conteúdo</a>
 <div class="progress" id="progress" aria-hidden="true"></div>
+<div class="cur" id="cur" aria-hidden="true"></div>
 
 <header class="top" id="top">
   <a class="brand" href="#inicio" aria-label="ADVM technology, início"><img src="assets/logo-horizontal-fundo-escuro.svg" alt="ADVM technology" width="190" height="50"></a>
@@ -24,65 +25,33 @@
 <main id="conteudo">
 <!-- ============ INÍCIO ============ -->
 <section class="hero" id="inicio">
-  <div class="aurora" aria-hidden="true"><i></i><i></i></div>
-  <div class="wrap hero__g">
-    <div class="hero__txt">
-      <p class="pill"><span class="dot"></span>Segurança eletrônica para edifícios</p>
-      <h1>
-        <span class="l1">Segurança para</span>
-        <span class="rot" id="rot" aria-live="off"><span class="rot__in" id="rotIn"><b>condomínios</b><b>escolas</b><b>hotéis</b><b>hospitais</b><b>universidades</b><b>construtoras</b></span></span>
-      </h1>
-      <p class="lead">Instalamos e cuidamos de controle de acesso, câmeras, alarme e proteção contra incêndio. <strong>Um único responsável, do projeto à manutenção.</strong></p>
-      <div class="hero__cta">
-        <a href="#contato" class="btn btn--lg btn--pulse magnet">Pedir orçamento<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a href="#etapas" class="btn btn--lg btn--ghost magnet">Ver como funciona</a>
-      </div>
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i class="gold"></i></div>
+  <div class="ribbons" aria-hidden="true"><div class="rib r1"><svg viewBox="0 0 2400 200" preserveAspectRatio="none"><defs><linearGradient id="ga" x1="0" x2="1"><stop offset="0" stop-color="#7c35fd"/><stop offset=".5" stop-color="#a77bff"/><stop offset="1" stop-color="#7c35fd"/></linearGradient></defs><path d="M0 100C200 20 400 180 600 100S1000 20 1200 100S1600 180 1800 100S2200 20 2400 100" stroke="url(#ga)"/></svg></div><div class="rib r2"><svg viewBox="0 0 2400 200" preserveAspectRatio="none"><defs><linearGradient id="gb" x1="0" x2="1"><stop offset="0" stop-color="#7c35fd"/><stop offset=".5" stop-color="#a77bff"/><stop offset="1" stop-color="#7c35fd"/></linearGradient></defs><path d="M0 100C200 20 400 180 600 100S1000 20 1200 100S1600 180 1800 100S2200 20 2400 100" stroke="url(#gb)"/></svg></div><div class="rib r3"><svg viewBox="0 0 2400 200" preserveAspectRatio="none"><defs><linearGradient id="gc" x1="0" x2="1"><stop offset="0" stop-color="#7c35fd"/><stop offset=".5" stop-color="#a77bff"/><stop offset="1" stop-color="#7c35fd"/></linearGradient></defs><path d="M0 100C200 20 400 180 600 100S1000 20 1200 100S1600 180 1800 100S2200 20 2400 100" stroke="url(#gc)"/></svg></div></div>
+  <div class="parts" id="parts" aria-hidden="true"></div>
+  <div class="wrap hero__c">
+    <p class="eyebrow">Integradora de segurança eletrônica</p>
+    <h1>
+      <span class="l1">Segurança para</span>
+      <span class="rot" id="rot" aria-live="off"><span class="rot__in" id="rotIn"><b>condomínios</b><b>escolas</b><b>hotéis</b><b>hospitais</b><b>universidades</b><b>construtoras</b></span></span>
+    </h1>
+    <p class="lead">Instalamos e cuidamos de controle de acesso, câmeras, alarme e proteção contra incêndio. <strong>Um único responsável, do projeto à manutenção.</strong></p>
+    <div class="hero__cta">
+      <a href="#contato" class="btn btn--lg btn--pulse magnet">Pedir orçamento<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a href="#etapas" class="btn btn--lg btn--ghost magnet">Ver como funciona</a>
     </div>
-
-    <div class="hero__viz">
-      <div class="bld" id="bld">
-        <div class="bld__stage">
-        <svg viewBox="0 40 600 430" class="bld__svg" role="img" aria-label="Ilustração de um prédio mostrando onde ficam os sistemas de segurança">
-          <defs>
-            <linearGradient id="gb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a1b78"/><stop offset="1" stop-color="#1f0f40"/></linearGradient>
-            <linearGradient id="gs" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7c35fd" stop-opacity=".25"/><stop offset="1" stop-color="#7c35fd" stop-opacity="0"/></linearGradient>
-          </defs>
-          <ellipse cx="300" cy="446" rx="290" ry="26" fill="url(#gs)"/>
-          <rect x="0" y="438" width="600" height="82" fill="#150b27"/><rect x="0" y="436" width="600" height="4" fill="#2a1f45"/>
-          <!-- cerca -->
-          <g stroke="#a79dc9" stroke-width="3" opacity=".8"><path d="M14 392H150M14 414H150M450 392H586M450 414H586"/><path d="M14 382V438M44 382V438M74 382V438M104 382V438M134 382V438M466 382V438M496 382V438M526 382V438M556 382V438M586 382V438"/></g>
-          <!-- guarita -->
-          <rect x="96" y="372" width="62" height="66" rx="5" fill="#2a1f45"/><rect x="104" y="382" width="46" height="30" rx="3" fill="#7c35fd" opacity=".55"/><path d="M110 404l8-8 8 5 8-9 10 8" fill="none" stroke="#fff" stroke-width="2" opacity=".8"/>
-          <!-- garagem -->
-          <rect x="432" y="330" width="100" height="108" rx="5" fill="#241546"/><g stroke="#3a2a66" stroke-width="2"><path d="M440 350H524M440 366H524M440 382H524M440 398H524M440 414H524"/></g>
-          <!-- prédio -->
-          <rect x="170" y="116" width="262" height="322" rx="8" fill="url(#gb)" stroke="#5b3bb0" stroke-opacity=".5"/>
-          <rect x="250" y="82" width="102" height="36" rx="5" fill="#2a1f45"/><path d="M301 82V58M289 66h24" stroke="#a79dc9" stroke-width="3" stroke-linecap="round"/>
-          <g id="wins"></g>
-          <rect x="268" y="372" width="66" height="66" rx="4" fill="#0b0812"/><rect x="274" y="378" width="25" height="60" rx="2" fill="#7c35fd" opacity=".4"/><rect x="303" y="378" width="25" height="60" rx="2" fill="#7c35fd" opacity=".4"/><rect x="298" y="402" width="6" height="14" rx="3" fill="#fff" opacity=".8"/>
-        </svg>
-        <button class="hs" data-i="0" style="left:50%;top:86.5%" aria-label="Controle de acesso: entrada"><i></i></button>
-        <button class="hs" data-i="1" style="left:21.5%;top:82.8%" aria-label="Monitoramento: portaria"><i></i></button>
-        <button class="hs" data-i="2" style="left:7.5%;top:84.7%" aria-label="Alarme e perímetro: cerca"><i></i></button>
-        <button class="hs" data-i="3" style="left:64.3%;top:40.7%" aria-label="Detecção de incêndio: andares"><i></i></button>
-        <button class="hs" data-i="4" style="left:50%;top:14%" aria-label="Redes e infraestrutura: sala técnica"><i></i></button>
-        <button class="hs" data-i="5" style="left:80.3%;top:80.2%" aria-label="Manutenção: contratos"><i></i></button>
-        </div>
-        <div class="cap" id="cap" aria-live="polite"><span class="cap__ic" id="capIc"></span><div><b id="capT"></b><span id="capD"></span></div><div class="cap__dots" id="capDots"></div></div>
-      </div>
-    </div>
+    <dl class="stats">
+      <div><dt>1</dt><dd>responsável, do início ao fim</dd></div>
+      <div><dt>4</dt><dd>etapas, do levantamento à manutenção</dd></div>
+      <div><dt>5</dt><dd>tipos de obra atendidos</dd></div>
+    </dl>
   </div>
-  <a href="#servicos" class="scroll" aria-label="Rolar para baixo"><span></span></a>
+  <a href="#faixa" class="scroll" aria-label="Rolar para baixo"><span></span></a>
 </section>
 
-<!-- ============ POR QUE ============ -->
-<section class="why" aria-label="Diferenciais">
-  <ul class="wrap why__g">
-    <li data-reveal style="--d:0s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg><div><b>Um único responsável</b><span>Projeto, instalação e manutenção com a mesma equipe.</span></div></li>
-    <li data-reveal style="--d:.1s"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M10 4v16"/></svg><div><b>Projeto sob medida</b><span>Cada equipamento no lugar certo, com orçamento fechado.</span></div></li>
-    <li data-reveal style="--d:.2s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><div><b>Suporte depois da entrega</b><span>Treinamento e manutenção para tudo continuar funcionando.</span></div></li>
-  </ul>
-</section>
+<div class="band" id="faixa" aria-label="Serviços"><div class="band__t">
+  <span>Controle de acesso</span><i>✦</i><span>Câmeras</span><i>✦</i><span>Alarme</span><i>✦</i><span>Detecção de incêndio</span><i>✦</i><span>Redes</span><i>✦</i><span>Manutenção</span><i>✦</i>
+  <span>Controle de acesso</span><i>✦</i><span>Câmeras</span><i>✦</i><span>Alarme</span><i>✦</i><span>Detecção de incêndio</span><i>✦</i><span>Redes</span><i>✦</i><span>Manutenção</span><i>✦</i>
+</div></div>
 
 <!-- ============ SERVIÇOS ============ -->
 <section class="sec sec--light" id="servicos">
