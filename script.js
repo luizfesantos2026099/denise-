@@ -115,3 +115,21 @@ if (fine && !RM) $$(".magnet").forEach(b => {
     setTimeout(() => { send.classList.remove("load"); send.classList.add("okk"); done.textContent = "Pronto! Abrindo o WhatsApp com a sua mensagem."; window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(txt)}`, "_blank", "noopener"); setTimeout(() => { send.classList.remove("okk"); done.textContent = ""; }, 4000); }, RM ? 0 : 700);
   });
 })();
+
+/* ---------- testar cores (protótipo) ---------- */
+(function () {
+  const box = $("#theme"); if (!box) return;
+  const T = { violeta: "#0b0812", oliva: "#11140c", azul: "#091526" };
+  function apply(t, anim) {
+    if (!T[t]) t = "violeta"; const root = document.documentElement;
+    if (anim && !RM) { root.classList.add("tt"); setTimeout(() => root.classList.remove("tt"), 700); }
+    if (t === "violeta") root.removeAttribute("data-tema"); else root.dataset.tema = t;
+    $$("img[src*='logo-horizontal-tema']").forEach(i => i.src = `assets/logo-horizontal-tema-${t}.svg`);
+    $$("button", box).forEach(b => b.classList.toggle("on", b.dataset.t === t));
+    const m = $('meta[name="theme-color"]'); if (m) m.content = T[t];
+    try { localStorage.setItem("advm-tema", t); } catch (e) {}
+  }
+  const q = new URLSearchParams(location.search).get("tema"); let saved = null; try { saved = localStorage.getItem("advm-tema"); } catch (e) {}
+  apply(q || saved || "violeta", false);
+  box.addEventListener("click", e => { const b = e.target.closest("button"); if (b) apply(b.dataset.t, true); });
+})();
