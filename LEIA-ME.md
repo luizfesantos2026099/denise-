@@ -55,3 +55,18 @@ Os caminhos nos scripts podem precisar de ajuste dependendo de onde o repositór
 - Não sobrescrever o `style.css` sem manter o bloco `@font-face` do topo (sem ele o site cai para uma fonte comum).
 - O site foi testado em navegador simulado no computador, não em celular real.
 - As vozes da apresentação animada (`apresentacao/`) dizem "ADVM Technology" e não foram regeneradas.
+
+## Identificadores dos artefatos (para republicar nos mesmos links)
+Use estes códigos (slug) ao publicar de novo, para atualizar o link em vez de criar outro. Se o código não funcionar, liste os artefatos da conta.
+| Artefato | Slug |
+|---|---|
+| Site | `727f3a7f-a6ff-4b0d-abdb-ab02689443d2` |
+| Manual de marca (com mockups, logos, redes e papelaria) | `888459c8-f97f-4ebf-8b76-d0a3de0accb1` |
+| Apresentação do orçamento | `69200137-0741-47a4-9dba-a026e790e52f` |
+| Roteiro da reunião | `1d216a26-ff6b-4211-a270-440890567311` |
+| Identidade v3 (violeta, 4 símbolos) | `60d61f8d-fbe3-4c33-891e-18fe7b895ee7` |
+| Identidade v2 (oliva, verde e dourado) | `d1864f4c-3744-4759-8035-18f693b6b2a2` |
+
+## Como retomar numa conversa nova
+1. Abra uma sessão no repositório `luizfesantos2026099/denise-`.
+2. Primeira mensagem: "Leia o LEIA-ME.md e continue o projeto de onde parou. A próxima tarefa é: ..."
