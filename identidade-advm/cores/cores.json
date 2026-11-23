@@ -1,5 +1,5 @@
 {
-  "marca": "ADVM technology",
+  "marca": "ADVM tecnologia",
   "cores": [
     {"nome": "Noite", "hex": "#0b0812", "rgb": [11, 8, 18], "uso": "fundo principal escuro"},
     {"nome": "Ameixa", "hex": "#190926", "rgb": [25, 9, 38], "uso": "superfícies escuras, ícone de app, texto sobre fundo claro"},
@@ -9,5 +9,5 @@
     {"nome": "Alerta", "hex": "#ff4a4a", "rgb": [255, 74, 74], "uso": "somente alertas e erros"},
     {"nome": "Ouro", "hex": "#d6b25e", "rgb": [214, 178, 94], "uso": "acento opcional, uso pontual"}
   ],
-  "fontes": {"titulos": "Outfit (500 e 600)", "textos": "Inter (400, 500 e 600)", "logo": "Outfit 500 (ADVM) e Outfit 300 (technology), já em curvas nos arquivos SVG"}
+  "fontes": {"titulos": "Outfit (500 e 600)", "textos": "Inter (400, 500 e 600)", "logo": "Outfit 500 (ADVM) e Outfit 300 (tecnologia), já em curvas nos arquivos SVG"}
 }
