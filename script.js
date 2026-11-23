@@ -47,6 +47,105 @@ addEventListener("scroll", onScroll, { passive: true }); addEventListener("resiz
   }, 2400);
 })();
 
+
+/* ---------- circuitos de rede com energia passando ---------- */
+(function () {
+  const canvases = $$("canvas.circuit"); if (!canvases.length) return;
+  const rand = (a, b) => a + Math.random() * (b - a), ri = (a, b) => Math.floor(rand(a, b + 1));
+  const hexRgb = h => { h = (h || "").trim().replace("#", ""); if (h.length === 3) h = h.split("").map(c => c + c).join(""); const n = parseInt(h, 16) || 0; return [n >> 16 & 255, n >> 8 & 255, n & 255]; };
+  let C = { a: [167, 123, 255], b: [243, 239, 253] };
+  const instances = [];
+  function readColors() { const cs = getComputedStyle(document.documentElement); C = { a: hexRgb(cs.getPropertyValue("--vio2")), b: hexRgb(cs.getPropertyValue("--nev")) }; }
+  readColors();
+  new MutationObserver(() => { readColors(); instances.forEach(i => i.bake()); }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-tema"] });
+
+  function make(cv) {
+    const ctx = cv.getContext("2d"), base = document.createElement("canvas"), bctx = base.getContext("2d");
+    const density = parseFloat(cv.dataset.density) || 1, interactive = cv.dataset.interactive === "1" && fine, calm = cv.dataset.calm === "1";
+    let W = 1, H = 1, dpr = 1, cell = 46, traces = [], pulses = [], flashes = [], ptr = null, lastSpawn = 0;
+    const inst = { vis: false, bake, draw, build };
+
+    function makeTrace(cols, rows) {
+      const dirs = [[1, 0], [-1, 0], [0, 1], [0, -1]]; let x = ri(1, cols - 1), y = ri(1, rows - 1), d = dirs[ri(0, 3)];
+      const pts = [[x, y]], segs = ri(3, 6);
+      for (let s = 0; s < segs; s++) {
+        const len = ri(2, 7), nx = x + d[0] * len, ny = y + d[1] * len; if (nx < 0 || ny < 0 || nx > cols || ny > rows) break;
+        x = nx; y = ny; pts.push([x, y]);
+        const turn = Math.random() < .5 ? [-d[1], d[0]] : [d[1], -d[0]], dl = ri(1, 3);
+        const dx = x + (d[0] + turn[0]) * dl, dy = y + (d[1] + turn[1]) * dl; if (dx < 0 || dy < 0 || dx > cols || dy > rows) break;
+        x = dx; y = dy; pts.push([x, y]); d = turn;
+      }
+      if (pts.length < 4) return null;
+      const P = pts.map(([a, b]) => [a * cell + cell / 2, b * cell + cell / 2]), cum = [0];
+      for (let i = 1; i < P.length; i++) cum.push(cum[i - 1] + Math.hypot(P[i][0] - P[i - 1][0], P[i][1] - P[i - 1][1]));
+      return { P, cum, total: cum[cum.length - 1] };
+    }
+    function at(t, s) { s = Math.max(0, Math.min(t.total, s)); let i = 1; while (i < t.cum.length - 1 && t.cum[i] < s) i++; const k = (s - t.cum[i - 1]) / ((t.cum[i] - t.cum[i - 1]) || 1); return [t.P[i - 1][0] + (t.P[i][0] - t.P[i - 1][0]) * k, t.P[i - 1][1] + (t.P[i][1] - t.P[i - 1][1]) * k]; }
+    const cf = (x, y) => { if (!calm) return 1; const r0 = Math.min(W, H) * .1, r1 = Math.max(W, H) * .52, d = Math.hypot(x - W / 2, y - H * .46), f = Math.max(0, Math.min(1, (d - r0) / (r1 - r0))); return 1 - .72 * (1 - f); };
+    const newPulse = (i, init) => ({ i, s: init ? rand(0, traces[i].total) : -rand(0, 300), v: rand(90, 190), len: rand(70, 130) });
+
+    function build() {
+      const r = cv.getBoundingClientRect(); W = Math.max(1, r.width); H = Math.max(1, r.height); dpr = Math.min(devicePixelRatio || 1, 1.5);
+      cv.width = base.width = Math.round(W * dpr); cv.height = base.height = Math.round(H * dpr);
+      cell = W < 700 ? 34 : 46; const cols = Math.floor(W / cell), rows = Math.floor(H / cell), n = Math.max(4, Math.round(cols * rows / 36 * density));
+      traces = []; for (let k = 0; k < n * 4 && traces.length < n; k++) { const t = makeTrace(cols, rows); if (t) traces.push(t); }
+      pulses = []; if (!RM) traces.forEach((t, i) => { const m = Math.random() < .7 ? 1 : 2; for (let q = 0; q < m; q++) pulses.push(newPulse(i, true)); });
+      bake(); if (RM) draw(0, 0);
+    }
+    function bake() {
+      bctx.setTransform(dpr, 0, 0, dpr, 0, 0); bctx.clearRect(0, 0, W, H); const [r, g, b] = C.a; bctx.lineJoin = "round"; bctx.lineCap = "round";
+      traces.forEach(t => {
+        bctx.beginPath(); t.P.forEach(([x, y], i) => i ? bctx.lineTo(x, y) : bctx.moveTo(x, y)); bctx.strokeStyle = `rgba(${r},${g},${b},.28)`; bctx.lineWidth = 1.3; bctx.stroke();
+        [t.P[0], t.P[t.P.length - 1]].forEach(([x, y]) => { bctx.beginPath(); bctx.arc(x, y, 4, 0, 7); bctx.strokeStyle = `rgba(${r},${g},${b},.45)`; bctx.lineWidth = 1.4; bctx.stroke(); bctx.beginPath(); bctx.arc(x, y, 1.6, 0, 7); bctx.fillStyle = `rgba(${r},${g},${b},.6)`; bctx.fill(); });
+        for (let i = 1; i < t.P.length - 1; i += 2) { bctx.beginPath(); bctx.arc(t.P[i][0], t.P[i][1], 1.8, 0, 7); bctx.fillStyle = `rgba(${r},${g},${b},.35)`; bctx.fill(); }
+      });
+      if (calm) { bctx.globalCompositeOperation = "destination-out"; const gr = bctx.createRadialGradient(W / 2, H * .46, Math.min(W, H) * .1, W / 2, H * .46, Math.max(W, H) * .52); gr.addColorStop(0, "rgba(0,0,0,.72)"); gr.addColorStop(1, "rgba(0,0,0,0)"); bctx.fillStyle = gr; bctx.fillRect(0, 0, W, H); bctx.globalCompositeOperation = "source-over"; }
+    }
+    function draw(dt, now) {
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H); ctx.drawImage(base, 0, 0, W, H);
+      const [r, g, b] = C.a, [r2, g2, b2] = C.b; ctx.lineCap = "round";
+      pulses.forEach(p => {
+        const t = traces[p.i]; p.s += p.v * dt;
+        if (p.s - p.len > t.total) { flashes.push({ xy: t.P[t.P.length - 1], t0: now }); if (p.temp) p.dead = true; else Object.assign(p, newPulse(p.i, false)); return; }
+        const steps = 14;
+        for (let k = 0; k < steps; k++) {
+          const d1 = p.s - p.len * k / steps, d0 = p.s - p.len * (k + 1) / steps; if (d1 < 0 || d0 > t.total) continue;
+          const A = at(t, d0), B = at(t, d1); ctx.beginPath(); ctx.moveTo(A[0], A[1]); ctx.lineTo(B[0], B[1]);
+          ctx.strokeStyle = `rgba(${r},${g},${b},${.95 * (1 - k / steps) * cf(A[0], A[1])})`; ctx.lineWidth = 2.2 * (1 - k / steps) + .6; ctx.stroke();
+        }
+        if (p.s >= 0 && p.s <= t.total) { const h = at(t, p.s), q = cf(h[0], h[1]); [[10, .1], [6, .24]].forEach(([rr, aa]) => { ctx.beginPath(); ctx.arc(h[0], h[1], rr, 0, 7); ctx.fillStyle = `rgba(${r},${g},${b},${aa * q})`; ctx.fill(); }); ctx.beginPath(); ctx.arc(h[0], h[1], 2.7, 0, 7); ctx.fillStyle = `rgba(${r2},${g2},${b2},${q})`; ctx.fill(); }
+      });
+      pulses = pulses.filter(p => !p.dead);
+      flashes = flashes.filter(f => now - f.t0 < 700);
+      flashes.forEach(f => { const k = (now - f.t0) / 700; ctx.beginPath(); ctx.arc(f.xy[0], f.xy[1], 4 + k * 18, 0, 7); ctx.strokeStyle = `rgba(${r},${g},${b},${.8 * (1 - k) * cf(f.xy[0], f.xy[1])})`; ctx.lineWidth = 1.6; ctx.stroke(); });
+      if (ptr) traces.forEach(t => [t.P[0], t.P[t.P.length - 1]].forEach(([x, y]) => { const d = Math.hypot(x - ptr[0], y - ptr[1]); if (d < 150) { const a = 1 - d / 150; ctx.beginPath(); ctx.arc(x, y, 9 + a * 6, 0, 7); ctx.fillStyle = `rgba(${r},${g},${b},${.22 * a})`; ctx.fill(); ctx.beginPath(); ctx.arc(x, y, 3 + a * 3, 0, 7); ctx.fillStyle = `rgba(${r2},${g2},${b2},${a})`; ctx.fill(); } }));
+    }
+    function spawn(x, y) { let best = null, bd = 170; traces.forEach((t, i) => t.P.forEach((p, vi) => { const d = Math.hypot(p[0] - x, p[1] - y); if (d < bd) { bd = d; best = [i, vi]; } })); if (best) pulses.push({ i: best[0], s: traces[best[0]].cum[best[1]], v: 300, len: 110, temp: true }); }
+    if (interactive && !RM) {
+      const host = cv.parentElement;
+      host.addEventListener("pointermove", e => { const r = cv.getBoundingClientRect(); ptr = [e.clientX - r.left, e.clientY - r.top]; const n = performance.now(); if (n - lastSpawn > 260) { lastSpawn = n; spawn(ptr[0], ptr[1]); } });
+      host.addEventListener("pointerleave", () => ptr = null);
+    }
+    new IntersectionObserver(es => { inst.vis = es[0].isIntersecting; }, { threshold: 0 }).observe(cv);
+    let rt; new ResizeObserver(() => { clearTimeout(rt); rt = setTimeout(build, 150); }).observe(cv);
+    build(); instances.push(inst);
+  }
+  canvases.forEach(make);
+  if (RM) return;
+  let last = performance.now();
+  (function loop(now) { const dt = Math.min(.05, (now - last) / 1000); last = now; if (!document.hidden) instances.forEach(i => i.vis && i.draw(dt, now)); requestAnimationFrame(loop); })(last);
+})();
+
+/* ---------- círculo que segue o mouse ---------- */
+(function () {
+  const cur = $("#cur"); if (!cur || RM || !fine) return;
+  let x = innerWidth / 2, y = innerHeight / 2, tx = x, ty = y;
+  addEventListener("pointermove", e => { tx = e.clientX; ty = e.clientY; cur.classList.add("on"); });
+  document.addEventListener("pointerleave", () => cur.classList.remove("on"));
+  document.addEventListener("pointerover", e => cur.classList.toggle("big", !!e.target.closest("a,button,[role=tab],input,select,textarea")));
+  (function loop() { x += (tx - x) * .18; y += (ty - y) * .18; cur.style.transform = `translate(${x}px,${y}px)`; requestAnimationFrame(loop); })();
+})();
+
 /* ---------- botões magnéticos ---------- */
 if (fine && !RM) $$(".magnet").forEach(b => {
   b.addEventListener("pointermove", e => { const r = b.getBoundingClientRect(); b.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .2}px,${(e.clientY - r.top - r.height / 2) * .28}px)`; });

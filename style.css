@@ -45,9 +45,9 @@ h1,h2,h3{font-family:var(--f1);font-weight:500;letter-spacing:-.03em;line-height
 
 /* aurora */
 .aurora{position:absolute;inset:0;overflow:hidden;pointer-events:none}
-.aurora i{position:absolute;border-radius:50%;filter:blur(100px);will-change:transform}
-.aurora i:nth-child(1){width:42vw;height:42vw;left:-8vw;top:-12vw;background:var(--a1);opacity:.6;animation:drift1 18s ease-in-out infinite alternate}
-.aurora i:nth-child(2){width:34vw;height:34vw;right:-6vw;bottom:-8vw;background:var(--a2);opacity:.6;animation:drift2 22s ease-in-out infinite alternate}
+.aurora i{position:absolute;border-radius:50%;will-change:transform}
+.aurora i:nth-child(1){width:70vw;height:70vw;left:-22vw;top:-28vw;background:radial-gradient(closest-side,var(--a1),transparent);opacity:.6;animation:drift1 18s ease-in-out infinite alternate}
+.aurora i:nth-child(2){width:58vw;height:58vw;right:-18vw;bottom:-22vw;background:radial-gradient(closest-side,var(--a2),transparent);opacity:.6;animation:drift2 22s ease-in-out infinite alternate}
 .aurora--soft i{opacity:.32!important}
 @keyframes drift1{to{transform:translate(10vw,8vw) scale(1.15)}}@keyframes drift2{to{transform:translate(-8vw,-8vw) scale(.9)}}
 
@@ -82,14 +82,11 @@ h1,h2,h3{font-family:var(--f1);font-weight:500;letter-spacing:-.03em;line-height
 .stats{display:flex;gap:clamp(24px,6vw,80px);justify-content:center;flex-wrap:wrap;margin-top:56px}
 .stats dt{font:500 clamp(2.2rem,4vw,3.2rem)/1 var(--f1);letter-spacing:-.02em;background:linear-gradient(180deg,#fff,var(--lav));-webkit-background-clip:text;background-clip:text;color:transparent}
 .stats dd{color:var(--mut);font-size:.92rem;max-width:18ch;margin:6px auto 0;line-height:1.35}
-.ribbons{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
-.rib{position:absolute;left:0;width:200%;height:200px;opacity:.13;filter:blur(1.5px);will-change:transform}
-.rib svg{display:block;width:100%;height:100%;overflow:visible}
-.rib path{fill:none;stroke-width:80px;vector-effect:non-scaling-stroke;stroke-linecap:round}
-.r1{top:14%;animation:ribL 46s linear infinite;rotate:-3deg}
-.r2{top:44%;opacity:.09;animation:ribR 62s linear infinite;rotate:2deg}.r2 path{stroke-width:110px}
-.r3{top:72%;opacity:.11;animation:ribL 78s linear infinite;rotate:-2deg}
-@keyframes ribL{to{transform:translateX(-50%)}}@keyframes ribR{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.cur{position:fixed;left:0;top:0;width:38px;height:38px;margin:-19px 0 0 -19px;border-radius:50%;border:2px solid var(--vio2);background:color-mix(in srgb,var(--vio2) 12%,transparent);pointer-events:none;z-index:130;opacity:0;transition:opacity .3s,width .25s,height .25s,margin .25s,background .25s}
+.cur.on{opacity:1}.cur.big{width:64px;height:64px;margin:-32px 0 0 -32px;background:color-mix(in srgb,var(--vio2) 20%,transparent)}
+@media(hover:none){.cur{display:none}}
+.circuit{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.sec--dark>.wrap,.contato>.wrap{position:relative;z-index:2}
 .band{background:var(--ameixa);border-block:1px solid var(--ln);overflow:hidden;white-space:nowrap;padding:22px 0;position:relative;z-index:3}
 .band__t{display:inline-flex;align-items:center;animation:mq 36s linear infinite}
 .band span{font:500 clamp(1.3rem,2.4vw,1.8rem)/1 var(--f1);letter-spacing:-.01em;padding:0 28px;color:var(--lt)}
@@ -187,5 +184,5 @@ h1,h2,h3{font-family:var(--f1);font-weight:500;letter-spacing:-.03em;line-height
 }
 @media(prefers-reduced-motion:reduce){
  html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}
- [data-reveal]{opacity:1!important;transform:none!important}.btn--pulse::before,.btn--pulse::after{display:none}.tp__r li{opacity:1;transform:none}
+ [data-reveal]{opacity:1!important;transform:none!important}.btn--pulse::before,.btn--pulse::after{display:none}.cur{display:none}.tp__r li{opacity:1;transform:none}
 }
