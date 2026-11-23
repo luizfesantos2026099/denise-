@@ -58,8 +58,18 @@ details>div{padding:0 20px 18px;display:grid;gap:10px}
 .hooks li::before{content:counter(h);position:absolute;left:14px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:50%;background:var(--tint);color:var(--vio-d);font:600 .85rem 'Inter';display:grid;place-items:center}
 .msg{background:#0b0812;color:#e7dcff;border-radius:18px;padding:20px 22px;white-space:pre-wrap;font-size:1rem;line-height:1.6;position:relative}
 .copy{position:absolute;right:12px;top:12px;border:1px solid #ffffff40;background:#ffffff14;color:#fff;border-radius:999px;padding:6px 14px;font:500 .85rem 'Inter';cursor:pointer}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.p3{border:1px solid var(--line);border-radius:20px;padding:22px;background:#fff;display:flex;flex-direction:column;gap:4px}
+.p3.hl{border:2px solid var(--vio);background:#faf7ff}
+.p3 .n1{width:30px;height:30px;border-radius:50%;background:var(--tint);color:var(--vio-d);font:600 .9rem 'Inter';display:grid;place-items:center;margin-bottom:8px}
+.p3 b{font:500 1.25rem 'Outfit'}.p3 .v{font:500 2.3rem/1 'Outfit';letter-spacing:-.02em;margin-top:6px}.p3 .u{color:var(--mut);font-size:.88rem}
+.p3 p{color:var(--mut);font-size:.95rem;line-height:1.5;margin-top:8px}.p3 .alt{border-top:1px dashed var(--line);padding-top:10px;color:var(--ink)}
+.offer{border:2px solid var(--ink);border-radius:20px;background:#fff;overflow:hidden}
+.offer .row{display:flex;justify-content:space-between;gap:16px;padding:14px 22px;border-top:1px solid var(--line);font-size:1.05rem}.offer .row:first-child{border-top:0}
+.offer .row b{font:500 1.3rem 'Outfit';white-space:nowrap}
+.offer .row.tot{background:var(--ink);color:#fff;border-top:1px solid #ffffff22}.offer .row.tot b{font-size:1.7rem;color:#fff}
 footer{padding:40px 0 80px;color:var(--mut);font-size:.9rem;border-top:1px solid var(--line)}
-@media(max-width:720px){table{display:block;overflow-x:auto}.goals,.cols{grid-template-columns:1fr}.fl.b,.fl.c{width:100%}table{font-size:.9rem}td,th{padding:10px}.blk__h{flex-wrap:wrap}}
+@media(max-width:720px){table{display:block;overflow-x:auto}.three{grid-template-columns:1fr}.goals,.cols{grid-template-columns:1fr}.fl.b,.fl.c{width:100%}table{font-size:.9rem}td,th{padding:10px}.blk__h{flex-wrap:wrap}}
 @media print{.nav,.copy{display:none}section{break-inside:avoid-page}details{break-inside:avoid}details>div{display:grid}}
 </style>
 </head>
@@ -113,7 +123,7 @@ footer{padding:40px 0 80px;color:var(--mut);font-size:.9rem;border-top:1px solid
 
 <div class="blk"><div class="blk__h"><span class="t">35 a 50 min</span><h3>5. Apresentar a proposta</h3></div><div class="blk__b">
 <div class="say"><small>FALE</small>"O site é a vitrine. Agora falta o que faz as pessoas chegarem nela e confiarem: a identidade visual, e um conteúdo constante que mostre a ADVM trabalhando. Vou te mostrar como eu organizo isso em três degraus."</div>
-<div class="do"><small>MOSTRE</small>A apresentação do orçamento. Comece pelo <b>cenário completo</b> (o mais caro) e só depois mostre os menores. Veja os valores em <a href="#precos">Preços</a>.</div>
+<div class="do"><small>MOSTRE</small>A apresentação do orçamento. Apresente a <b>oferta completa</b> primeiro. Só mostre as versões menores se ela reagir. Veja os valores em <a href="#precos">Preços</a>.</div>
 <div class="say"><small>FALE (A CONTA QUE FECHA A VENDA, COM O NÚMERO DELA)</small>"Você me disse que uma obra de [tipo] fica em torno de R$ [ticket]. O investimento dos primeiros seis meses é de R$ 20.275. Então, se o conteúdo trouxer <b>uma única obra</b> a mais, ele já se pagou."<br><small style="margin-top:6px">Preencha o ticket na hora. Só use essa frase se o ticket dela for maior que o investimento. Não prometa que vai trazer a obra.</small></div></div></div>
 
 <div class="blk"><div class="blk__h"><span class="t">50 a 60 min</span><h3>6. Fechar</h3></div><div class="blk__b">
@@ -177,28 +187,32 @@ footer{padding:40px 0 80px;color:var(--mut);font-size:.9rem;border-top:1px solid
 <ul class="l"><li><b>Google (Perfil da Empresa):</b> quem busca "controle de acesso em [cidade]" está pronto para comprar.</li><li><b>LinkedIn:</b> gestores e engenheiros de construtoras estão lá.</li><li><b>Instagram:</b> serve de vitrine e prova de trabalho. Não é o principal canal de venda neste mercado.</li></ul>
 </div></section>
 
-<section id="precos"><div class="w"><h2>Preços</h2>
-<p class="lead">São <b>estimativas de mercado</b>, que montei para você ajustar ao seu custo por hora e à sua região. Confira antes de apresentar.</p>
-<h3>Identidade visual, do zero</h3>
-<table><thead><tr><th>Pacote</th><th>O que inclui</th><th>Valor</th></tr></thead><tbody>
-<tr><td><b>Essencial</b></td><td>Logo em vetor (versões escura, clara e vertical), paleta, duas fontes, mini guia, avatar e ícone do site.<small>Faixa de mercado: R$ 2.500 a 4.000</small></td><td class="n">R$ 2.800</td></tr>
-<tr class="rec"><td><b>Profissional</b><span class="badge">Recomendado</span></td><td>Tudo do Essencial, mais manual de marca completo, cartão, papel timbrado, assinatura de e-mail, capa e modelos de rede social, mockups e regras do selo da Intelbras. <b>É o que já mostrei a ela.</b><small>Faixa de mercado: R$ 5.000 a 9.000</small></td><td class="n">R$ 5.500</td></tr></tbody></table>
-<h3>Conteúdo e funil</h3>
-<table><thead><tr><th>Serviço</th><th>O que inclui</th><th>Valor</th></tr></thead><tbody>
-<tr><td><b>Setup do funil</b><br>(uma vez)</td><td>Estratégia e pilares, calendário de 90 dias, 10 roteiros de vídeo, página de captação com WhatsApp, checklist como isca, configuração dos perfis (Instagram, LinkedIn, Google).</td><td class="n">R$ 2.400</td></tr>
-<tr><td><b>Presença</b><br>(mensal)</td><td>Hospedagem e manutenção do site, perfil no Google atualizado, relatório mensal de contatos.</td><td class="n">R$ 900/mês</td></tr>
-<tr class="rec"><td><b>Conteúdo</b><span class="badge">Recomendado</span><br>(mensal)</td><td>Tudo do Presença, mais calendário do mês, 12 posts e 4 vídeos curtos (roteiro e edição), gestão do Instagram e do LinkedIn, relatório.<small>As gravações são feitas pela equipe da ADVM, com o seu roteiro.</small></td><td class="n">R$ 2.200/mês</td></tr>
-<tr><td><b>Crescimento</b><br>(mensal)</td><td>Tudo do Conteúdo, mais 8 vídeos por mês, funil no WhatsApp com a página de captação e gestão de anúncios. <b>A verba dos anúncios é paga à parte, pela ADVM.</b></td><td class="n">R$ 3.900/mês</td></tr>
-<tr><td><b>Gravação presencial</b><br>(opcional)</td><td>Diária de captação de vídeo e foto em obra.<small>Estimativa de R$ 900 a 1.500 por diária, conforme deslocamento.</small></td><td class="n">sob consulta</td></tr></tbody></table>
-<h3>Como montar a oferta</h3>
-<table><thead><tr><th>Cenário</th><th>Conta</th><th>Investimento</th></tr></thead><tbody>
-<tr class="rec"><td><b>Completo</b><span class="badge">Apresente primeiro</span></td><td>Site (R$ 1.400, já aprovado) + identidade Profissional com 15% de desconto (R$ 4.675) + setup do funil (R$ 2.400) + plano Conteúdo.<small>Desconto só vale se ela contratar o plano mensal.</small></td><td class="n">R$ 8.475<br>+ R$ 2.200/mês</td></tr>
-<tr><td><b>Intermediário</b></td><td>Site + identidade Profissional (R$ 5.500) + plano Presença.</td><td class="n">R$ 6.900<br>+ R$ 900/mês</td></tr>
-<tr><td><b>Entrada</b><br>(se achar caro)</td><td>Site + identidade Essencial (R$ 2.800) + plano Presença.</td><td class="n">R$ 4.200<br>+ R$ 900/mês</td></tr></tbody></table>
-<p class="note"><b>Conta dos 6 meses no cenário completo (fora o site):</b> identidade R$ 4.675 + setup R$ 2.400 + 6 × R$ 2.200 = <b>R$ 20.275</b>. Use esse número na frase de retorno do bloco 5.</p>
-<h3>Condições</h3>
-<ul class="l"><li><b>50% de entrada</b> para começar e o restante na entrega. Plano mensal pago todo dia 5.</li><li><b>Contrato mínimo de 6 meses</b> para os planos mensais, porque conteúdo precisa de tempo para dar resultado.</li><li>Até <b>2 rodadas de ajuste</b> por entrega. O que passar disso é orçado à parte.</li><li>Direitos de uso da logo passam para a ADVM depois do pagamento final.</li></ul>
-<p class="note"><b>Verifique seu custo:</b> o plano Conteúdo (R$ 2.200) pressupõe cerca de 30 a 35 horas de trabalho por mês, o que dá uns R$ 65 a 75 por hora. Se o seu tempo de produção for maior, suba o preço ou reduza as entregas antes de oferecer.</p>
+<section id="precos"><div class="w"><h2>Preços, de forma simples</h2>
+<p class="lead">São três coisas para vender, mais uma oferta que junta tudo. São <b>estimativas de mercado</b>: ajuste ao seu custo por hora antes de apresentar.</p>
+
+<h3>As 3 coisas que você vende</h3>
+<div class="three">
+<div class="p3"><span class="n1">1</span><b>Identidade visual</b><div class="v">R$ 5.500</div><span class="u">paga uma vez</span><p>Logo, cores, fontes, manual de marca, cartão, redes e mockups. É o que você já mostrou a ela.</p><p class="alt">Versão simples (logo, cores, fontes): <b>R$ 2.800</b></p></div>
+<div class="p3"><span class="n1">2</span><b>Preparar o conteúdo</b><div class="v">R$ 2.400</div><span class="u">paga uma vez</span><p>Estratégia, plano de 90 dias, 10 roteiros de vídeo, página de captação com WhatsApp e perfis configurados.</p></div>
+<div class="p3 hl"><span class="n1">3</span><b>Conteúdo todo mês</b><div class="v">R$ 2.200</div><span class="u">por mês, mínimo de 6 meses</span><p>12 posts e 4 vídeos curtos, Instagram e LinkedIn, site mantido, Google atualizado e relatório mensal.</p></div>
+</div>
+
+<h3>A oferta que você apresenta</h3>
+<div class="offer">
+<div class="row"><span>Site (já aprovado)</span><b>R$ 1.400</b></div>
+<div class="row"><span>Identidade visual, com 15% de desconto por fechar o mensal</span><b>R$ 4.675</b></div>
+<div class="row"><span>Preparar o conteúdo</span><b>R$ 2.400</b></div>
+<div class="row tot"><span>Para começar</span><b>R$ 8.475</b></div>
+<div class="row tot"><span>Depois, todo mês</span><b>R$ 2.200</b></div>
+</div>
+<p class="note"><b>A conta para a frase de retorno:</b> nos 6 meses, sem contar o site, o investimento é R$ 4.675 + R$ 2.400 + 6 × R$ 2.200 = <b>R$ 20.275</b>.</p>
+
+<h3>Se ela reagir</h3>
+<ul class="l"><li><b>Achou caro:</b> ofereça só <b>site + identidade simples (R$ 2.800) + manutenção do site e Google por R$ 900/mês</b>. Total para começar: R$ 4.200.</li><li><b>Quer mais:</b> troque o mensal pelo <b>plano Crescimento, R$ 3.900/mês</b>: tudo do conteúdo, mais 8 vídeos, funil no WhatsApp e gestão de anúncios (a verba dos anúncios é paga à parte).</li></ul>
+
+<h3>Combinados</h3>
+<ul class="l"><li><b>50% de entrada</b> para começar e o resto na entrega. O mensal é pago todo dia 5.</li><li><b>Até 2 rodadas de ajuste</b> por entrega. O que passar disso é orçado à parte.</li><li>Os direitos de uso da logo passam para a ADVM depois do pagamento final.</li></ul>
+<p class="note"><b>Confira seu custo:</b> o conteúdo mensal supõe uns 30 a 35 horas de trabalho, ou cerca de R$ 65 a 75 por hora. Se o seu tempo real for maior, suba o preço ou reduza as entregas antes de oferecer.</p>
 </div></section>
 
 <section id="objecoes"><div class="w"><h2>Objeções e como responder</h2><p class="lead">Escute a objeção inteira, repita com as suas palavras e só então responda.</p>

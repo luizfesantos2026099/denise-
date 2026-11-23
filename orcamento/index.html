@@ -132,17 +132,20 @@ const slides = [
   <div class="two"><div><h3>Essencial</h3><p class="for">Para ter uma marca profissional e começar a usar.</p><div class="price">${brl(C.ident.essencial)}</div><ul class="l"><li>Logo em vetor, em versões escura, clara e vertical</li><li>Paleta de cores e duas fontes</li><li>Mini guia de uso</li><li>Avatar e ícone do site</li></ul></div>
   <div class="hl"><h3>Profissional<span class="badge">Recomendado</span></h3><p class="for">Para a marca aparecer igual em tudo.</p><div class="price">${brl(C.ident.profissional)}</div><ul class="l"><li>Tudo do Essencial</li><li>Manual de marca completo</li><li>Cartão, assinatura de e-mail e capa de rede social</li><li>Modelos de post, uniforme e adesivo de veículo</li></ul></div></div>${foot(5)}</section>`,
 
-`<section class="slide"><div class="glow"></div><p class="k">Etapa 3</p><h2>Conteúdo e presença, todo mês</h2>
-  <div class="three"><div><h3>Presença</h3><p class="for">Para ser encontrada e manter tudo no ar.</p><div class="price">${brl(C.plano.presenca)}<small> por mês</small></div><ul class="l"><li>Hospedagem e manutenção do site</li><li>Perfil no Google atualizado</li><li>Relatório mensal de contatos</li></ul></div>
-  <div class="hl"><h3>Conteúdo<span class="badge">Recomendado</span></h3><p class="for">Para a marca aparecer e gerar confiança.</p><div class="price">${brl(C.plano.conteudo)}<small> por mês</small></div><ul class="l"><li>Tudo do plano Presença</li><li>12 posts e 4 vídeos curtos por mês</li><li>Instagram e LinkedIn geridos</li></ul></div>
-  <div><h3>Crescimento</h3><p class="for">Para transformar alcance em pedidos de orçamento.</p><div class="price">${brl(C.plano.crescimento)}<small> por mês</small></div><ul class="l"><li>Tudo do plano Conteúdo, com 8 vídeos</li><li>Funil no WhatsApp e página de captação</li><li>Anúncios (verba à parte)</li></ul></div></div>
-  <p class="small mut" style="margin-top:30px">Contrato mínimo de ${C.mesesMin} meses. Antes, um setup único do funil de conteúdo por ${brl(C.setup)}: estratégia, calendário de 90 dias, 10 roteiros e página de captação. Anúncios seguem as regras de comunicação da Intelbras para parceiros.</p>${foot(6)}</section>`,
+`<section class="slide"><div class="glow"></div><p class="k">Etapa 3</p><h2>Conteúdo todo mês</h2>
+  <div class="two"><div class="hl"><div class="price">${brl(C.plano.conteudo)}<small> por mês</small></div><ul class="l"><li>12 posts e 4 vídeos curtos por mês</li><li>Instagram e LinkedIn geridos</li><li>Site mantido e perfil do Google atualizado</li><li>Relatório mensal de contatos</li></ul></div>
+  <div><p class="small mut" style="margin-bottom:20px">Antes de começar, uma preparação feita uma vez só</p><div class="price" style="font-size:84px">${brl(C.setup)}</div><ul class="l"><li>Estratégia e plano de 90 dias</li><li>10 roteiros de vídeo</li><li>Página de captação com WhatsApp</li></ul></div></div>
+  <p class="small mut" style="margin-top:34px">Contrato mínimo de ${C.mesesMin} meses. Quer algo diferente? Só manter site e Google: ${brl(C.plano.presenca)} por mês. Com 8 vídeos, funil e anúncios: ${brl(C.plano.crescimento)} por mês (verba de anúncios à parte).</p>${foot(6)}</section>`,
 
-`<section class="slide"><div class="glow"></div><p class="k">Investimento</p><h2>Três jeitos de começar.</h2>
-  <div class="sc"><div><h3>Só o site</h3><div class="price">${brl(C.site)}</div><p>O que já foi aprovado. A marca e a presença ficam para depois.</p></div>
-  <div><h3>Site e identidade</h3><div class="price">${brl(C.site + C.ident.profissional)}</div><p>Site mais identidade Profissional, pagos uma vez.</p></div>
-  <div class="rc"><h3>Completo, recomendado</h3><div class="price">${brl(rec)}</div><p style="font-size:30px;color:#c9bff2;margin:-6px 0 12px">e ${brl(C.plano.conteudo)} por mês</p><p>Site, identidade Profissional por ${brl(dIdent)} (${Math.round(C.descIdent * 100)}% menos com o plano) e setup do funil.</p></div></div>
-  <p class="small mut" style="margin-top:34px">Valores em reais. O plano mensal tem contrato mínimo de ${C.mesesMin} meses, o que dá ${brl(C.plano.conteudo * C.mesesMin)} no período, no plano Conteúdo.</p>${foot(7)}</section>`,
+`<section class="slide"><div class="glow"></div><p class="k">Investimento</p><h2>O resumo, em números.</h2>
+  <table class="tbl"><tbody>
+   <tr><td>Site<small>já aprovado</small></td><td>${brl(C.site)}</td></tr>
+   <tr><td>Identidade visual Profissional<small>${Math.round(C.descIdent * 100)}% de desconto por contratar o conteúdo mensal (de ${brl(C.ident.profissional)})</small></td><td>${brl(dIdent)}</td></tr>
+   <tr><td>Preparação do conteúdo<small>feita uma vez</small></td><td>${brl(C.setup)}</td></tr>
+   <tr class="tot rec"><td>Para começar</td><td>${brl(rec)}</td></tr>
+   <tr class="tot"><td>Depois, todo mês<small style="font-size:22px;color:#a79dc9">contrato mínimo de ${C.mesesMin} meses</small></td><td>${brl(C.plano.conteudo)}</td></tr>
+  </tbody></table>
+  <p class="small mut" style="margin-top:30px">Prefere começar menor? Site mais identidade Essencial (${brl(C.site + C.ident.essencial)}) e manutenção do site por ${brl(C.plano.presenca)} por mês.</p>${foot(7)}</section>`,
 
 `<section class="slide"><div class="glow"></div><p class="k">Condições</p><h2>Como funciona o combinado.</h2>
   <div class="cond"><div><h3>Pagamento</h3><p>${Math.round(C.entrada * 100)}% de entrada para começar e o restante na entrega. Pix ou transferência. Plano mensal pago todo dia 5.</p></div>
