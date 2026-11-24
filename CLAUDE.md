@@ -16,6 +16,7 @@ Site e identidade visual para a **ADVM tecnologia**, integradora de segurança e
 - Manual de marca e mockups: https://claude.ai/artifact/HrkJfp4Pq78eUbK8YWs8Xi
 - Apresentação do orçamento: https://claude.ai/artifact/Dyv3ZznLDwLPkKzgFfLyqQ
 - Roteiro da reunião: https://claude.ai/artifact/4bdrPCF19LU6SnmsYnAihe
+- Checklist do que falta: https://claude.ai/artifact/GsKd6PEFRz5NUBGwbh2eDg
 
 ## Mapa das pastas
 | Pasta | O que é |
@@ -24,6 +25,7 @@ Site e identidade visual para a **ADVM tecnologia**, integradora de segurança e
 | `identidade-advm/` | Identidade completa: logos SVG/PNG, cores, redes, papelaria, manual (`index.html`) e `mockups/` |
 | `advm-identidade-visual.zip` | Pacote da identidade para baixar |
 | `orcamento/` | Apresentação do orçamento (9 slides). Valores no bloco `CFG` no topo |
+| `checklist/` | Checklist do que falta (artefato com caixas de marcar) |
 | `roteiro/` | Roteiro da reunião, preços e respostas a objeções |
 | `ferramentas/` | Scripts que geram logos, PNGs, materiais, manual e mockups |
 | `apresentacao/`, `identidade/`, `identidade-v2/`, `identidade-v3/`, `sellix/` | **Histórico**: propostas antigas, ainda com o nome "technology". Não são para entregar |
@@ -40,7 +42,7 @@ Site e identidade visual para a **ADVM tecnologia**, integradora de segurança e
 - **Margem:** a R$ 2.200 o plano mensal só dá lucro se a produção levar até uns 22 a 25 horas. Revisar o preço com o custo real por hora, imposto e ferramentas.
 
 ## Pendências (dados que só o cliente tem)
-- **Denise pediu para "enfatizar projetos"** e citou um software que integra alarme de incêndio, câmeras e controle de acesso. Falta: nome do software e se a ADVM faz o projeto técnico (plantas, memorial). Depois: texto do topo, etapa "Projeto" em Como funciona e card de integração.
+- **"Enfatizar projetos" (feito em parte):** o site ganhou a seção "Tudo começa pelo projeto" (`#projetos`), o texto do topo diz "Projetamos, instalamos e integramos" e o item Projeto de Como funciona foi reforçado. Falta: nome do software de integração (hoje só "software") e confirmar se a ADVM faz o projeto técnico (plantas, memorial).
 - Verde: o manual de marca, logos PNG, cartões e mockups ainda estão em violeta.
 - Telefone, e-mail, WhatsApp (constante `WHATSAPP` no topo de `script.js`), CNPJ, cidade e UF.
 - **Número real de obras atendidas:** hoje "+50" é exemplo (linha `data-count="50"` no `index.html`; apagar `data-exemplo="1"`).
@@ -74,6 +76,7 @@ Use estes códigos (slug) ao publicar de novo, para atualizar o link em vez de c
 | Manual de marca (com mockups, logos, redes e papelaria) | `888459c8-f97f-4ebf-8b76-d0a3de0accb1` |
 | Apresentação do orçamento | `69200137-0741-47a4-9dba-a026e790e52f` |
 | Roteiro da reunião | `1d216a26-ff6b-4211-a270-440890567311` |
+| Checklist do que falta | `807fbeaa-cd97-4212-acda-d8c76768e7fb` |
 | Identidade v3 (violeta, 4 símbolos) | `60d61f8d-fbe3-4c33-891e-18fe7b895ee7` |
 | Identidade v2 (oliva, verde e dourado) | `d1864f4c-3744-4759-8035-18f693b6b2a2` |
 

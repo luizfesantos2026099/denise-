@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Checklist ADVM: o que falta</title>
+<style>
+:root{--bg:#07120b;--card:#0f1f15;--ln:#1f3a29;--tx:#effaf2;--mut:#92b8a0;--g:#00a335;--g2:#3ddc6e;--am:#d6b25e}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding:28px 18px 80px}
+main{max-width:820px;margin:0 auto}
+h1{font-size:1.9rem;margin:0 0 6px}
+.sub{color:var(--mut);margin:0 0 20px}
+.bar{position:sticky;top:0;background:var(--bg);padding:10px 0 14px;z-index:2}
+.track{height:10px;border-radius:9px;background:var(--ln);overflow:hidden}
+.track i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--g),var(--g2));transition:width .3s}
+.cnt{color:var(--mut);font-size:.9rem;margin-top:6px}
+section{margin-top:26px}
+h2{font-size:1.15rem;margin:0 0 4px;display:flex;gap:10px;align-items:center}
+.tag{font-size:.72rem;padding:2px 9px;border-radius:99px;background:#0b3a1b;color:var(--g2);font-weight:600}
+.tag.a{background:#3a2f0b;color:var(--am)}
+.tag.r{background:#3a1414;color:#ff9b9b}
+.why{color:var(--mut);font-size:.9rem;margin:0 0 10px}
+label.it{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--ln);border-radius:14px;padding:13px 15px;margin-bottom:8px;cursor:pointer}
+label.it:hover{border-color:var(--g)}
+input{appearance:none;width:22px;height:22px;flex:none;margin-top:2px;border:2px solid var(--g);border-radius:7px;background:transparent;cursor:pointer;display:grid;place-items:center}
+input:checked{background:var(--g)}
+input:checked::after{content:"";width:6px;height:11px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.it b{display:block;font-weight:600}
+.it span{color:var(--mut);font-size:.9rem}
+input:checked~div b{text-decoration:line-through;color:var(--mut)}
+code{background:#0b2a17;padding:1px 6px;border-radius:6px;font-size:.85em}
+button{background:none;border:1px solid var(--ln);color:var(--mut);border-radius:10px;padding:6px 12px;cursor:pointer;margin-top:14px}
+</style>
+</head>
+<body>
+<main>
+<h1>Checklist: o que falta no projeto ADVM</h1>
+<p class="sub">Marque conforme for resolvendo. As marcações ficam salvas neste navegador.</p>
+<div class="bar"><div class="track"><i id="fill"></i></div><div class="cnt" id="cnt"></div></div>
+<div id="root"></div>
+<button id="reset">Desmarcar tudo</button>
+</main>
+<script>
+const G=[
+{t:"Perguntar para a Denise",tag:["Antes de tudo","r"],why:"Sem essas respostas eu não consigo terminar o site.",items:[
+["Nome do software que integra alarme de incêndio, câmeras e controle de acesso","Vai aparecer na seção \"Tudo começa pelo projeto\". Hoje o texto fala só \"software\"."],
+["Eles fazem o projeto técnico (plantas, memorial) ou só acompanham o do cliente?","Define quanto posso destacar \"projetos\" sem exagerar."],
+["Telefone, e-mail, WhatsApp, cidade e UF","WhatsApp vai na constante WHATSAPP, no topo do script.js."],
+["CNPJ e razão social","Rodapé do site e papelaria."],
+["Número real de obras atendidas","Hoje \"+50\" é exemplo. Trocar em data-count e apagar data-exemplo."],
+["Pode citar UNESP, ADN MRV e Grupo Field?","Sem autorização, tirar os nomes e deixar só o tipo de obra."],
+["Selo oficial do Programa de Canais e classificação da ADVM","Baixar no portal Sou Parceiro. Usar só o selo oficial, nunca o logotipo da Intelbras sozinho."]]},
+{t:"Cor e identidade",tag:["Importante","a"],why:"A Denise pediu o verde da Intelbras. O site já está verde, o resto ainda não.",items:[
+["Conferir o tom exato do verde no manual da Intelbras","Usei #00a335, que é estimativa. Falta o link do Dropbox do manual."],
+["Escolha final de cor (verde x outras) e de símbolo","O símbolo \"Foco\" é provisório. Há outros 3 nas propostas v3."],
+["Refazer em verde: manual de marca, logos PNG, cartão, papel timbrado, redes e mockups","Ainda estão em violeta. Só vale fazer depois de ela confirmar a cor."],
+["Busca no INPI antes de registrar o nome ou imprimir em quantidade","Evita problema com nome parecido."],
+["Definir se é \"ADVM tecnologia\" ou \"ADVM Tecnologia\"","Importa para documentos legais."]]},
+{t:"Site",tag:["Para entregar","a"],why:"O que falta para sair de protótipo e virar site de verdade.",items:[
+["Tirar o botão \"Testar cores\"","É só do protótipo. Apagar depois que ela escolher."],
+["Trocar dados de exemplo (telefone, e-mail, \"(exemplo)\" nos números)","Procurar por 00.000.000 e contato@seudominio."],
+["Testar em celular de verdade","Só testei em navegador simulado."],
+["Escolher domínio e hospedagem, publicar o site","Hoje está só no link privado do claude.ai."],
+["Aviso de privacidade (LGPD) no formulário","Regra da Intelbras: dizer que os dados ficam com a ADVM."],
+["Revisar textos das 5 abas de \"Para quem trabalhamos\" com ela","Confirmar se os serviços citados são os que ela faz mesmo."]]},
+{t:"Seu negócio (Luiz)",tag:["Comercial","a"],why:"Preços e margem ainda são estimativas.",items:[
+["Revisar o preço do mensal (R$ 2.200) com seu custo real por hora, imposto e ferramentas","Pela minha conta, só dá lucro se a produção levar até uns 22 a 25 horas por mês."],
+["Colocar seu nome e contato na apresentação do orçamento","Fica no bloco CFG de orcamento/index.html."],
+["Combinar o que NÃO está incluso","Produção física (uniforme, impressão, adesivo, fachada) é cobrada à parte."],
+["Cobrar o site (R$ 1.400): confirmar entrada e prazo de entrega","Não tenho como saber o que já foi combinado."]]},
+{t:"Limpeza (opcional)",tag:["Baixa prioridade",""],why:"Coisas antigas que não devem ser mostradas.",items:[
+["Não mostrar as propostas antigas (v2, v3, apresentação animada)","Ainda dizem \"ADVM Technology\" e a voz da apresentação não foi regravada."],
+["Rodar de novo ferramentas/mk.js e mockups.js","Os caminhos foram ajustados mas eu não rodei de novo."]]}
+];
+const KEY="advm-checklist-v1";let st={};try{st=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){}
+const root=document.getElementById("root");let n=0;
+G.forEach((g,gi)=>{const s=document.createElement("section");
+s.innerHTML=`<h2>${g.t} <span class="tag ${g.tag[1]}">${g.tag[0]}</span></h2><p class="why">${g.why}</p>`;
+g.items.forEach((it,ii)=>{const id=gi+"-"+ii;n++;const l=document.createElement("label");l.className="it";
+l.innerHTML=`<input type="checkbox" data-id="${id}" ${st[id]?"checked":""}><div><b>${it[0]}</b><span>${it[1]}</span></div>`;s.appendChild(l)});
+root.appendChild(s)});
+function upd(){const c=document.querySelectorAll("input:checked").length;document.getElementById("fill").style.width=(c/n*100)+"%";document.getElementById("cnt").textContent=c+" de "+n+" itens feitos"}
+root.addEventListener("change",e=>{st[e.target.dataset.id]=e.target.checked;try{localStorage.setItem(KEY,JSON.stringify(st))}catch(x){}upd()});
+document.getElementById("reset").onclick=()=>{st={};try{localStorage.removeItem(KEY)}catch(x){}document.querySelectorAll("input").forEach(i=>i.checked=false);upd()};
+upd();
+</script>
+</body>
+</html>
