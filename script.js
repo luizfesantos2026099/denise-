@@ -207,7 +207,7 @@ if (fine && !RM) $$(".magnet").forEach(b => {
 /* ---------- testar cores (protótipo) ---------- */
 (function () {
   const box = $("#theme"); if (!box) return;
-  const T = { violeta: "#0b0812", oliva: "#11140c", azul: "#091526" };
+  const T = { verde: "#07120b", violeta: "#0b0812", oliva: "#11140c", azul: "#091526" };
   function apply(t, anim) {
     if (!T[t]) t = "violeta"; const root = document.documentElement;
     if (anim && !RM) { root.classList.add("tt"); setTimeout(() => root.classList.remove("tt"), 700); }
@@ -215,9 +215,9 @@ if (fine && !RM) $$(".magnet").forEach(b => {
     $$("img[src*='logo-horizontal-tema']").forEach(i => i.src = `assets/logo-horizontal-tema-${t}.svg`);
     $$("button", box).forEach(b => b.classList.toggle("on", b.dataset.t === t));
     const m = $('meta[name="theme-color"]'); if (m) m.content = T[t];
-    try { localStorage.setItem("advm-tema", t); } catch (e) {}
+    try { localStorage.setItem("advm-tema2", t); } catch (e) {}
   }
-  const q = new URLSearchParams(location.search).get("tema"); let saved = null; try { saved = localStorage.getItem("advm-tema"); } catch (e) {}
-  apply(q || saved || "violeta", false);
+  const q = new URLSearchParams(location.search).get("tema"); let saved = null; try { saved = localStorage.getItem("advm-tema2"); } catch (e) {}
+  apply(q || saved || "verde", false);
   box.addEventListener("click", e => { const b = e.target.closest("button"); if (b) apply(b.dataset.t, true); });
 })();

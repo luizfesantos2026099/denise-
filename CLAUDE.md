@@ -31,7 +31,8 @@ Site e identidade visual para a **ADVM tecnologia**, integradora de segurança e
 ## Decisões tomadas
 - **Nome:** "ADVM tecnologia" (a logo escreve "tecnologia" em letras minúsculas finas sob "ADVM").
 - **Símbolo:** "Foco" (A dentro de um enquadramento de câmera). Escolha provisória: há outros 3 símbolos nas propostas v3.
-- **Cores:** violeta `#7c35fd`, noite `#0b0812`, ameixa `#190926`, lavanda `#c9bff2`, névoa `#f3effd`. O site tem um botão "Testar cores" (violeta, oliva e dourado, azul-marinho) para a cliente escolher na reunião. Esse botão é só do protótipo.
+- **Cor atual do site: verde Intelbras** (tema `verde`, padrão, `#00a335`; a Denise pediu a mesma cor da Intelbras). O tom é APROXIMADO: conferir no manual oficial da Intelbras. O botão "Testar cores" ainda tem violeta, oliva e azul.
+- **Cores (identidade anterior):** violeta `#7c35fd`, noite `#0b0812`, ameixa `#190926`, lavanda `#c9bff2`, névoa `#f3effd`. O site tem um botão "Testar cores" (violeta, oliva e dourado, azul-marinho) para a cliente escolher na reunião. Esse botão é só do protótipo.
 - **Fontes:** Outfit (títulos) e Inter (textos). Ficam em `fonts/`.
 - **Circuitos (reforçados):** traços mais fortes e densos no hero (`data-density` no canvas); se a cliente achar fraco ou forte, ajuste alfa em `bake` e `data-density` no `index.html`. Só desenham quando a seção está visível.
 - **Tom do site:** sério. Sem partículas. Tem circuitos de rede com energia no fundo, círculo que segue o mouse, botões principais que pulsam.
@@ -39,6 +40,8 @@ Site e identidade visual para a **ADVM tecnologia**, integradora de segurança e
 - **Margem:** a R$ 2.200 o plano mensal só dá lucro se a produção levar até uns 22 a 25 horas. Revisar o preço com o custo real por hora, imposto e ferramentas.
 
 ## Pendências (dados que só o cliente tem)
+- **Denise pediu para "enfatizar projetos"** e citou um software que integra alarme de incêndio, câmeras e controle de acesso. Falta: nome do software e se a ADVM faz o projeto técnico (plantas, memorial). Depois: texto do topo, etapa "Projeto" em Como funciona e card de integração.
+- Verde: o manual de marca, logos PNG, cartões e mockups ainda estão em violeta.
 - Telefone, e-mail, WhatsApp (constante `WHATSAPP` no topo de `script.js`), CNPJ, cidade e UF.
 - **Número real de obras atendidas:** hoje "+50" é exemplo (linha `data-count="50"` no `index.html`; apagar `data-exemplo="1"`).
 - Selo oficial da Intelbras (baixar no portal Sou Parceiro) e a classificação da ADVM no programa.
