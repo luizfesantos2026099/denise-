@@ -42,7 +42,7 @@ Site e identidade visual para a **ADVM tecnologia**, integradora de segurança e
 - **Margem:** a R$ 2.200 o plano mensal só dá lucro se a produção levar até uns 22 a 25 horas. Revisar o preço com o custo real por hora, imposto e ferramentas.
 
 ## Pendências (dados que só o cliente tem)
-- **"Enfatizar projetos" (feito em parte):** o site ganhou a seção "Tudo começa pelo projeto" (`#projetos`), o texto do topo diz "Projetamos, instalamos e integramos" e o item Projeto de Como funciona foi reforçado. Falta: nome do software de integração (hoje só "software") e confirmar se a ADVM faz o projeto técnico (plantas, memorial).
+- **"Enfatizar projetos" (feito em parte):** o site ganhou a seção "Tudo começa pelo projeto" (`#projetos`, 6 cards: levantamento de riscos, planta técnica, cabeamento, equipamentos, normas de incêndio/AVCB, integração; texto veio de uma lista que o Luiz colou, ainda NÃO confirmada pela Denise), o texto do topo diz "Projetamos, instalamos e integramos" e o item Projeto de Como funciona foi reforçado. Falta: nome do software de integração (hoje só "software") e confirmar se a ADVM faz o projeto técnico (plantas, memorial).
 - Verde: o manual de marca, logos PNG, cartões e mockups ainda estão em violeta.
 - Telefone, e-mail, WhatsApp (constante `WHATSAPP` no topo de `script.js`), CNPJ, cidade e UF.
 - **Número real de obras atendidas:** hoje "+50" é exemplo (linha `data-count="50"` no `index.html`; apagar `data-exemplo="1"`).
