@@ -33,7 +33,7 @@ Site e identidade visual para a **ADVM tecnologia**, integradora de segurança e
 ## Decisões tomadas
 - **Nome:** "ADVM tecnologia" (a logo escreve "tecnologia" em letras minúsculas finas sob "ADVM").
 - **Símbolo:** "Foco" (A dentro de um enquadramento de câmera). Escolha provisória: há outros 3 símbolos nas propostas v3.
-- **Cor atual do site: verde Intelbras** (tema `verde`, padrão, `#00a335`; a Denise pediu a mesma cor da Intelbras). O tom é APROXIMADO: conferir no manual oficial da Intelbras. O botão "Testar cores" ainda tem violeta, oliva e azul.
+- **Cor atual do site: verde Intelbras** (tema `verde`, padrão, `#06cc3e`; a Denise pediu a mesma cor da Intelbras e o Luiz informou este código). Texto sobre o verde é escuro (`--on`) por contraste. O botão "Testar cores" ainda tem violeta, oliva e azul.
 - **Cores (identidade anterior):** violeta `#7c35fd`, noite `#0b0812`, ameixa `#190926`, lavanda `#c9bff2`, névoa `#f3effd`. O site tem um botão "Testar cores" (violeta, oliva e dourado, azul-marinho) para a cliente escolher na reunião. Esse botão é só do protótipo.
 - **Fontes:** Outfit (títulos) e Inter (textos). Ficam em `fonts/`.
 - **Circuitos (reforçados):** traços mais fortes e densos no hero (`data-density` no canvas); se a cliente achar fraco ou forte, ajuste alfa em `bake` e `data-density` no `index.html`. Só desenham quando a seção está visível.
