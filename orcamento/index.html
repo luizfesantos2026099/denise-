@@ -95,7 +95,7 @@ const CFG = {
   validadeDias: 15,
   site: 1400,                              // já aprovado
   ident: { essencial: 2800, profissional: 5500 },
-  plano: { presenca: 900, conteudo: 2200, crescimento: 3900 },   // por mês
+  plano: { presenca: 1500, conteudo: 3200, crescimento: 6500 },   // por mês
   setup: 2400,                             // setup do funil de conteúdo (uma vez)
   descIdent: 0.15,                         // desconto na identidade ao contratar um plano
   mesesMin: 6,
@@ -134,9 +134,9 @@ const slides = [
   <p class="small mut" style="margin-top:30px">O valor é só do trabalho de criação. Impressão, bordado, uniformes, adesivação de veículo e fachada são feitos por fornecedores e orçados à parte.</p>${foot(5)}</section>`,
 
 `<section class="slide"><div class="glow"></div><p class="k">Etapa 3</p><h2>Conteúdo todo mês</h2>
-  <div class="two"><div class="hl"><div class="price">${brl(C.plano.conteudo)}<small> por mês</small></div><ul class="l"><li>12 posts e 4 vídeos curtos por mês</li><li>Instagram e LinkedIn geridos</li><li>Site mantido e perfil do Google atualizado</li><li>Relatório mensal de contatos</li></ul></div>
+  <div class="two"><div class="hl"><div class="price">${brl(C.plano.conteudo)}<small> por mês</small></div><ul class="l"><li>12 posts e 2 vídeos curtos por mês</li><li>Instagram e LinkedIn geridos</li><li>Site mantido e perfil do Google atualizado</li><li>Relatório mensal de contatos</li></ul></div>
   <div><p class="small mut" style="margin-bottom:20px">Antes de começar, uma preparação feita uma vez só</p><div class="price" style="font-size:84px">${brl(C.setup)}</div><ul class="l"><li>Estratégia e plano de 90 dias</li><li>10 roteiros de vídeo</li><li>Página de captação com WhatsApp</li></ul></div></div>
-  <p class="small mut" style="margin-top:34px">Contrato mínimo de ${C.mesesMin} meses. Quer algo diferente? Só manter site e Google: ${brl(C.plano.presenca)} por mês. Com 8 vídeos, funil e anúncios: ${brl(C.plano.crescimento)} por mês (verba de anúncios à parte).</p>${foot(6)}</section>`,
+  <p class="small mut" style="margin-top:34px">Contrato mínimo de ${C.mesesMin} meses. Quer algo diferente? Uma rede social com 8 posts e Google: ${brl(C.plano.presenca)} por mês. Plano Crescimento, ${brl(C.plano.crescimento)} por mês: 20 posts, mais vídeos, funil, gestão de anúncios e <b>1 diária de gravação presencial por mês</b> na Grande São Paulo, feita pessoalmente por nós (verba de anúncios e deslocamento fora da região à parte).</p>${foot(6)}</section>`,
 
 `<section class="slide"><div class="glow"></div><p class="k">Investimento</p><h2>O resumo, em números.</h2>
   <table class="tbl"><tbody>
@@ -146,7 +146,7 @@ const slides = [
    <tr class="tot rec"><td>Para começar</td><td>${brl(rec)}</td></tr>
    <tr class="tot"><td>Depois, todo mês<small style="font-size:22px;color:#a79dc9">contrato mínimo de ${C.mesesMin} meses</small></td><td>${brl(C.plano.conteudo)}</td></tr>
   </tbody></table>
-  <p class="small mut" style="margin-top:30px">Prefere começar menor? Site mais identidade Essencial (${brl(C.site + C.ident.essencial)}) e manutenção do site por ${brl(C.plano.presenca)} por mês.</p>${foot(7)}</section>`,
+  <p class="small mut" style="margin-top:30px">Prefere começar menor? Site mais identidade Essencial (${brl(C.site + C.ident.essencial)}) e o plano Presença por ${brl(C.plano.presenca)} por mês.</p>${foot(7)}</section>`,
 
 `<section class="slide"><div class="glow"></div><p class="k">Condições</p><h2>Como funciona o combinado.</h2>
   <div class="cond"><div><h3>Pagamento</h3><p>${Math.round(C.entrada * 100)}% de entrada para começar e o restante na entrega. Pix ou transferência. Plano mensal pago todo dia 5.</p></div>
