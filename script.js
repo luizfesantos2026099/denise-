@@ -1,6 +1,6 @@
 // ===== CONFIGURAÇÃO =====
 // Número do WhatsApp com DDI e DDD, só dígitos (ex.: 5518999999999)
-const WHATSAPP = "5500000000000";
+const WHATSAPP = "5511945067587";
 const EMPRESA = "ADVM tecnologia";
 
 const $ = (s, r = document) => r.querySelector(s);

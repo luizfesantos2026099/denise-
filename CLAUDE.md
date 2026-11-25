@@ -44,7 +44,7 @@ Site e identidade visual para a **ADVM tecnologia**, integradora de segurança e
 ## Pendências (dados que só o cliente tem)
 - **"Enfatizar projetos" (feito em parte):** o site ganhou a seção "Tudo começa pelo projeto" (`#projetos`, 6 cards: levantamento de riscos, planta técnica, cabeamento, equipamentos, normas de incêndio/AVCB, integração; texto veio de uma lista que o Luiz colou, ainda NÃO confirmada pela Denise), o texto do topo diz "Projetamos, instalamos e integramos" e o item Projeto de Como funciona foi reforçado. Falta: nome do software de integração (hoje só "software") e confirmar se a ADVM faz o projeto técnico (plantas, memorial).
 - Verde: o manual de marca, logos PNG, cartões e mockups ainda estão em violeta.
-- Telefone, e-mail, WhatsApp (constante `WHATSAPP` no topo de `script.js`), CNPJ, cidade e UF.
+- **Contato (já no site):** WhatsApp/telefone (11) 94506-7587, e-mail suporte@advmtech.com.br (a Denise tem também denise.barbati@advmtech.com.br; trocar se preferir), São Paulo e região, SP. Domínio dela: advmtech.com.br (Registro.br). Endereço completo NÃO colocado no site (perguntar se pode). Falta: CNPJ e razão social no rodapé. NUNCA gravar senhas no repositório; a senha do Registro.br foi colada no chat e deve ser trocada.
 - **Número real de obras atendidas:** hoje "+50" é exemplo (linha `data-count="50"` no `index.html`; apagar `data-exemplo="1"`).
 - Selo oficial da Intelbras (baixar no portal Sou Parceiro) e a classificação da ADVM no programa.
 - Autorização para citar UNESP, ADN MRV e Grupo Field.
