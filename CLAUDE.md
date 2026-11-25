@@ -23,6 +23,7 @@ Site e identidade visual para a **ADVM tecnologia**, integradora de segurança e
 |---|---|
 | `index.html`, `style.css`, `script.js`, `assets/`, `fonts/` | O site (protótipo) |
 | `identidade-advm/` | Identidade completa: logos SVG/PNG, cores, redes, papelaria, manual (`index.html`) e `mockups/` |
+| `advm-site-hospedagem.zip` | Site pronto para enviar à HostGator (inclui `.htaccess` com HTTPS). Refazer o zip depois de qualquer mudança no site |
 | `advm-identidade-visual.zip` | Pacote da identidade para baixar |
 | `orcamento/` | Apresentação do orçamento (9 slides). Valores no bloco `CFG` no topo |
 | `checklist/` | Checklist do que falta (artefato com caixas de marcar) |
@@ -33,13 +34,16 @@ Site e identidade visual para a **ADVM tecnologia**, integradora de segurança e
 ## Decisões tomadas
 - **Nome:** "ADVM tecnologia" (a logo escreve "tecnologia" em letras minúsculas finas sob "ADVM").
 - **Símbolo:** "Foco" (A dentro de um enquadramento de câmera). Escolha provisória: há outros 3 símbolos nas propostas v3.
-- **Cor atual do site: verde Intelbras** (tema `verde`, padrão, `#06cc3e`; a Denise pediu a mesma cor da Intelbras e o Luiz informou este código). Texto sobre o verde é escuro (`--on`) por contraste. O botão "Testar cores" ainda tem violeta, oliva e azul.
+- **Cor atual do site: verde Intelbras** (tema `verde`, padrão, `#06cc3e`; a Denise pediu a mesma cor da Intelbras e o Luiz informou este código). Texto sobre o verde é escuro (`--on`) por contraste. O botão "Testar cores" FOI REMOVIDO do site (o CSS dos outros temas ficou, sem uso).
 - **Cores (identidade anterior):** violeta `#7c35fd`, noite `#0b0812`, ameixa `#190926`, lavanda `#c9bff2`, névoa `#f3effd`. O site tem um botão "Testar cores" (violeta, oliva e dourado, azul-marinho) para a cliente escolher na reunião. Esse botão é só do protótipo.
 - **Fontes:** Outfit (títulos) e Inter (textos). Ficam em `fonts/`.
 - **Circuitos (reforçados):** traços mais fortes e densos no hero (`data-density` no canvas); se a cliente achar fraco ou forte, ajuste alfa em `bake` e `data-density` no `index.html`. Só desenham quando a seção está visível.
 - **Tom do site:** sério. Sem partículas. Tem circuitos de rede com energia no fundo, círculo que segue o mouse, botões principais que pulsam.
 - **Preços (estimativas minhas, a confirmar):** identidade Profissional R$ 5.500 (Essencial R$ 2.800); preparar o conteúdo R$ 2.400; conteúdo mensal R$ 2.200 (mín. 6 meses); oferta combinada R$ 8.475 para começar mais R$ 2.200 por mês, com 15% de desconto na identidade se fechar o mensal. A produção física (uniforme, impressão, adesivo, fachada) NÃO está inclusa.
 - **Margem:** a R$ 2.200 o plano mensal só dá lucro se a produção levar até uns 22 a 25 horas. Revisar o preço com o custo real por hora, imposto e ferramentas.
+
+## Hospedagem
+Decisão: comprar na **HostGator** e publicar em advmtech.com.br (domínio já é da Denise, no Registro.br). Enviar o conteúdo de `advm-site-hospedagem.zip` para a pasta `public_html` pelo Gerenciador de Arquivos do cPanel, e apontar o DNS no Registro.br para os servidores de nomes da HostGator. Ainda NÃO feito. No site ainda ficam placeholders até a Denise responder: "(exemplo)" no número de obras e CNPJ 00.000.000/0000-00 no rodapé.
 
 ## Pendências (dados que só o cliente tem)
 - **"Enfatizar projetos" (feito em parte):** o site ganhou a seção "Tudo começa pelo projeto" (`#projetos`, 6 cards: levantamento de riscos, planta técnica, cabeamento, equipamentos, normas de incêndio/AVCB, integração; texto veio de uma lista que o Luiz colou, ainda NÃO confirmada pela Denise), o texto do topo diz "Projetamos, instalamos e integramos" e o item Projeto de Como funciona foi reforçado. Falta: nome do software de integração (hoje só "software") e confirmar se a ADVM faz o projeto técnico (plantas, memorial).
