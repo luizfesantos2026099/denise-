@@ -17,6 +17,7 @@ Site e identidade visual para a **ADVM tecnologia**, integradora de segurança e
 - Apresentação do orçamento: https://claude.ai/artifact/Dyv3ZznLDwLPkKzgFfLyqQ
 - Roteiro da reunião: https://claude.ai/artifact/4bdrPCF19LU6SnmsYnAihe
 - Checklist do que falta: https://claude.ai/artifact/GsKd6PEFRz5NUBGwbh2eDg
+- Contrato de prestação de serviços (documento editável, campos [ ] a preencher; precisa de revisão de advogado): https://claude.ai/artifact/BrE4iuhdwk5EAVfw33LtYv
 
 ## Mapa das pastas
 | Pasta | O que é |
