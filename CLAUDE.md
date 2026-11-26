@@ -17,7 +17,7 @@ Site e identidade visual para a **ADVM tecnologia**, integradora de segurança e
 - Apresentação do orçamento: https://claude.ai/artifact/Dyv3ZznLDwLPkKzgFfLyqQ
 - Roteiro da reunião: https://claude.ai/artifact/4bdrPCF19LU6SnmsYnAihe
 - Checklist do que falta: https://claude.ai/artifact/GsKd6PEFRz5NUBGwbh2eDg
-- **Contrato SÓ DO SITE** (R$ 1.400; o Luiz pediu que, por enquanto, o contrato seja só do site; campos [ ] a preencher; precisa de revisão de advogado): https://claude.ai/artifact/NtJcvzAW9UhZq2f8emwvno
+- **Contrato SÓ DO SITE** (R$ 1.400; o Luiz pediu que, por enquanto, o contrato seja só do site; ajustes: a cliente tem 30 dias após a publicação para pedir ajustes, sem limite de rodadas (NÃO são 2 rodadas); campos [ ] a preencher; precisa de revisão de advogado): https://claude.ai/artifact/NtJcvzAW9UhZq2f8emwvno
 - Contrato completo (site + identidade + conteúdo mensal, para usar quando vender o resto): https://claude.ai/artifact/BrE4iuhdwk5EAVfw33LtYv
 
 ## Mapa das pastas
