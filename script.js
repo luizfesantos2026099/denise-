@@ -174,7 +174,7 @@ const BG = (function () {
 })();
 
 
-/* ---------- números que contam (a cada vez que a página Início aparece) ---------- */
+/* ---------- números que contam (a cada vez que a página Projetos aparece) ---------- */
 (function () {
   const box = $("#stats"); if (!box) return;
   const items = $$("dt[data-count]", box), fmt = n => n.toLocaleString("pt-BR");
@@ -186,7 +186,7 @@ const BG = (function () {
     cancelAnimationFrame(raf); const t0 = performance.now(), dur = 1700;
     (function f(now) { const q = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - q, 3); items.forEach(el => set(el, Math.round(e * +el.dataset.count))); if (q < 1) raf = requestAnimationFrame(f); })(t0);
   }
-  document.addEventListener("viewshown", e => { if (e.detail === "inicio") setTimeout(run, 300); });
+  document.addEventListener("viewshown", e => { if (e.detail === "projetos") setTimeout(run, 300); });
 })();
 
 /* ---------- botões magnéticos ---------- */
@@ -248,9 +248,9 @@ if (fine && !RM) $$(".magnet").forEach(b => {
 
 /* ---------- páginas e abertura (o A encaixa no quadrado da câmera) ---------- */
 (function () {
-  const ROUTES = ["inicio", "projetos", "servicos", "obras", "etapas", "contato"];
-  const NAMES = { inicio: "ADVM tecnologia", projetos: "Projetos", servicos: "Serviços", obras: "Para quem", etapas: "Como funciona", contato: "Contato" };
-  const TITLES = { inicio: "ADVM tecnologia | Segurança eletrônica do projeto à manutenção", projetos: "Projetos | ADVM tecnologia", servicos: "Serviços | ADVM tecnologia", obras: "Para quem trabalhamos | ADVM tecnologia", etapas: "Como funciona | ADVM tecnologia", contato: "Contato | ADVM tecnologia" };
+  const ROUTES = ["inicio", "sobre", "projetos", "servicos", "obras", "etapas", "contato"];
+  const NAMES = { inicio: "ADVM tecnologia", sobre: "Sobre nós", projetos: "Projetos", servicos: "Serviços", obras: "Para quem", etapas: "Como funciona", contato: "Contato" };
+  const TITLES = { sobre: "Sobre nós | ADVM tecnologia", inicio: "ADVM tecnologia | Segurança eletrônica do projeto à manutenção", projetos: "Projetos | ADVM tecnologia", servicos: "Serviços | ADVM tecnologia", obras: "Para quem trabalhamos | ADVM tecnologia", etapas: "Como funciona | ADVM tecnologia", contato: "Contato | ADVM tecnologia" };
   const views = {}; ROUTES.forEach(r => views[r] = $("#v-" + r));
   const intro = $("#intro"), introT = $("#introT");
   let cur = null, target = null, busy = false, queued = null;
@@ -299,3 +299,10 @@ if (fine && !RM) $$(".magnet").forEach(b => {
   if (RM) { intro.classList.remove("boot"); enter(first); }
   else { setTimeout(() => enter(first), 1300); setTimeout(() => intro.classList.remove("boot"), 1900); }
 })();
+
+
+/* ---------- cartões que inclinam de leve com o mouse ---------- */
+if (fine && !RM) $$(".card").forEach(c => {
+  c.addEventListener("pointermove", e => { const r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; c.style.setProperty("--ry", (x * 7).toFixed(2) + "deg"); c.style.setProperty("--rx", (-y * 7).toFixed(2) + "deg"); });
+  c.addEventListener("pointerleave", () => { c.style.removeProperty("--rx"); c.style.removeProperty("--ry"); });
+});
