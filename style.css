@@ -194,7 +194,7 @@ h1,h2,h3{font-family:var(--f1);font-weight:500;letter-spacing:-.03em;line-height
 
 
 /* ===== v2: páginas, abertura com o A na câmera e circuitos que descem ===== */
-.vig{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 72% 62% at 50% 46%,color-mix(in srgb,var(--noite) 66%,transparent),transparent 100%)}
+.vig{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 72% 62% at 50% 46%,color-mix(in srgb,var(--noite) 76%,transparent),transparent 100%)}
 body{background:radial-gradient(ellipse 80% 60% at 50% 0,var(--glow) 0,transparent 70%) fixed,var(--noite)}
 main{position:relative;z-index:1;outline:none;overflow-x:clip}
 .view:not(.on){display:none}

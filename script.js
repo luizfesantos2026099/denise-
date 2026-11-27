@@ -34,7 +34,7 @@ const BG = (function () {
   const cs = getComputedStyle(document.documentElement), A = hexRgb(cs.getPropertyValue("--vio2")), B = hexRgb(cs.getPropertyValue("--nev"));
   const interactive = fine && !RM;
   let W = 1, H = 1, F = 1, dpr = 1, cell = 46, traces = [], pulses = [], flashes = [], ptr = null;
-  let off = 0, par = .5, docH = 1, prog = 0, sv = 0, lastSpawn = 0, lastTop = 0, lastY = 0, nf = 0;
+  let off = 0, par = .5, docH = 1, prog = 0, sv = 0, sI = 0, lastSpawn = 0, lastY = 0, nf = 0, lanes = [];
 
   function makeTrace(cols, rows) {
     const dirs = [[1, 0], [-1, 0], [0, 1], [0, -1]]; let x = ri(1, cols - 1), y = ri(1, rows - 1), d = dirs[ri(0, 3)];
@@ -62,25 +62,28 @@ const BG = (function () {
     W = innerWidth; H = innerHeight; F = Math.round(H * 3.2); dpr = Math.min(devicePixelRatio || 1, 1.25);
     while (W * dpr * F * dpr > 9e6 && dpr > .6) dpr -= .1;
     cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); base.width = cv.width; base.height = Math.round(F * dpr); cv.style.height = H + "px";
-    cell = W < 700 ? 34 : 46; const cols = Math.floor(W / cell), rows = Math.floor(F / cell), n = Math.max(10, Math.round(cols * rows / 34));
+    cell = W < 700 ? 34 : 46; const cols = Math.floor(W / cell), rows = Math.floor(F / cell), n = Math.max(6, Math.round(cols * rows / 64));
     traces = []; for (let q = 0; q < n * 4 && traces.length < n; q++) { const t = makeTrace(cols, rows); if (t) traces.push(t); }
-    pulses = []; flashes = []; if (!RM) traces.forEach((t, i) => { const m = Math.random() < .7 ? 1 : 2; for (let q = 0; q < m; q++) pulses.push(newPulse(i, true)); });
+    pulses = []; flashes = []; if (!RM) traces.forEach((t, i) => { const m = Math.random() < .6 ? 1 : 2; for (let q = 0; q < m; q++) pulses.push(newPulse(i, true)); });
+    lanes = []; const nl = W < 700 ? 5 : 9;
+    for (let i = 0; i < nl; i++) { const x = (i + .5) * W / nl + rand(-.2, .2) * W / nl; for (let q = 0; q < 2; q++) lanes.push({ x, y: rand(-H, H), v: rand(.8, 1.35), len: rand(140, 300) }); }
     bake(); measure(); off = Math.min(off, F - H); draw(0, performance.now());
   }
   function bake() {
     bctx.setTransform(dpr, 0, 0, dpr, 0, 0); bctx.clearRect(0, 0, W, F); const [r, g, b] = A; bctx.lineJoin = "round"; bctx.lineCap = "round";
     traces.forEach(t => {
-      bctx.beginPath(); t.P.forEach(([x, y], i) => i ? bctx.lineTo(x, y) : bctx.moveTo(x, y)); bctx.strokeStyle = `rgba(${r},${g},${b},.36)`; bctx.lineWidth = 1.5; bctx.stroke();
-      [t.P[0], t.P[t.P.length - 1]].forEach(([x, y]) => { bctx.beginPath(); bctx.arc(x, y, 4, 0, 7); bctx.strokeStyle = `rgba(${r},${g},${b},.65)`; bctx.lineWidth = 1.5; bctx.stroke(); bctx.beginPath(); bctx.arc(x, y, 2.1, 0, 7); bctx.fillStyle = `rgba(${r},${g},${b},.8)`; bctx.fill(); });
-      for (let i = 1; i < t.P.length - 1; i += 2) { bctx.beginPath(); bctx.arc(t.P[i][0], t.P[i][1], 2, 0, 7); bctx.fillStyle = `rgba(${r},${g},${b},.45)`; bctx.fill(); }
+      bctx.beginPath(); t.P.forEach(([x, y], i) => i ? bctx.lineTo(x, y) : bctx.moveTo(x, y)); bctx.strokeStyle = `rgba(${r},${g},${b},.28)`; bctx.lineWidth = 1.4; bctx.stroke();
+      [t.P[0], t.P[t.P.length - 1]].forEach(([x, y]) => { bctx.beginPath(); bctx.arc(x, y, 4, 0, 7); bctx.strokeStyle = `rgba(${r},${g},${b},.5)`; bctx.lineWidth = 1.4; bctx.stroke(); bctx.beginPath(); bctx.arc(x, y, 2.1, 0, 7); bctx.fillStyle = `rgba(${r},${g},${b},.6)`; bctx.fill(); });
+      for (let i = 1; i < t.P.length - 1; i += 2) { bctx.beginPath(); bctx.arc(t.P[i][0], t.P[i][1], 2, 0, 7); bctx.fillStyle = `rgba(${r},${g},${b},.3)`; bctx.fill(); }
     });
   }
   function draw(dt, now) {
     const sy = Math.round(off * dpr);
     ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, cv.width, cv.height);
+    ctx.globalAlpha = 1 - .8 * sI;
     ctx.drawImage(base, 0, sy, cv.width, cv.height, 0, 0, cv.width, cv.height);
     ctx.setTransform(dpr, 0, 0, dpr, 0, -sy); ctx.lineCap = "round";
-    const [r, g, b] = A, [r2, g2, b2] = B, boost = 1 + Math.min(5, sv * .12);
+    const [r, g, b] = A, [r2, g2, b2] = B, boost = 1;
     pulses.forEach(p => {
       const t = traces[p.i]; p.s += p.v * boost * dt;
       if (p.s - p.len > t.total) { flashes.push({ xy: t.P[t.P.length - 1], t0: now }); if (p.temp) p.dead = true; else Object.assign(p, newPulse(p.i, false)); return; }
@@ -97,11 +100,23 @@ const BG = (function () {
     flashes = flashes.filter(f => now - f.t0 < 700);
     flashes.forEach(f => { if (f.xy[1] < off - 30 || f.xy[1] > off + H + 30) return; const q = (now - f.t0) / 700; ctx.beginPath(); ctx.arc(f.xy[0], f.xy[1], 4 + q * 18, 0, 7); ctx.strokeStyle = `rgba(${r},${g},${b},${.8 * (1 - q)})`; ctx.lineWidth = 1.6; ctx.stroke(); });
     if (ptr) traces.forEach(t => [t.P[0], t.P[t.P.length - 1]].forEach(([x, y]) => { const d = Math.hypot(x - ptr[0], y - (ptr[1] + off)); if (d < 150) { const q = 1 - d / 150; ctx.beginPath(); ctx.arc(x, y, 9 + q * 6, 0, 7); ctx.fillStyle = `rgba(${r},${g},${b},${.35 * q})`; ctx.fill(); } }));
+    ctx.globalAlpha = 1; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    // ao rolar: faixas de luz descendo em linha reta
+    if (sI > .02) {
+      ctx.globalAlpha = Math.min(1, sI * 1.15); ctx.lineWidth = 2.2;
+      lanes.forEach(l => {
+        l.y += (300 + sv * 26) * l.v * dt; if (l.y - l.len > H) { l.y = -rand(0, H * .6); l.len = rand(140, 300); }
+        const gr = ctx.createLinearGradient(0, l.y - l.len, 0, l.y); gr.addColorStop(0, `rgba(${r},${g},${b},0)`); gr.addColorStop(1, `rgba(${r},${g},${b},.9)`);
+        ctx.strokeStyle = gr; ctx.beginPath(); ctx.moveTo(l.x, l.y - l.len); ctx.lineTo(l.x, l.y); ctx.stroke();
+        ctx.fillStyle = `rgba(${r},${g},${b},.22)`; ctx.beginPath(); ctx.arc(l.x, l.y, 9, 0, 7); ctx.fill();
+        ctx.fillStyle = `rgba(${r2},${g2},${b2},1)`; ctx.beginPath(); ctx.arc(l.x, l.y, 2.8, 0, 7); ctx.fill();
+      });
+      ctx.globalAlpha = 1;
+    }
     // fio principal na borda: acende conforme a rolagem
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     const tx = W < 700 ? 8 : 16, y0 = 24, y1 = H - 24, head = y0 + prog * (y1 - y0);
     ctx.lineWidth = 2; ctx.strokeStyle = `rgba(${r},${g},${b},.16)`; ctx.beginPath(); ctx.moveTo(tx, y0); ctx.lineTo(tx, y1); ctx.stroke();
-    ctx.strokeStyle = `rgba(${r},${g},${b},.8)`; ctx.lineWidth = 2.4; ctx.beginPath(); ctx.moveTo(tx, y0); ctx.lineTo(tx, head); ctx.stroke();
+    ctx.strokeStyle = `rgba(${r},${g},${b},.6)`; ctx.lineWidth = 2.2; ctx.beginPath(); ctx.moveTo(tx, y0); ctx.lineTo(tx, head); ctx.stroke();
     for (let i = 0; i <= 6; i++) { const y = y0 + (y1 - y0) * i / 6; ctx.beginPath(); ctx.arc(tx, y, 3.4, 0, 7); if (y <= head + .5) { ctx.fillStyle = `rgba(${r},${g},${b},.95)`; ctx.fill(); } else { ctx.strokeStyle = `rgba(${r},${g},${b},.4)`; ctx.lineWidth = 1.4; ctx.stroke(); } }
     [[13, .14], [7.5, .32]].forEach(([rr, aa]) => { ctx.beginPath(); ctx.arc(tx, head, rr, 0, 7); ctx.fillStyle = `rgba(${r},${g},${b},${aa})`; ctx.fill(); });
     ctx.beginPath(); ctx.arc(tx, head, 3.4, 0, 7); ctx.fillStyle = `rgba(${r2},${g2},${b2},1)`; ctx.fill();
@@ -124,8 +139,8 @@ const BG = (function () {
     if (!document.hidden) {
       if ((nf++ % 20) === 0) measure();
       const y = scrollY; sv += (Math.abs(y - lastY) - sv) * .2; lastY = y; progress();
+      const want = clamp(sv / 9, 0, 1); sI += (want - sI) * (want > sI ? .25 : .05);
       const tgt = Math.min(F - H, y * par); off += (tgt - off) * .1; if (Math.abs(tgt - off) < .05) off = tgt;
-      if (sv > 3 && now - lastTop > 110) { lastTop = now; spawnTop(); }
       draw(dt, now);
     }
     requestAnimationFrame(loop);
