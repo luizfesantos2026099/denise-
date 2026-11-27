@@ -199,7 +199,7 @@ if (fine && !RM) $$(".magnet").forEach(b => {
 (function () {
   const D = [
     ["Escolas e universidades", "Muita gente entrando e saindo, com áreas que precisam de controle.", "Referência: UNESP", ["Controle de acesso por área", "Câmeras em pátios e corredores", "Alarme de perímetro", "Rede dedicada para os sistemas"]],
-    ["Condomínios", "Moradores, visitantes e prestadores, todos sob controle.", "Referência: ADN MRV e Grupo Field", ["Portaria e garagem", "Controle de moradores e visitantes", "Alarme nas áreas comuns", "Monitoramento pelo celular"]],
+    ["Condomínios", "Moradores, visitantes e prestadores, todos sob controle.", "Referência: ADN, MRV e Grupo Field", ["Portaria e garagem", "Controle de moradores e visitantes", "Alarme nas áreas comuns", "Monitoramento pelo celular"]],
     ["Hotéis", "Os hóspedes circulam livremente, mas cada área tem a sua regra.", "Obras em andamento", ["Acesso por andar e por ambiente", "Câmeras nas áreas de circulação", "Integração com a operação do hotel"]],
     ["Hospitais", "Áreas restritas e fluxo de pessoas pedem controle rigoroso.", "Obras em andamento", ["Controle das áreas restritas", "Controle do fluxo de pessoas", "Detecção de incêndio"]],
     ["Construtoras", "Proteção contra incêndio já durante a obra.", "Obras em andamento", ["Detectores e central endereçável", "Alarme durante a construção", "Projeto como construído na entrega"]]
