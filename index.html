@@ -14,22 +14,36 @@
 </head>
 <body>
 <a class="skip" href="#conteudo">Ir para o conteúdo</a>
-<div class="progress" id="progress" aria-hidden="true"></div>
+<div class="aurora" aria-hidden="true"><i></i><i></i></div>
+<canvas class="bg" id="bg" aria-hidden="true"></canvas>
+<div class="vig" aria-hidden="true"></div>
 <div class="cur" id="cur" aria-hidden="true"></div>
 
+<div class="intro boot" id="intro" aria-hidden="true">
+  <div class="intro__in">
+    <svg class="mark" viewBox="0 0 100 100" focusable="false">
+      <g class="mk-leads"><path pathLength="1" class="mk-lead" d="M12 12L-8 -8"/><path pathLength="1" class="mk-lead" d="M88 12L108 -8"/><path pathLength="1" class="mk-lead" d="M88 88L108 108"/><path pathLength="1" class="mk-lead" d="M12 88L-8 108"/></g>
+      <circle class="mk-pad" cx="-8" cy="-8" r="2.6"/><circle class="mk-pad" cx="108" cy="-8" r="2.6"/><circle class="mk-pad" cx="108" cy="108" r="2.6"/><circle class="mk-pad" cx="-8" cy="108" r="2.6"/>
+      <circle class="mk-ring" cx="50" cy="50" r="30"/>
+      <g class="mk-frame"><path d="M12 34V12H34"/><path d="M66 12H88V34"/><path d="M88 66V88H66"/><path d="M34 88H12V66"/></g>
+      <g class="mk-a"><path d="M32 70L50 30L68 70"/><path d="M40 58H60"/></g>
+    </svg>
+    <p class="intro__t" id="introT">ADVM tecnologia</p>
+  </div>
+</div>
+<noscript><style>.intro{display:none!important}</style></noscript>
+
 <header class="top" id="top">
-  <a class="brand" href="#inicio" aria-label="ADVM tecnologia, início"><img src="assets/logo-horizontal-tema-verde.svg" alt="ADVM tecnologia" width="190" height="50"></a>
+  <a class="brand" href="#inicio" data-r="inicio" aria-label="ADVM tecnologia, início"><img src="assets/logo-horizontal-tema-verde.svg" alt="ADVM tecnologia" width="190" height="50"></a>
   <nav class="nav" id="nav" aria-label="Principal">
-    <a href="#projetos" data-spy>Projetos</a><a href="#servicos" data-spy>Serviços</a><a href="#obras" data-spy>Para quem</a><a href="#etapas" data-spy>Como funciona</a><a href="#contato" class="btn btn--sm btn--pulse nav__cta" data-spy>Pedir orçamento</a>
+    <a href="#projetos" data-r="projetos">Projetos</a><a href="#servicos" data-r="servicos">Serviços</a><a href="#obras" data-r="obras">Para quem</a><a href="#etapas" data-r="etapas">Como funciona</a><a href="#contato" data-r="contato" class="btn btn--sm btn--pulse nav__cta">Pedir orçamento</a>
   </nav>
   <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
 </header>
 
-<main id="conteudo">
-<!-- ============ INÍCIO ============ -->
-<section class="hero" id="inicio">
-  <div class="aurora" aria-hidden="true"><i></i><i></i></div>
-  <canvas class="circuit" data-density="1.4" data-calm="1" data-interactive="1" aria-hidden="true"></canvas>
+<main id="conteudo" tabindex="-1">
+<section class="view on" id="v-inicio" data-name="inicio">
+<div class="hero">
   <div class="wrap hero__c">
     <h1>
       <span class="l1">ADVM</span>
@@ -48,16 +62,27 @@
       <div><dt data-count="1">0</dt><dd>responsável, do início ao fim</dd></div>
     </dl>
   </div>
-  <a href="#faixa" class="scroll" aria-label="Rolar para baixo"><span></span></a>
-</section>
+</div>
 
 <div class="band" id="faixa" aria-label="Serviços"><div class="band__t">
   <span>Controle de acesso</span><i></i><span>Câmeras</span><i></i><span>Alarme</span><i></i><span>Detecção de incêndio</span><i></i><span>Redes</span><i></i><span>Manutenção</span><i></i>
   <span>Controle de acesso</span><i></i><span>Câmeras</span><i></i><span>Alarme</span><i></i><span>Detecção de incêndio</span><i></i><span>Redes</span><i></i><span>Manutenção</span><i></i>
 </div></div>
 
-<!-- ============ PROJETOS ============ -->
-<section class="sec sec--light" id="projetos">
+<div class="sec sec--tight">
+  <div class="wrap">
+    <div class="head" data-reveal><h2>Conheça a ADVM</h2><p class="sub">Escolha por onde começar.</p></div>
+    <ul class="grid grid--4">
+      <li data-reveal style="--d:0.0s"><a class="card card--link" href="#projetos"><span class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M10 4v16"/></svg></span><h3>Projetos</h3><p>Como a ADVM planeja a obra inteira antes de instalar.</p><span class="card__go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+      <li data-reveal style="--d:0.07s"><a class="card card--link" href="#servicos"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4M6 11h3l2-3 2 5 2-2h3"/></svg></span><h3>Serviços</h3><p>Controle de acesso, câmeras, alarme, incêndio e redes.</p><span class="card__go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+      <li data-reveal style="--d:0.14s"><a class="card card--link" href="#obras"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M7 7l3 3M17 7l-3 3M7 17l3-3M17 17l-3-3"/></svg></span><h3>Para quem</h3><p>Escolas, condomínios, hotéis, hospitais e construtoras.</p><span class="card__go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+      <li data-reveal style="--d:0.21s"><a class="card card--link" href="#etapas"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Como funciona</h3><p>As quatro etapas, do levantamento à manutenção.</p><span class="card__go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<section class="view sec sec--light" id="v-projetos" data-name="projetos">
   <div class="wrap">
     <div class="head" data-reveal><h2>Tudo começa pelo projeto</h2><p class="sub">Antes de instalar, a ADVM planeja a obra inteira. Depois, todos os sistemas trabalham juntos.</p></div>
     <ul class="grid">
@@ -68,11 +93,11 @@
       <li class="card" data-reveal style="--d:0.28s"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 3c1 3 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-5 1-9z"/></svg></span><h3>Normas de incêndio</h3><p>O projeto de alarme de incêndio segue as normas da ABNT e as regras do Corpo de Bombeiros do seu estado, como base para o AVCB.</p></li>
       <li class="card" data-reveal style="--d:0.35s"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M7 7l3 3M17 7l-3 3M7 17l3-3M17 17l-3-3"/></svg></span><h3>Sistemas integrados</h3><p>Os equipamentos conversam entre si. Por exemplo, se o alarme de incêndio dispara, as catracas e portas destravam para a saída das pessoas.</p></li>
     </ul>
+    <div class="cta-row" data-reveal><a href="#servicos" class="btn btn--lg btn--ghost magnet">Próximo: Serviços<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
   </div>
 </section>
 
-<!-- ============ SERVIÇOS ============ -->
-<section class="sec sec--light" id="servicos">
+<section class="view sec sec--light" id="v-servicos" data-name="servicos">
   <div class="wrap">
     <div class="head" data-reveal><h2>O que a ADVM faz</h2><p class="sub">Seis serviços que se completam. Você pode contratar um ou todos.</p></div>
     <ul class="grid">
@@ -83,14 +108,11 @@
       <li class="card" data-reveal style="--d:.28s"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M12 7v5M12 12l-6 4M12 12l6 4"/></svg></span><h3>Redes e infraestrutura</h3><p>Cabeamento e rede dedicada para os sistemas funcionarem sem falha.</p></li>
       <li class="card" data-reveal style="--d:.35s"><span class="ic"><svg viewBox="0 0 24 24"><path d="M14.5 6.5a4 4 0 0 0-5 5L4 17l3 3 5.5-5.5a4 4 0 0 0 5-5l-2.5 2.5-2.5-.5-.5-2.5z"/></svg></span><h3>Manutenção</h3><p>Revisões e atendimento, para tudo continuar funcionando depois da entrega.</p></li>
     </ul>
-    <div class="cta-row" data-reveal><a href="#contato" class="btn btn--lg btn--pulse magnet">Pedir orçamento<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    <div class="cta-row cta-row--2" data-reveal><a href="#obras" class="btn btn--lg btn--ghost magnet">Próximo: Para quem<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a href="#contato" class="btn btn--lg btn--pulse magnet">Pedir orçamento<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
   </div>
 </section>
 
-<!-- ============ PARA QUEM ============ -->
-<section class="sec sec--dark" id="obras">
-  <div class="aurora aurora--soft" aria-hidden="true"><i></i></div>
-  <canvas class="circuit" data-density="1" data-calm="1" aria-hidden="true"></canvas>
+<section class="view sec sec--dark" id="v-obras" data-name="obras">
   <div class="wrap">
     <div class="head" data-reveal><h2>Para quem trabalhamos</h2><p class="sub">Escolha o tipo de obra para ver o que instalamos.</p></div>
     <div class="tabs" role="tablist" aria-label="Tipo de obra" data-reveal>
@@ -105,11 +127,11 @@
       <div class="tp__l"><h3 id="tpT"></h3><p id="tpD"></p><span class="ref" id="tpR"></span></div>
       <ul class="tp__r" id="tpL"></ul>
     </div>
+    <div class="cta-row" data-reveal><a href="#etapas" class="btn btn--lg btn--ghost magnet">Próximo: Como funciona<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
   </div>
 </section>
 
-<!-- ============ COMO FUNCIONA ============ -->
-<section class="sec sec--light" id="etapas">
+<section class="view sec sec--light" id="v-etapas" data-name="etapas">
   <div class="wrap">
     <div class="head" data-reveal><h2>Como funciona, passo a passo</h2><p class="sub">Você sempre sabe em que etapa a obra está e o que vem a seguir.</p></div>
     <div class="flow" id="flow" data-reveal>
@@ -121,13 +143,11 @@
         <li><button class="fs" data-i="3"><span class="n"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><b>4. Entrega e manutenção</b><span>Treinamento, projeto final e contrato de manutenção.</span></button></li>
       </ol>
     </div>
+    <div class="cta-row" data-reveal><a href="#contato" class="btn btn--lg btn--pulse magnet">Pedir orçamento<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
   </div>
 </section>
 
-<!-- ============ CONTATO ============ -->
-<section class="contato" id="contato">
-  <div class="aurora aurora--soft" aria-hidden="true"><i></i><i></i></div>
-  <canvas class="circuit" data-density="1.1" data-calm="1" aria-hidden="true"></canvas>
+<section class="view sec contato" id="v-contato" data-name="contato">
   <div class="wrap contato__g">
     <div>
       <h2>Vamos conversar sobre a sua obra?</h2>
