@@ -55,7 +55,9 @@ const BG = (function () {
     return { P, cum, total: cum[cum.length - 1], minY: mn, maxY: mx };
   }
   function at(t, s) { s = Math.max(0, Math.min(t.total, s)); let i = 1; while (i < t.cum.length - 1 && t.cum[i] < s) i++; const q = (s - t.cum[i - 1]) / ((t.cum[i] - t.cum[i - 1]) || 1); return [t.P[i - 1][0] + (t.P[i][0] - t.P[i - 1][0]) * q, t.P[i - 1][1] + (t.P[i][1] - t.P[i - 1][1]) * q]; }
-  const newPulse = (i, init) => ({ i, s: init ? rand(0, traces[i].total) : -rand(0, 300), v: rand(120, 220), len: rand(90, 160) });
+  const newPulse = (i, init) => ({ i, s: init ? rand(0, traces[i].total) : -rand(0, 200), v: rand(150, 260), len: rand(130, 230), hopped: false, restart: false });
+  function pick() { const c = []; traces.forEach((t, i) => { if (t.maxY > off - 20 && t.minY < off + H + 20) c.push(i); }); return c.length ? c[ri(0, c.length - 1)] : ri(0, traces.length - 1); }
+  function hop(from, end) { let best = null, bd = 130; traces.forEach((t, i) => { if (i === from) return; t.P.forEach((p, vi) => { if (vi >= t.P.length - 1) return; const d = Math.hypot(p[0] - end[0], p[1] - end[1]); if (d < bd) { bd = d; best = [i, vi]; } }); }); return best; }
 
   function measure() { docH = document.documentElement.scrollHeight; par = Math.min(.6, (F - H) / Math.max(1, docH - H)); }
   function build() {
@@ -64,7 +66,7 @@ const BG = (function () {
     cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr); base.width = cv.width; base.height = Math.round(F * dpr); cv.style.height = H + "px";
     cell = W < 700 ? 34 : 46; const cols = Math.floor(W / cell), rows = Math.floor(F / cell), n = Math.max(6, Math.round(cols * rows / 64));
     traces = []; for (let q = 0; q < n * 4 && traces.length < n; q++) { const t = makeTrace(cols, rows); if (t) traces.push(t); }
-    pulses = []; flashes = []; if (!RM) traces.forEach((t, i) => { const m = Math.random() < .6 ? 1 : 2; for (let q = 0; q < m; q++) pulses.push(newPulse(i, true)); });
+    pulses = []; flashes = []; if (!RM) traces.forEach((t, i) => { const m = ri(2, 3); for (let q = 0; q < m; q++) pulses.push(newPulse(i, true)); });
     lanes = []; const nl = W < 700 ? 5 : 9;
     for (let i = 0; i < nl; i++) { const x = (i + .5) * W / nl + rand(-.2, .2) * W / nl; for (let q = 0; q < 2; q++) lanes.push({ x, y: rand(-H, H), v: rand(.8, 1.35), len: rand(140, 300) }); }
     bake(); measure(); off = Math.min(off, F - H); draw(0, performance.now());
@@ -78,25 +80,27 @@ const BG = (function () {
     });
   }
   function draw(dt, now) {
-    const sy = Math.round(off * dpr);
+    const bob = RM ? 0 : Math.sin(now / 3200) * 9, sy = Math.max(0, Math.round((off + bob) * dpr));
     ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.clearRect(0, 0, cv.width, cv.height);
     ctx.globalAlpha = 1 - .8 * sI;
     ctx.drawImage(base, 0, sy, cv.width, cv.height, 0, 0, cv.width, cv.height);
     ctx.setTransform(dpr, 0, 0, dpr, 0, -sy); ctx.lineCap = "round";
     const [r, g, b] = A, [r2, g2, b2] = B, boost = 1;
+    const born = [];
     pulses.forEach(p => {
       const t = traces[p.i]; p.s += p.v * boost * dt;
-      if (p.s - p.len > t.total) { flashes.push({ xy: t.P[t.P.length - 1], t0: now }); if (p.temp) p.dead = true; else Object.assign(p, newPulse(p.i, false)); return; }
+      if (!p.temp && !p.hopped && p.s >= t.total) { p.hopped = true; const nx = hop(p.i, t.P[t.P.length - 1]); if (nx && pulses.length + born.length < 320) born.push({ i: nx[0], s: traces[nx[0]].cum[nx[1]], v: rand(150, 260), len: rand(130, 230), hopped: false, restart: false }); else p.restart = true; }
+      if (p.s - p.len > t.total) { flashes.push({ xy: t.P[t.P.length - 1], t0: now }); if (p.temp || (p.hopped && !p.restart)) p.dead = true; else Object.assign(p, newPulse(pick(), false)); return; }
       if (t.maxY < off - 30 || t.minY > off + H + 30) return;
       const steps = 14;
       for (let q = 0; q < steps; q++) {
         const d1 = p.s - p.len * q / steps, d0 = p.s - p.len * (q + 1) / steps; if (d1 < 0 || d0 > t.total) continue;
         const P0 = at(t, d0), P1 = at(t, d1); ctx.beginPath(); ctx.moveTo(P0[0], P0[1]); ctx.lineTo(P1[0], P1[1]);
-        ctx.strokeStyle = `rgba(${r},${g},${b},${.95 * (1 - q / steps)})`; ctx.lineWidth = 3 * (1 - q / steps) + .8; ctx.stroke();
+        ctx.strokeStyle = `rgba(${r},${g},${b},${.95 * (1 - q / steps)})`; ctx.lineWidth = 4 * (1 - q / steps) + 1; ctx.stroke();
       }
-      if (p.s >= 0 && p.s <= t.total) { const h = at(t, p.s); [[14, .14], [8, .3]].forEach(([rr, aa]) => { ctx.beginPath(); ctx.arc(h[0], h[1], rr, 0, 7); ctx.fillStyle = `rgba(${r},${g},${b},${aa})`; ctx.fill(); }); ctx.beginPath(); ctx.arc(h[0], h[1], 3.4, 0, 7); ctx.fillStyle = `rgba(${r2},${g2},${b2},1)`; ctx.fill(); }
+      if (p.s >= 0 && p.s <= t.total) { const h = at(t, p.s); [[20, .16], [11, .34]].forEach(([rr, aa]) => { ctx.beginPath(); ctx.arc(h[0], h[1], rr, 0, 7); ctx.fillStyle = `rgba(${r},${g},${b},${aa})`; ctx.fill(); }); ctx.beginPath(); ctx.arc(h[0], h[1], 4, 0, 7); ctx.fillStyle = `rgba(${r2},${g2},${b2},1)`; ctx.fill(); }
     });
-    pulses = pulses.filter(p => !p.dead);
+    pulses = pulses.filter(p => !p.dead); if (born.length) pulses.push(...born);
     flashes = flashes.filter(f => now - f.t0 < 700);
     flashes.forEach(f => { if (f.xy[1] < off - 30 || f.xy[1] > off + H + 30) return; const q = (now - f.t0) / 700; ctx.beginPath(); ctx.arc(f.xy[0], f.xy[1], 4 + q * 18, 0, 7); ctx.strokeStyle = `rgba(${r},${g},${b},${.8 * (1 - q)})`; ctx.lineWidth = 1.6; ctx.stroke(); });
     if (ptr) traces.forEach(t => [t.P[0], t.P[t.P.length - 1]].forEach(([x, y]) => { const d = Math.hypot(x - ptr[0], y - (ptr[1] + off)); if (d < 150) { const q = 1 - d / 150; ctx.beginPath(); ctx.arc(x, y, 9 + q * 6, 0, 7); ctx.fillStyle = `rgba(${r},${g},${b},${.35 * q})`; ctx.fill(); } }));
