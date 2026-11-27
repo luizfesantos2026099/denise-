@@ -34,7 +34,7 @@ const BG = (function () {
   const cs = getComputedStyle(document.documentElement), A = hexRgb(cs.getPropertyValue("--vio2")), B = hexRgb(cs.getPropertyValue("--nev"));
   const interactive = fine && !RM;
   let W = 1, H = 1, F = 1, dpr = 1, cell = 46, traces = [], pulses = [], flashes = [], ptr = null;
-  let off = 0, par = .5, docH = 1, prog = 0, sv = 0, sI = 0, lastSpawn = 0, lastY = 0, nf = 0, lanes = [];
+  let off = 0, par = .5, docH = 1, prog = 0, sv = 0, sI = 0, lastSpawn = 0, lastY = 0, nf = 0, lanes = [], lastLife = 0;
 
   function makeTrace(cols, rows) {
     const dirs = [[1, 0], [-1, 0], [0, 1], [0, -1]]; let x = ri(1, cols - 1), y = ri(1, rows - 1), d = dirs[ri(0, 3)];
@@ -125,6 +125,15 @@ const BG = (function () {
     [[13, .14], [7.5, .32]].forEach(([rr, aa]) => { ctx.beginPath(); ctx.arc(tx, head, rr, 0, 7); ctx.fillStyle = `rgba(${r},${g},${b},${aa})`; ctx.fill(); });
     ctx.beginPath(); ctx.arc(tx, head, 3.4, 0, 7); ctx.fillStyle = `rgba(${r2},${g2},${b2},1)`; ctx.fill();
   }
+  function alive(now) {
+    if (now - lastLife < 300 || !traces.length) return; lastLife = now;
+    let vis = 0;
+    for (const p of pulses) { if (p.s < 0) continue; const t = traces[p.i]; if (!t || p.s > t.total || t.maxY < off || t.minY > off + H) continue; const h = at(t, p.s); if (h[1] >= off && h[1] <= off + H) vis++; }
+    const need = W < 700 ? 7 : 12, c = [], e = [];
+    traces.forEach((t, i) => { for (let v = 0; v < t.P.length - 1; v++) if (t.P[v][1] >= off && t.P[v][1] <= off + H) c.push([i, v]); [t.P[0], t.P[t.P.length - 1]].forEach(p => { if (p[1] >= off && p[1] <= off + H) e.push(p); }); });
+    for (let k = vis; k < need && c.length && pulses.length < 330; k++) { const [i, v] = c[ri(0, c.length - 1)]; pulses.push({ i, s: traces[i].cum[v], v: rand(150, 260), len: rand(130, 230), temp: true }); }
+    if (e.length) flashes.push({ xy: e[ri(0, e.length - 1)], t0: now });
+  }
   function spawn(x, y) { let best = null, bd = 170; traces.forEach((t, i) => t.P.forEach((p, vi) => { const d = Math.hypot(p[0] - x, p[1] - y); if (d < bd) { bd = d; best = [i, vi]; } })); if (best && pulses.length < 420) pulses.push({ i: best[0], s: traces[best[0]].cum[best[1]], v: 260, len: 120, temp: true }); }
   function spawnTop() { const c = traces.map((t, i) => i).filter(i => traces[i].minY >= off - 40 && traces[i].minY <= off + H * .5); if (!c.length || pulses.length > 420) return; pulses.push({ i: c[ri(0, c.length - 1)], s: 0, v: 340, len: 130, temp: true }); }
 
@@ -137,16 +146,18 @@ const BG = (function () {
   function scrolled() { measure(); progress(); draw(0, performance.now()); }
   build();
   if (RM) { addEventListener("scroll", () => { progress(); draw(0, performance.now()); }, { passive: true }); return { refresh() { measure(); progress(); draw(0, performance.now()); } }; }
-  let last = performance.now();
+  let last = performance.now(), fails = 0;
+  cv.addEventListener("contextlost", e => e.preventDefault()); cv.addEventListener("contextrestored", () => { try { build(); } catch (_) {} });
   (function loop(now) {
     const dt = Math.min(.05, (now - last) / 1000); last = now;
-    if (!document.hidden) {
+    if (!document.hidden) try {
       if ((nf++ % 20) === 0) measure();
+      alive(now);
       const y = scrollY; sv += (Math.abs(y - lastY) - sv) * .2; lastY = y; progress();
       const want = clamp(sv / 9, 0, 1); sI += (want - sI) * (want > sI ? .25 : .05);
       const tgt = Math.min(F - H, y * par); off += (tgt - off) * .1; if (Math.abs(tgt - off) < .05) off = tgt;
-      draw(dt, now);
-    }
+      draw(dt, now); fails = 0;
+    } catch (e) { if (++fails > 3) { fails = 0; try { build(); } catch (_) {} } }
     requestAnimationFrame(loop);
   })(last);
   return { refresh() { measure(); } };
