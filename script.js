@@ -253,7 +253,7 @@ if (fine && !RM) $$(".magnet").forEach(b => {
   const TITLES = { sobre: "Sobre nós | ADVM tecnologia", inicio: "ADVM tecnologia | Segurança eletrônica do projeto à manutenção", projetos: "Projetos | ADVM tecnologia", servicos: "Serviços | ADVM tecnologia", obras: "Para quem trabalhamos | ADVM tecnologia", etapas: "Como funciona | ADVM tecnologia", contato: "Contato | ADVM tecnologia" };
   const views = {}; ROUTES.forEach(r => views[r] = $("#v-" + r));
   const intro = $("#intro"), introT = $("#introT");
-  let cur = null, target = null, busy = false, queued = null;
+  let cur = null, target = null, busy = false, queued = null, navCount = 0;
   try { history.scrollRestoration = "manual"; } catch (e) {}
 
   function setActive(name) {
@@ -280,10 +280,11 @@ if (fine && !RM) $$(".magnet").forEach(b => {
     try { if (location.hash.slice(1) !== name) location.hash = name; } catch (e) {}
     if (RM) { swap(name); enter(name); return; }
     busy = true; introT.textContent = NAMES[name];
-    intro.classList.remove("run", "out"); reflow(intro); intro.classList.add("show", "run");
-    setTimeout(() => swap(name), 460);
-    setTimeout(() => { intro.classList.add("out"); enter(name); }, 950);
-    setTimeout(() => { intro.classList.remove("show", "out", "run"); busy = false; if (queued) { const q = queued; queued = null; go(q); } }, 1420);
+    const fast = navCount++ > 0, T = fast ? [280, 560, 900] : [460, 950, 1420];
+    intro.classList.remove("run", "out"); intro.classList.toggle("fast", fast); reflow(intro); intro.classList.add("show", "run");
+    setTimeout(() => swap(name), T[0]);
+    setTimeout(() => { intro.classList.add("out"); enter(name); }, T[1]);
+    setTimeout(() => { intro.classList.remove("show", "out", "run", "fast"); busy = false; if (queued) { const q = queued; queued = null; go(q); } }, T[2]);
   }
 
   document.addEventListener("click", e => {
